@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"594351857",accountID:"3442868",trustKey:"3442868",xpid:"VwIDU15VABAFV1FRBgYCU1E=",licenseKey:"NRJS-b876a93492b9f256082",applicationID:"530317555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script><meta name="Generator" content="Drupal 9 (https://www.drupal.org)">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/themes/custom/un_press_theme/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="alternate" hreflang="en" href="https://press.un.org/en/2022/gal3664.doc.htm">
+<link rel="canonical" href="https://press.un.org/en/2022/gal3664.doc.htm">
+<link rel="shortlink" href="https://press.un.org/en/node/308632">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWVSS4R');</script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-LQCS');</script><title>Sixth Committee Speakers Highlight Progress Made on International Trade Law as Commission Presents Annual Report | UN Press</title>
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_lKEky3Js_pMC8KbPIp2Ksrm5Ezb2TrVq0TNXbNnzr5c.css">
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsLzkwPv8J-ff6w1IZG2F3i3tgZ0FQYLJrJALJQXUSw.css">
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;display=swap">
+<link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+</head>
+<body class="node-308632 node-type--press">
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWVSS4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LQCS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="page">
+  <header class="main-header"><div class="page-loader"></div>
+  <div class="container-fluid brandbar-header fixed-top">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-8 col-sm-3">
+                        
+  <div class="block block--un-press-theme-branding">
+
+  
+    
+
+    
+  <a href="/en" class="navbar-brand d-flex align-items-center " aria-label="">
+        
+  </a>
+
+
+  </div>
+
+
+            <a class="navbar-brand" href="https://www.un.org/en"><i class="home-icon fas fa-home fa-lg"></i> Welcome to the United Nations</a>
+                  </div>
+        <div class="col-4 col-sm-9 d-flex justify-content-end language-switcher">
+                        
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-lg-9 d-flex branding-top-wrapper">
+                    <a class="logo navbar-btn pull-left flip" href="https://www.un.org/en" title="United Nations"></a>
+          <a class="navbar-brand pull-left flip" href="https://press.un.org/en">Meetings Coverage and Press Releases</a>
+        </div>
+        <div class="col-12 col-lg-3 justify-content-end search-wrapper d-none d-md-block">
+                                      
+  <div class="views-exposed-form bef-exposed-form block block--exposedformsitesearchpage-1" data-drupal-selector="views-exposed-form-sitesearch-page-1">
+
+  
+    
+
+      
+<form action="/en/sitesearch" method="get" id="views-exposed-form-sitesearch-page-1" accept-charset="UTF-8" class="form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-group">
+      
+  
+  
+  
+  
+  
+
+<input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" class="form-textfield form-control"><label class="sr-only" for="edit-search-api-fulltext">Search</label>
+<label class="sr-only" for="edit-search-api-fulltext--2">Search</label>
+
+
+  
+  
+  
+  
+  </div>
+<fieldset data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper card mb-3">
+<div class="card-header">
+      <legend class="m-0">
+        <label class="fieldset-legend mb-0">Sort By</label>
+</legend>
+    </div>
+  
+  <div class="card-body fieldset-wrapper">
+                <div id="edit-sort-by" class="form-radios">
+<div class="form-radios">
+                  <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-field-dated" type="radio" id="edit-sort-by-field-dated" name="sort_by" value="field_dated" checked class="form-radio form-check-input"><label class="form-check-label option" for="edit-sort-by-field-dated">Most Recent Entries</label>
+
+  
+  </div>
+
+                    <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-search-api-relevance" type="radio" id="edit-sort-by-search-api-relevance" name="sort_by" value="search_api_relevance" class="form-radio form-check-input"><label class="form-check-label option" for="edit-sort-by-search-api-relevance">Most Relevant Entries</label>
+
+  
+  </div>
+
+      </div>
+</div>
+
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+
+<input data-drupal-selector="edit-submit-sitesearch" type="submit" id="edit-submit-sitesearch" value="Search" class="js-form-submit form-submit btn btn-primary">
+</div>
+
+
+</form>
+
+  
+  </div>
+
+
+                              </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+                      <div class="menu-container bg-dark">
+              <div class="menu-main">
+                
+
+
+<nav class="navbar navbar-expand-lg justify-content-between  "><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                          
+  <div class="block block--mainenglishmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="/en" title="" class="nav-link" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+                  </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/secretary-general" title="Secretary-General" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/secretary-general" title="Latest Press Release, Statements etc. from the Secretary General" class="dropdown-item" data-drupal-link-system-path="content/secretary-general">Latest</a>
+              <a href="/en/content/secretary-general/press-release" title="Secretary General Press Releases" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-release">Press Releases</a>
+              <a href="/en/content/secretary-general/press-conference" title="Secretary Genral Press Conferences" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/general-assembly" title="General Assembly" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/general-assembly" title="" class="dropdown-item" data-drupal-link-system-path="content/general-assembly">Latest</a>
+              <a href="/en/content/general-assembly/meetings-coverage" title="General Assembly Meetings Coverage" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/general-assembly/press-release" title="General Assembly Press Releases" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/security-council" title="Security Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/security-council">Security Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/security-council" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council">Latest</a>
+              <a href="/en/content/security-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/security-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-release">Press Releases</a>
+              <a href="/en/content/security-council/press-conference" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/economic-and-social-council" title="Economic and Social Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/economic-and-social-council" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council">Latest</a>
+              <a href="/en/content/economic-and-social-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/economic-and-social-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item">
+                      <a href="https://www.icj-cij.org/en/press-releases" title="" class="nav-link"> International Court of Justice</a>
+                  </li>
+            </ul>
+</div>
+
+
+                    </div>
+
+  </nav>
+</div>
+            </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</header><main class=""><a id="main-content" tabindex="-1"></a>
+          <div class="page__content">
+        <div class="container">
+            <div data-drupal-messages-fallback class="hidden"></div>
+  <div class="block block--un-press-theme-content">
+
+  
+    
+
+      
+<article role="article" class="node press press--full"><div>
+      
+<div class="panel-display bryant-flipped clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 radix-layouts-content panel-panel">
+        <div class="panel-panel-inner">
+		  
+  <div class="block inline print-sub-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-doctype field--type-entity-reference field--label-hidden field__item"><a href="/en/meetings-coverage" hreflang="en">Meetings Coverage</a></div>
+      
+  
+  </div>
+
+  <div class="block print-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-un-bodies field--type-entity-reference field--label-hidden field__item"><ul class="shs clearfix shs-linked">
+<li><a href="/en/general-assembly" hreflang="en">General Assembly</a></li>
+<li><a href="/en/sixth-committee" hreflang="en">Sixth Committee</a></li>
+</ul></div>
+      
+  
+  </div>
+
+        </div>
+      </div>
+      <div class="col-md-3 radix-layouts-sidebar panel-panel">
+        <div>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.bryant-flipped -->
+
+<div class="panel-display bartlett clearfix">
+  <div class="container-fluid layout">
+    <div class="row">
+      <div id="printlogo">
+        <div class="header-bg"></div>
+        <div class="emblem" style="width:200px; float:left;">
+          <img src="/themes/custom/un_press_theme/assets/images/United_Nations_bw_hq.png" alt="United Nations"><h5> United Nations</h5>
+        </div>
+      </div>
+      <div class="col-md-9 mb-2 panel-panel radix-layouts-main-column">
+                <div class="row">
+          <div class="col-6 radix-layouts-contentcolumn1 panel-panel left-header">
+            <div class="panel-panel-inner">
+              
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-session field--type-string field--label-hidden field__item">Seventy-seventh Session,</div>
+      
+  
+  </div>
+
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-info field--type-string field--label-hidden field__item">15th &amp; 16th Meetings (AM &amp; PM)</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-6 radix-layouts-contentcolumn2 panel-panel right-header">
+            <div class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-symbol field--type-string field--label-hidden field__item">GA/L/3664</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-dated field--type-datetime field--label-hidden field__item"><time datetime="2022-10-17T12:00:00Z">17 October 2022</time></div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-md-12 radix-layouts-content panel-panel main-column">
+            <div class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-display-title field--type-string field--label-hidden field__item">
+<h1 class="page-header">Sixth Committee Speakers Highlight Progress Made on International Trade Law as Commission Presents Annual Report </h1>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item">
+<h4>
+<span lang="EN-GB" xml:lang="EN-GB">Considering Report on</span><span lang="EN-GB" xml:lang="EN-GB"> Additional Protocols of Geneva Conventions, </span><span lang="EN-GB" xml:lang="EN-GB">Delegates Urge</span><span lang="EN-GB" xml:lang="EN-GB"> Adherence to International Humanitarian Law During Conflicts</span>
+</h4>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">As the Sixth Committee (Legal) today took up the annual report of the United Nations Commission on International Trade Law (UNCITRAL), speakers highlighted progress made in the development of trade law, including a draft convention on the judicial sale of ships, a model law on identity management and work on the reform of investor-State dispute settlement. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Ivan Šimonović (Croatia), Chair of UNCITRAL, presenting the Commission’s report on its fifty-fifth session (document </span><span><a href="https://undocs.org/A/77/17"><span><span lang="EN-GB" xml:lang="EN-GB">A/77/17</span></span></a></span><span lang="EN-GB" xml:lang="EN-GB">), reported that the Commission finalized three legislative texts, including a draft convention that harmonized the regime regarding the judicial sales of ships. <span> </span>This significant draft would offer adequate legal certainty and protection for purchasers and complemented other international instruments of the maritime law reflected in the United Nations Convention on the Law of the Sea.</span><span lang="EN-GB" xml:lang="EN-GB"> </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">He also drew attention to the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services.<span>  </span>This Model Law provided an opportunity to validate the principles and approaches of UNCITRAL, such as non-discrimination, technology neutrality and functional equivalence, while highlighting the importance of digital identity and authentication of the actors of digital trade and trust services in the digital age.</span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Giving a detailed overview of all six Working Groups, including Working Group III’s work on the reform of investor-State dispute settlement, he also </span></span><span><span lang="EN-GB" xml:lang="EN-GB">underlined the progress made towards a rejuvenation of the Case Law on UNCITRAL </span></span><span><span lang="EN-GB" xml:lang="EN-GB">T</span></span><span><span lang="EN-GB" xml:lang="EN-GB">exts, also known as CLOUT system</span></span><span><span lang="EN-GB" xml:lang="EN-GB">,</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">and noted the increased participation from Africa, Latin America and the Caribbean, including the UNCITRAL Asia-Pacific, Latin American and Caribbean, and African Days.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Anna Joubin-Bret, Secretary of UNCITRAL and Director of the International Trade </span></span><span><span lang="EN-GB" xml:lang="EN-GB">L</span></span><span><span lang="EN-GB" xml:lang="EN-GB">aw Division, spotlighting the draft convention on the judicial sales of ships and the Model Law on identity management, also recalled that in 2021, the Secretariat requested additional resources for Working Group III, which resulted in respective recruitments and additional sessions held in New York and Vienna.<span>  </span></span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">The delegate of Uganda urged countries </span></span><span><span lang="EN-GB" xml:lang="EN-GB">that have used the Model Law on identity management to advise the Commission on how States that have not used it can develop its application and harmonize it with their legislation.<span>  </span>However, he noted that the Draft Code of Conduct in its present condition is not complete without regulating the conduct of the counsel.<span>  </span>“As arbitration becomes more international, we must increasingly confront the difficulties that arise from diverging ethical standards in multiple jurisdictions,” he added. </span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">In this regard, the representative of Chile highlighted the work of UNCITRAL with the International Centre for Settlement of Investment Disputes on the preparation of the code of conduct for arbitrators. <span> </span>She expressed hope that the document would be adopted at the Commission’s next session in 2023.<span>  </span>Touching upon online commerce and its regulatory mechanisms, she underlined the practical importance of elaborating the topic on resolution and adjudication for conflicts related to technology.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Similarly, Japan’s delegate spotlighted his country’s project taking stock of developments in dispute resolution in the digital economy. <span> </span>Turning to progress made regarding the enlargement of UNCITRAL’s membership from 60 States to 70, he noted that </span></span><span><span lang="EN-GB" xml:lang="EN-GB">Japan</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> launched a Vienna-based process as a forum for consultations on this matter, having organized 11 rounds of open-ended informal consultations and a number of bilateral meetings.</span></span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Algeria’s representative underscored that </span><span><span lang="EN-GB" xml:lang="EN-GB">the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services can serve as guidance to Member States as they draft relevant legislation.<span>  </span>It will also enhance trust in Internet transactions.<span>  </span>He also welcomed work on alternative dispute resolution, which is expected to reduce the number of cases wherein disputes end trade relations.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Similarly, the delegate of Austria recognized the importance of finalization and adoption of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services.<span>  </span>Further, he noted with interest the progress reports of the different Working Groups, particularly that of Working Group III on the reform of investor-State dispute settlement.</span></span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">However, the representative of Iran expressed concerns </span><span><span lang="EN-GB" xml:lang="EN-GB">regarding the implicit implications of the Model Law for the sovereignty of States</span></span><span><span lang="EN-GB" xml:lang="EN-GB">,</span></span><span lang="EN-GB" xml:lang="EN-GB"> </span><span><span lang="EN-GB" xml:lang="EN-GB">particularly developing and least developed countries, whose nationals or businesses are the main users of cross-border digital services. <span> </span>Further, in regards to Working Group III, he said that the possible reform of investor-State dispute settlement should be comprehensive enough to provide equal opportunity for different points of view and contribute to a fair and equitable dispute settlement system.</span></span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The Sixth Committee also took up the Secretary-General’s report on the Protocols Additional to the Geneva Conventions relating to the protection of victims of armed conflicts (document <a href="https://undocs.org/A/77/264">A/77/264</a>), as speakers debated adherence to international humanitarian law, ratification of the Additional Protocols to the Geneva Convention and protection measures for victims of armed conflicts.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The delegate of Switzerland </span><span><span lang="EN-GB" xml:lang="EN-GB">stressed the importance of universal ratification of the Geneva Conventions and the Additional Protocols, noting that his country is the depository of these instruments. <span> </span>While the Geneva Conventions have been universally ratified, the three Additional Protocols have been ratified by 174, 169 and 79 States, respectively.</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB"><span> </span>He encouraged all States yet to accede to or ratify such instruments to do so soon.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Similarly, the representative of the European Union, speaking in its capacity as observer, noted that </span></span><span><span lang="EN-GB" xml:lang="EN-GB">two Additional Protocols adopted to formulate more robust protection for victims of international and non-international armed conflicts were not universally ratified.<span>  </span>She underscored the importance of training and education on international humanitarian law and referred to a number of training modules to national armed forces in Mali, Central African Republic, Somalia and Mozambique.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">In this regard, Brazil’s representative said that </span></span><span><span lang="EN-GB" xml:lang="EN-GB">Brazil</span></span><span><span lang="EN-GB" xml:lang="EN-GB">ian Armed Forces are professionally trained in the application of the rules of the international humanitarian law at all levels, including through special courses for officials deployed in United Nations peacekeeping operations. <span> </span>He also noted that </span></span><span><span lang="EN-GB" xml:lang="EN-GB">Brazil</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> works to alleviate the suffering of people displaced by armed conflict and political instability who seek safety within its borders,</span></span><span lang="EN-GB" xml:lang="EN-GB"> </span><span><span lang="EN-GB" xml:lang="EN-GB">including migrants, refugees and asylum-seekers.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">The representative of Saudi Arabia, expressing concern about the non-respect of a number of principles of international humanitarian law, including attacks against civilian installations by the Houthi forces, who are also using children in combat, underscored her country’s commitment to protect children in armed conflict. <span> </span>To that end, Saudi Arabia was providing assistance to 86 countries with a total budget of more than $6</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">million.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Also speaking on UNCITRAL’s report on the work of its fifty-fifth session were representatives of Finland (also for Denmark, Iceland, Norway and Sweden), Singapore, Philippines, Sierra Leone, Belarus, Italy, United States, Mexico, El</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">Salvador, Pakistan, Peru, Canada, India, Cameroon, China, Cuba, Ecuador, Viet Nam, United Kingdom, Russian Federation, Thailand, Dominican Republic, Republic of Korea, France, Argentina, Morocco and Honduras, as well as a representative of the European Union, in its capacity as observer. </span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">Also speaking on the status of the Protocols Additional to the Geneva Conventions of 1949 and relating to the protection of victims of armed conflicts were representatives of Iraq (for the Arab Group), Sweden (also for Denmark, Finland, Iceland and Norway), Australia (also for Canada and New Zealand), Iran, United States, Mexico, Egypt, El</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">Salvador, Romania, Cuba, Portugal, Ireland, Sierra Leone, Cameroon, Republic of Korea, Poland, United Kingdom, and the Dominican Republic.</span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">The representatives of Venezuela and Brazil spoke in exercise of the right of reply. </span></span></p>
+
+<p><span><span lang="EN-GB" xml:lang="EN-GB">The Sixth Committee will next meet at 10</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">a.m. on Tuesday, 18</span></span><span><span lang="EN-GB" xml:lang="EN-GB"> </span></span><span><span lang="EN-GB" xml:lang="EN-GB">October, to conclude its debate on the status of the Protocols Additional to the Geneva Conventions of 1949 and relating to the protection of victims of armed conflicts and begin consideration of effective measures to enhance the protection, security and safety of diplomatic and consular missions and representatives.</span></span></p>
+
+<p><u><span lang="EN-GB" xml:lang="EN-GB">United Nations Commission on International Trade Law Introduction to Report</span></u></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">IVAN ŠIMONOVIĆ (Croatia), Chair of the fifty-fifth session of the United Nations Commission on International Trade Law (UNCITRAL), introduced the Commission’s report (document </span><span lang="EN-GB" xml:lang="EN-GB"><a href="https://undocs.org/A/77/17"><span>A/77/17</span></a></span><span lang="EN-GB" xml:lang="EN-GB">) and noted that the Commission finalized three legislative texts: <span> </span>a draft convention on the international effects of judicial sales of ships; recommendations to assist mediation centres and other interested bodies with regard to mediation under the UNCITRAL mediation rules (2021); and the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Detailing the texts on the judicial sales of ships, he said that the harmonized regime established by the draft convention will be significant, as it offers adequate legal certainty and protection for purchasers.<span>  </span>This would positively impact the price realized by a judicial sale to the benefit of both shipowners and creditors, provided that adequate safeguards are implemented and enforced in the conduct of the sale.<span>  </span>Moreover, the draft convention complements other international instruments of the maritime law reflected in the United Nations Convention on the Law of the Sea (including its provisions relating to the nationality and status of ships) and promotes institutional cooperation with the International Maritime Organization.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Turning to mediation, he said that the adopted document of recommendations under the UNCITRAL Mediation Rules (2021) provides a comprehensive set of procedural rules to conduct mediation proceedings in the institutional context.<span>  </span>Drawing attention to electronic commerce, he noted that the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services provided an opportunity to validate the principles and approaches of UNCITRAL, such as non-discrimination, technology neutrality and functional equivalence.</span><span lang="EN-GB" xml:lang="EN-GB"> <span> </span>It also </span><span lang="EN-GB" xml:lang="EN-GB">highlighted the importance of digital identity and authentication of the actors of digital trade and trust services in the digital age. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Highlighting the Working Groups’ progress, he confirmed their ongoing work programme as follows: <span> </span>Working Group I will continue to work on access to credit for micro, small and medium-sized enterprises; Working Group II, focusing on technology-related dispute resolution and adjudication, will develop a guidance text on early dismissal and preliminary determination; Working Group III will continue its work on the reform of investor-State dispute settlement; Working Group IV will begin new work on automated contracting and data provisional contracts; Working Group V will continue its work on civil asset tracing, recovery and insolvency procedures; and Working Group VI will focus on development of a new instrument on negotiable multimodal transport documents.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The Commission requested the Secretariat to continue its work on legal issues related to digital economy and digital trade, and develop a guidance document on legal issues relating to the use of distributed ledger systems in trade, he continued.<span>  </span>The Commission also authorized the Secretariat to publish the revised legal taxonomy of emerging technologies and their applications in the six official languages of the United Nations with a view to establish the Commission’s central and coordinating role in addressing legal issues related to the digital economy and digital trade.<span>  </span>In addition, the Commission further requested the Secretariat to continue implementation of the stocktaking project on dispute resolution in the digital economy and to continue participating in the inclusive global legal innovation platform on online dispute resolution.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">He called attention to the Commission’s request to establish expert group meetings and other events on legal issues related to the impact of COVID-19 on international trade law with a view to developing a respective toolkit for Member States.<span>  </span>As well, he suggested a colloquium or an expert group meeting be organized on the various legal issues surrounding climate change mitigation, adaptation and resilience, in conjunction with relevant and interested international organizations.<span>  </span>He further reiterated the importance of coordinating the activities of organizations in the field of international law as to avoid duplication of efforts, promote efficiency and prevent unduly burdening of the respective Secretariats in participating in and following-up on concurrent projects carried out simultaneously.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Detailing on UNCITRAL’s legislative and non-legislative activities of the Commission, he also underlined a number of key achievements, including increased participation from Africa, Latin America and the Caribbean as a result of the online format adopted for technical cooperation and assistance activities; expansion of engagement with partners from academia for UNCITRAL Asia-Pacific and Africa Day; expanded online and social media presence; and the issuance of the online training course on UNCITRAL in the Chinese language.<span>  </span>He also spotlighted the Case Law on UNCITRAL Texts (CLOUT) system as a tool to support continued and sustained capacity-building in the use and implementation of UNCITRAL texts and noted the progress made in rejuvenating the system.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Drawing lessons from the COVID-19 pandemic, the Commission considered possible adjustments to its methods of work, he said, including by making meetings of some Working Groups available on streaming or videoconferencing platforms to enable delegates participating remotely to listen to the deliberations and make active interventions.<span>  </span>The Working Groups were also encouraged to hold informal consultations between or in conjunction with the sessions to enhance productivity and efficiency of deliberations. UNCITRAL is the core United Nations body in the field of commercial law, he said, spotlighting its commitment over half a century to providing a legal environment that supports and fosters international trade. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ANNA JOUBIN-BRET, Secretary of UNICTRAL and Director of the International Trade Law Division (ITLD), recalled that in 2021, the Secretariat requested additional resources for Working Group III, which resulted in respective recruitments and additional sessions held in New York and Vienna.<span>  </span>Drawing attention to the achievements of the Commission under the difficult conditions during the COVID-19 pandemic, she spotlighted texts to be considered for adoption by the General Assembly, including the draft convention on the international effects of judicial sales of ships.<span>  </span>She also underscored the new work of UNCITRAL initiated in the area of digital trade, including the Model Law on Digital Identity Management and Trust Service – a potential cornerstone in trade development in the digital era.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">She went on to spotlight the launch of the UNCITRAL Asia-Pacific, Africa and Latin America and the Caribbean Day events, which has filled the gap in the Commission’s flagship events in partnership with academia.<span>  </span>Calling attention to the forthcoming celebration of the twenty-fifth anniversary of the Model Law on Cross-Border Insolvency – a major flagship text of UNCITRAL, which forms the foundation of the Commission’s work on the insolvency law - she encouraged Member States to join the event, including remotely.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">She underlined the importance of co-ordination in light of the number of developments that are taking place in various international organizations.<span>  </span>In that regard, she echoed the stance of the UNCITRAL Chair to enhance coordination activities to avoid duplication of efforts and prevent unduly burdening of respective secretariats with participation and follow-up activities.<span>  </span>Detailing the upcoming UNCITRAL sessions, she expressed her wish to the Sixth Committee to streamline or re-organize the resolution to ensure that it better demonstrates the activities of the Commission in this regard. </span></p>
+
+<p><u><span lang="EN-GB" xml:lang="EN-GB">Statements</span></u></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">THOMAS<span> RAMOPOULOS</span></span><span lang="EN-GB" xml:lang="EN-GB">, representative of the <u>European Union</u>, in its capacity as observer, welcomed UNCITRAL’s adoption of the Model Law on the Use and Cross-Border Recognition of Identity Management and Trust Services.<span>  </span>This is a global standard, which accounts for germane European Union legislation and will facilitate and enhance cross-border e-commerce.<span>  </span>He also noted the bloc’s active involvement in negotiating the draft convention on the international effects of judicial sales of ships, calling for the General Assembly to adopt the same.<span>  </span>Stressing the importance of work on investor-State dispute-settlement reform, he said that, where dispute resolution involves public matters, a standing body and a multilateral approach – in the form of a multilateral investment court – would be best suited to address identified issues.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">He went on to commend the Working Group tasked with such reform for using the additional time and resources allocated to it effectively.<span>  </span>Of particular importance was the Working Group’s discussions on the draft Code of Conduct for adjudicators and its text on alternative dispute resolution mechanisms and dispute prevention.<span>  </span>Such discussions should be concluded as soon as possible, to enable the Working Group to present these texts to UNCITRAL at its next session.<span>  </span>Spotlighting UNCITRAL’s transparency, openness and accessibility, he encouraged all countries, international organizations and observers to actively participate in such discussions.<span>  </span>He added that the European Union, France and Germany have continued to contribute to UNCITRAL’s travel fund to ensure this process is as genuinely inclusive as possible, encouraging other actors to do the same.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">VIRPI LAUKKANEN (<u>Finland</u>), also speaking for Denmark, Iceland, Norway and Sweden, welcomed UNCITRAL’s vital role in furthering rules-based cooperation in an economically interdependent world.<span>  </span>She also welcomed the way in which UNCITRAL conducted its work under the exceptional circumstances imposed by the COVID‑19 pandemic.<span>  </span>During this year’s session, UNCITRAL finalized its draft convention on the international effects of judicial sales of ships, which is an important step in promoting legal certainty in this field.<span>  </span>It also finalized the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Detailing ongoing efforts in the various Working Groups, she welcomed work on access to credit for micro-, small- and medium-sized enterprises.<span>  </span>The Working Group tasked with investor-State dispute-settlement reform has addressed several important elements, such as transparency of third-party funding and the establishment of an advisory centre.<span>  </span>In that regard, she noted that the countries for whom she speaks will actively contribute to this important work.<span>  </span>Also noting that UNCITRAL will consider a new subject — negotiable multimodal transport documents — she welcomed that the Commission was again active in the field of transport law.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">TOH SHIN HAO (<u>Singapore</u>) pointed out that the international legal effects of judicial sales of ships were currently not harmonised across countries. By filling this gap with important safeguards, the convention will help create certainty. On the adoption of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services, he said UNCITRAL has a long track record in the preparation of uniform legislative texts relating to electronic commerce, which have assisted countries in enhancing their legal frameworks to enable and facilitate electronic commerce in international trade.<span>  </span>The Model Law is a useful tool in the of cross-border legal recognition of electronic identification and trust services, he said.<span>  </span>Further, he commended the adoption of the recommendations to assist mediation centres and other relevant bodies with regard to mediation under the UNCITRAL Mediation Rules, the finalization of the Legislative Guide on Insolvency Law for Micro- and Small Enterprises, and the publication of the updated Model Law on Cross-Border Insolvency:<span>  </span>the Judicial Perspective.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ANTONIO MANUEL REVILLA LAGDAMEO (<u>Philippines</u>) said that the increasing interest of States’ participation in the Commission is a sign of the relevance of its work in promoting the harmonization of international trade law.<span>  </span>He noted the satisfactory progress of various Working Groups, including the Working Group on Micro-Small and Medium-sized enterprises, investor-State dispute settlement reform, and e-commerce.<span>  </span>He urged other States to accede to the Electronic Communications Convention and to subscribe to the UNCITRAL text on e-commerce.<span>  </span>He added that he looked forward to progress on the topic of technology-related dispute resolution and adjudication, and further exploratory work on legal issues related to the impact of COVID-19 on international trade law.<span>  </span>The outcomes of the proposed consultations on climate change, climate change mitigation, and adaptation and resilience were also of great interest to him.<span>  </span>UNCITRAL’s Regional Centre for Asia and the Pacific has been instrumental in building capacity on international trade law, he added. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MAMADI GOBEH KAMARA (<u>Sierra Leone</u>) commended the Commission’s outstanding progress during its session, including, among other things, the draft convention on the judicial sales of ship.<span>  </span>She also detailed her country’s engagement with Working groups III and IV, adding that participation in the ongoing reform of investor-dispute settlement was appropriate for inclusivity and broad representative views.<span>  </span>As well, she said she fully endorsed the further expansion of the UNCITRAL Asia-Pacific, Latin American and Caribbean, and African Days.<span>  </span>Highlighting her country’s participation in the launch event for the UNCITRAL Days in Africa in May, followed by a series of events throughout the continent, she called attention to the forthcoming UNCITRAL Africa Days event, “Modernization And Harmonization of International Commercial Law Framework in The African Continental Free Trade Area (AFCFTA) Context” in November.<span>  </span>On a national platform, she said the Arbitration Act of 2022 in Sierra Leone domestically implements both the Convention on the Recognition and Enforcement of Foreign Arbitral Award and the Convention on the Settlement of Investment Disputes between States and Nationals of Other States.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MOHAMMAD SADEGH TALEBIZADEH SARDARI (<u>Iran</u>) recalled his delegation’s concerns regarding the implicit implications of the Model Law for the sovereignty of States, particularly developing and the least developed countries, whose nationals or businesses are the main users of cross-border digital services.<span>  </span>In recent years, criticism over investor-State arbitration has increased and triggered demands for reform of the existing framework in this area.<span>  </span>He stressed that the existing international investment regime does not offer enough balance between the rights and obligations of the parties, which has a detrimental effect on public budgets, regulations in the public interest, and the rule of law.<span>  </span>In this regard, he welcomed the decision of UNCITRAL to give a broad mandate to Working Group III to work on the possible reform of investor-State dispute settlement.<span>  </span>He noted that reforms should be comprehensive enough to provide equal opportunity for different points of view and contribute to a fair and equitable dispute settlement system.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">PAVEL EVSEENKO (<u>Belarus</u>) spotlighted UNCITRAL’s adoption of a convention relating to the judicial sale of ships, which will facilitate maritime commerce by providing proper legal protection for owners, creditors and buyers in this field.<span>  </span>Further, UNCITRAL’s Model Law on the Use and Cross-Border Recognition of Identity Management and Trust Services will interest many jurisdictions, given the significant growth in e-commerce and the transition to the digital economy.<span>  </span>Noting the many topics on UNCITRAL’s agenda, he pointed out that those of most interest to his country were those pertaining to micro-, small- and medium-sized enterprises; investor-State dispute-settlement reform; and insolvency law.<span>  </span>He also welcomed UNCITRAL’s provision of technical assistance to Member States, and offered to host a regional conference towards this end.<span>  </span>He added that UNCITRAL plays an important role in promoting the rule of law at the national and international levels, emphasizing that its depoliticized nature and high-level expertise can serve as an example for other forums.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ENRICO MILANO (<u>Italy</u>), aligning himself with the European Union, emphasized UNCITRAL’s expanding role in assisting Member States “to adapt their legislation to the changing needs of our times”, while accounting for the use of new technologies.<span>  </span>Its soft-law instruments have a growing relevance, contributing to the harmonization of domestic legal systems in a way that preserves autonomy for States and promotes international trade and investment.<span>  </span>He welcomed UNCITRAL’s identified topics for future work, particularly the relevant issues of warehouse receipts — based on the work of the International Institute for the Unification of Private Law (UNIDROIT) — and the use of artificial intelligence and automation in contracting and data transactions.<span>  </span>UNCITRAL must be able to effectively address topics critical to the future governance of international trade and investment law, such as investor-State dispute-settlement reform.<span>  </span>On that point, he expressed hope that Working Group III will make tangible progress in the next session, with a view to finalizing the draft code of conduct.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">DAVID BIGGE (<u>United States</u>) said that the convention on the international effects of judicial sales of ships, if adopted, will enhance legal certainty and transparency in international shipping through the use of uniform rules that promote the dissemination of information on prospective judicial sales. It would also give international effect to judicial sales providing clean title to the purchaser.<span>  </span>Turning to the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services, he said it seeks to overcome the obstacles to broader use of identity management and trust services by developing uniform legal rules that can lower transaction costs, increase legal predictability, and increase global digital compatibility.<span>  </span>He added that his delegation looks forward to the continued progress on the joint UNCITRAL-UNIDROIT project on warehouse receipts and to the productive work in Working Groups with on-going projects, including the expected completion of the Code of Conduct and its commentary by Working Group III. Further, he welcomed the proposed colloquium, in close coordination with climate experts and other key private international law institutions, on the topic of climate change mitigation, adaption and resilience in the coming year.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MAXIMILIAN GORKE (<u>Austria</u>), associating himself with the </span><span>European Union, </span><span lang="EN-GB" xml:lang="EN-GB">underscored his appreciation of the Commission for its work in the past session. He further commended the body for finalizing and approving the text of the draft convention on the international effects of judicial sale of ships. <span> </span>He particularly welcomed the finalization and adoption of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services.<span>  </span>Further, he noted with interest the progress reports of the different Working Groups, particularly that of Working Group III on the reform of investor-State dispute settlement.<span>  </span>As well, he welcomed progress made towards a rejuvenation of the Case Law on UNCITRAL Texts, also known as CLOUT system.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ANCONA BOLIO (<u>Mexico</u>) emphasized the importance of establishing respective guarantees that provide legal certainty in identifying physical and legal persons, as well as regarding the quality of data being used for commercial transactions.<span>  </span>He acknowledged that the use of digital media made it possible for experts from different legal families and organizations to participate in the debates, which led to significant progress within Working Group II.<span>  </span>He thus encouraged the Member States to address the “virtual sphere” as a tool used to shorten the distance and asymmetry between States by enriching the discussions with perspectives from all the regions.<span>  </span>In this regard, he called on UNCITRAL to adopt the use of technological means and hybrid modalities.<span>  </span>Recognizing the ongoing efforts to improve coordination with other sister organizations, such as the Hague Conference on Private International Law or UNIDROIT, he also expressed hope for a greater rapprochement between the Commission and the Organization of American States.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">JULIA ELIZABETH RODRÍGUEZ ACOSTA (<u>El Salvador</u>) welcomed the approval of the convention on the judicial sale of ships and recommendations to assist mediation centres.<span>  </span>She further underscored the importance of the adoption of the Model Law on the Use and Cross-Border Recognition of Identity Management and Trust Services, which contributed to the establishment of a respective regulation.<span>  </span>This was of particular importance to her country, particularly in the modernization and innovation of the digital platforms for public administration.<span>  </span>She went on to express satisfaction with the progress made by the Commission and the Secretariat, echoing the need for cooperating and coordinating its work with other organizations within and outside the United Nations system to prevent duplications and promote efficiency, uniformity and coherence in the harmonization of norms.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">RABIA IJAZ</span><span lang="EN-GB" xml:lang="EN-GB"> </span><span>(<u>Pakistan</u>) welcomed UNCITRAL’s approval of the draft convention on the judicial sale of ships, expressing hope that the General Assembly will adopt a United Nations convention on this topic.<span>  </span>Such a convention should be named the “Beijing Convention on the Judicial Sale of Ships”, she added.<span>  </span>She also welcomed work to reduce legal obstacles for micro-, small- and medium-sized enterprises throughout their life cycles, expressing hope that any future text on this topic addresses the many difficulties such enterprises face due to financial, environmental and other crises.<span>  </span>Turning to Working Group III, she noted that work is now moving towards the delivery phase and emphasized that any such document should evolve based on specific concerns advanced by Member States relating to investor-State dispute-settlement reform.<span>  </span>She noted, however, that the issue of damages has not been accorded the central place in the reform process that it deserves.<span>  </span>Damages place a considerable burden on developing States, and any meaningful reform must strike a balance between the rights and obligations of States and investors.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ALESSANDRA FALCONI (<u>Peru</u>) spotlighted Working Group IV’s finalization of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services, welcoming this valuable contribution in a world where e-commerce is constantly expanding.<span>  </span>She also welcomed UNCITRAL’s progress relating to access to credit for micro-, small- and medium-sized enterprises.<span>  </span>Such enterprises are the cornerstone of many economies – such as Peru’s – and therefore efforts to promote their growth are important.<span>  </span>Her country is following Working Group III closely, given the importance of foreign investment in Peru.<span>  </span>Stressing the need for investor-State dispute-settlement reform, she called for the establishment of a centre – similar to the World Trade Organization (WTO) – for settling disputes between investors and States.<span>  </span>Additionally, the technical assistance that UNCITRAL provides to developing countries in the context of reforming and developing international trade law is welcome, she said, also emphasizing the relevance of UNCITRAL’s work to achieving many of the Sustainable Development Goals.</span></p>
+
+<p><span>KRISTOP<span>HER YUE</span></span> <span lang="EN-GB" xml:lang="EN-GB">(<u>Canada</u>) said that the draft convention on the international effects of judicial sales of ships will help enhance legal certainty with respect to the ownership of ships sold by way of judicial sale.<span>  </span>This draft convention is “truly a testament to the Commission’s capacity to adapt,” he added.<span>  </span>The Commission also adopted the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services, which is the first legislative text developed by an international body on the topic.<span>  </span>He welcomed the inclusive discussions within Working Group III on the reform of investor-State dispute settlement mechanisms and the Commission’s work on access to credit for micro-, small and medium-sized enterprises.<span>  </span>Turning to UNCITRAL’s work programme, he said that while a variety in topics is impressive and forward-thinking, the Commission must continue to coordinate with UNIDROIT and the Hague Conference on Private International Law to avoid duplication of work.<span>  </span>He also said expanding UNCITRAL’s membership from 60 to 70 States has provided a valuable opportunity for more States to participate in the work of the Commission.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">KAJAL BHAT (<u>India</u>) said that adoption of the draft convention on the judicial sale of ships would help harmonize international economic relations only if the same was acceptable to States with different legal, social and economic systems.<span>  </span>In addition, assistance to mediation centres under UNCITRAL Mediation Rules complemented existing legal framework on international mediation, she said, while also taking note of Working Group IV’s progress and adoption of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services.<span>  </span>Work on the topics of automated contracting and data transactions should not overlap with work being carried out within the United Nations and other international forums aimed at developing harmonized standards on the ethical use and governance of artificial intelligence, work on data protection and work on cross-border data flows.<span>  </span>Future legislative work needed broad participation of developing and developed countries, while keeping in mind the specific needs of developing countries.<span>  </span>She also underlined the importance of Working Group I continuing deliberations on the topic of access to credit for micro-, small- and medium-sized enterprises, as opposed to requesting work carried out with the assistance of a group of experts.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ZACHARIE SERGE RAOUL NYANID (<u>Cameroon</u>), commenting on several articles of the draft convention on the judicial sale of ships, expressed his support for the signing summit by China in Beijing.<span>  </span>Turning to Working Group IV, he encouraged it to redouble its efforts to better regulate the digital economy and tackle cybercrime.<span>  </span>He suggested that the countries that have resources and proven experience in this area provide assistance to countries that request capacity-building activities.<span>  </span>Highlighting major challenges related to accessing big data, he called those challenges a serious threat to the equity and fairness of international trade, as well as infringements on free competition and free trade.<span>  </span>In that regard, he encouraged States to give particular consideration to these constraints.<span>  </span>He further noted that his Government has set up a legal and institutional framework for implementing projects through public-private partnerships, including a regulation governing public contracts and a special tax regime for these partnerships</span></p>
+
+<p><span>GENG SHUANG</span> <span lang="EN-GB" xml:lang="EN-GB">(<u>China</u>), commending the draft convention on the judicial sale of ships, underscored that the document takes into full account the legislative and judicial practices of different countries and different legal systems.<span>  </span>It also establishes legal norms for the international recognition of the judicial sales of ships, where the ownership of the vessels purchased is recognized by other States parties to the convention.<span>  </span>He also pointed out that the text contributes to the better certainty and stability of the titles concerned, helps protect the incentives for ship financing by financial institutions and enhances the development of international trade.<span>  </span>He reiterated his country’s support for consideration and adoption of the convention, noting that China will host the signing ceremony in Beijing in 2023, whereby the convention will be referred to as the “Beijing Convention on the judicial sales of ships”.<span>  </span>Therefore, on behalf of the Chinese Government, he cordially invited the representatives of all countries to attend the signing ceremony.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ARIANNA CARRAL CASTELO (<u>Cuba</u>) said that the establishment of UNCITRAL made it possible for developing countries to more-actively participate in harmonizing and modernizing international trade law.<span>  </span>She also highlighted the importance of UNICTRAL’s inclusive nature in its composition and working methods, as well as its respect for the principle of sovereign equality as a basis for its work, which promotes the universal acceptance of its texts.<span>  </span>There are many challenges in codifying international trade law, including the constantly changing nature of such trade due to technological developments.<span>  </span>In addition, the speed of commerce’s evolution often exceeds that of efforts to codify the same, she noted.<span>  </span>She also spotlighted the negative consequences for international trade resulting from the COVID-19 pandemic and the imposition of unilateral coercive measures, the latter of which has become more frequent recently.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">PABLO AGUSTÍN ESCOBAR ULLAURI (<u>Ecuador</u>) welcomed UNCITRAL’s efforts to harmonize international trade law, which contribute to two goals:<span>  </span>promoting universal economic cooperation based on equality, common interest and respect for the rule of law; and preventing the duplication of work between organizations that deal with international trade.<span>  </span>Turning to progress made in the Working Groups, he said that Working Group I’s efforts pertaining to micro-, small- and medium-sized enterprises are important as these businesses create jobs and production in developing countries.<span>  </span>Working Group III, which concerns investor-State dispute-settlement reform, represents the only multilateral effort in this area.<span>  </span>He went on to emphasize the importance of the trust fund that ensures UNCITRAL can provide technical cooperation and assistance and that promotes more active participation by developing countries.<span>  </span>Welcoming voluntary contributions to the same, he called on those countries with the capacity to do so to join this initiative.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">TRA PHUONG NGUYEN (<u>Viet Nam</u>) commended the positive results of the work of the Commission and its Working Groups, including important achievements such as the adoption of the several legislative goals and progress on other topics, including investor-State dispute settlement reform.<span>  </span>In addition, she welcomed the approval of the draft convention on the judicial sales of ships.<span>  </span>However, she stressed the need to address inconsistency and unpredictability of the investor-State dispute settlement mechanism, as well as other aspects regarding the appointment of an arbitrator. “We believe that the ultimate purpose of the discussion at Working Group III is not only to find our solution to work the reform process of the investor-State dispute settlement reform, but also to facilitate and promote more responsible investment and advance sustainable development,” she said, commending the progress made by Working Group III in the third phase of its mandate.<span>  </span>Working Group III should have the proper time and resources to discuss issues in a balanced and comprehensive manner.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MELINA LITO (<u>United Kingdom</u>) said her delegation continues to follow closely the work and progress made by Working Group I to support micro-, small- and medium-sized enterprises.<span>  </span>She also said that she was closely monitoring Working Group II’s work in the field of dispute settlement and giving consideration as to whether her country should sign and ratify the Singapore Convention on Mediation. On Working Group III, she expressed hope that it maintain strong momentum across the work programme and continue hearing the views of stakeholders, including in the private sector.<span>  </span>She welcomed Working Group IV’s consideration of the use of artificial intelligence and automation in contracting. On Working Group V, she expressed support for work relating to topics of civil asset tracing and recovery in insolvency proceedings, and applicable law in such proceedings.<span>  </span>She also said that her delegation was pleased to participate in the Commission’s fifty-fifth session on the development of an international instrument relating to the judicial sale of ships. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ANNA V. ANTONOVA (<u>Russian Federation</u>) expressed hope that the participation of delegations in in-person Commission proceedings will not be hindered by external factors, including those related to the need to obtain visas from the host country.<span>  </span>She commended ongoing research work on the joint proposal of her country, Armenia and Viet Nam to update UNCITRAL’s agenda in connection with the impact of the COVID‑19 pandemic.<span>  </span>Turning to the climate project, she said that it should take place exclusively within the mandate of the Commission and within the framework of the existing international institutional and normative system.<span>  </span>Drawing attention to the discussions of Working Group III, she pointed to the need for a cautious and balanced approach based on broad consensus and objective analysis of existing mechanisms, while taking into account the specifics of legal relations in investment and regional aspects. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">PAULA NARVÁEZ OJEDA (<u>Chile</u>) highlighted that Working Group I’s topics were key to inclusive growth and job creation.<span>  </span>However, there were recurrent limitations in access to credit, especially for enterprises led by women, thus affecting their potential for growth and export capability.<span>  </span>The Working Group’s efforts would lay the groundwork for facilitating more equitable access to credit, regardless of the heterogeneity of micro-, small- and medium-sized enterprises.<span>  </span>Turning to Working Group III, she highlighted the work of the Commission with the International Centre for Settlement of Investment Disputes on the preparation of the code of conduct for arbitrators, and expressed hope that the document would be adopted at the next session of UNCITRAL in 2023.<span>  </span>Noting the difficulties posed to commerce during the COVID‑19 pandemic, she underscored the importance of accelerating the transition to online commerce through new regulatory mechanisms.<span>  </span>In that regard, she underlined the practical importance of elaborating the topic on resolution and adjudication for conflicts related to technology.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">NICHAMON MAY HSIEH (<u>Thailand</u>) said that UNCITRAL’s adoption of the draft convention on the judicial sale of ships is a significant step forward in achieving certainty in international maritime trade.<span>  </span>She also welcomed the adoption of the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services, which is the first to address the issue of digital identity on a global level.<span>  </span>UNCITRAL’s texts on e-commerce have been crucial to building the global legal infrastructure for digital trade, which has benefited the stable development of e-commerce in Thailand.<span>  </span>Noting that her country has the second-biggest Internet economy in South-East Asia, she said that relevant Thai agencies are now working on a draft decree to ensure financial and commercial stability in this area.<span>  </span>On the efforts of Working Group III, she expressed concern over the proposal to combine the “advisory centre” with the “standing multilateral mechanism”.<span>  </span>For a developing country, access to affordable legal advice is crucial.<span>  </span>Therefore, she called for the centre to be independent and neutral, providing its services to all States regardless of whether they are members of the mechanism.</span></p>
+
+<p><span>SHUNSUKE NAGANO (<u>Japan</u>) spotlighted his country’s project taking stock of developments in dispute resolution in the digital economy, as well as the co-organization of a series of online workshops by his country and UNCITRAL in 2021.<span>  </span>Further, Japan contributed the necessary funds to implement the project in its entirety for the initial year and will contribute the funds necessary for the second year in due course.<span>  </span>Turning to progress made regarding the enlargement of UNCITRAL’s membership, he noted that Japan launched a Vienna-based process as a forum for consultations on this matter.<span>  </span>From September 2019 to July 2021, Japan organized 11 rounds of open-ended informal consultations, also holding bilateral meetings with interested States from all five regional groups.<span>  </span>Welcoming the General Assembly’s adoption at its seventy-sixth session of a proposal, led by Japan, increasing UNCITRAL’s membership from 60 to 70 States, he said that this makes UNCITRAL’s work more visible, inclusive and universal.</span></p>
+
+<p><span>RODR<span>IGUEZ TORRES</span></span><span lang="EN-GB" xml:lang="EN-GB"> (<u>Dominican Republic</u>), highlighting the importance of finalizing and approving the draft convention on the international effects of judicial sale of ships, underlined the need for greater participation of developing countries in the Commission's work.<span>  </span>The Dominican Republic was undergoing a complex process of recapitalization, he said, adding:<span>  </span>“Clearly these conventions will be extremely important instruments for Government authorities that are responsible for these areas in our countries.”<span>  </span>Turning to e-commerce, he said that the drafting of uniform norms on electronic signatures and automatic contracting, as well as the legal guide on the use of distributed registries, will build trust for potential clients and will be part of the logistical hub that is part of his country’s plan for 2023.<span>  </span>He also stressed the need to allocate more financing to the Commission and to facilitate dissemination of the information amongst Member States.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MARVIN IKONDERE (<u>Uganda</u>) urged countries that have used the Model Law to advise the Commission on how States that have not used it can develop its application and domestication.<span>  </span>He also expressed gratitude for the legal guide on the use of distributed ledger systems and the proposed guidance document that could provide explanations useful to commercial operators, especially micro-, small- and medium-sized enterprises and operators located in developing countries in assessing whether distributed ledger technology-enabled services addressed their needs, and the impact of the use of such services on their business.<span>  </span>With regard to investor-State dispute settlement reform, he commended progress being made by Working Group III in the third phase of its mandate.<span>  </span>The Draft Code of Conduct in its present condition, he said, is not complete without regulating the conduct of counsel. “As arbitration becomes more international, we must increasingly confront the difficulties that arise from diverging ethical standards in multiple jurisdictions,” he added.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">TAEEUN CHOI (<u>Republic of Korea</u>), said that the key policy task of his country was to improve laws and systems to meet the global standards.<span>  </span>In this regard, a regional centre for Asia and the Pacific was created to raise awareness of UNCITRAL’s standards and to contribute to the adoption of progressive harmonization and unification of international trade law.<span>  </span>Over the past decade, the Centre has become a permanent office and continues to enhance the capacity of Member States and provide legislation support.<span>  </span>Further, the Republic of Korea has actively cooperated with UNCITRAL to facilitate the development of international trade standards in the Asia-Pacific region.<span>  </span>In August, the Government renewed its memorandum of understanding with the Centre to provide financial support to co-host international events such as the Incheon Law and Business Forum, Seoul ADR Festival, UNCITRAL Special Session for Alternative Dispute Resolution and the Commission’s side event on the Law of Digital Trade.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">HUGO PIERRE JULIUS WAVRIN (<u>France</u>), welcoming the return to the in-person format for the meetings, noted that the use of digital technology favoured the use of remote informal consultations.<span>  </span>Taking note of such flexible arrangements, he underscored that such methods cannot be used to the detriment of transparency of the work and the use of the working languages of the Organization.<span>  </span>He, emphasized the need of setting certain rules regarding such working arrangements.<span>  </span>Expressing support for the Model Law on identity management, he recommended the transposition of this instrument for the harmonization of norms and standards on the global level.<span>  </span>Drawing attention to the arbitration reform, he commended the active participation of States, international and non-governmental organizations aiming to set up an international court to replace international arbitration.<span>  </span>He further noted that, towards this end, France will provide financial contributions to cover participation costs in Working Group sessions.</span></p>
+
+<p><span>MOHAMED FAIZ BOUCHEDOUB (<u>Algeria</u>) welcomed UNCITRAL’s adoption of the draft convention on the judicial sale of ships, which provides legal protection to purchasers; contributes to creating standards and disseminating information; and observes the interests of developing countries.<span>  </span>He also welcomed work on alternative dispute resolution, which will reduce the number of cases in which disputes end trade relations; facilitate the management of international transactions by trading parties; and reduce the cost of dispute settlement.<span>  </span>On Working Group IV, he said that the Model Law on the Use and Cross-border Recognition of Identity Management and Trust Services can serve as guidance to Member States as they draft relevant legislation and will also enhance trust in Internet transactions.<span>  </span>He also called for capacity-building aimed at reducing the digital gap between States, focusing on the concerns of developing countries in this area such as sovereignty and data protection.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MARTÍN JUAN MAINERO (<u>Argentina</u>) recalled that his country has been a member of UNCITRAL since 1968.<span>  </span>It has continued research on legal issues relating to the pandemic’s effect on international trade law, particularly with regard to response measures that could help reduce future negative impacts on the most vulnerable sectors.<span>  </span>He also noted that his country will participate in Working Group II’s efforts relating to dispute settlement – including the use of technology and rapid assessment in this area – aiming to create a guidance document for consideration in future sessions.<span>  </span>Turning to Working Group III, he emphasized the importance of ongoing talks relating to a draft code of conduct for adjudicators.<span>  </span>Argentina will also follow the efforts of Working Group IV, relating to the use and recognition of identification systems and trust services based on the model approved to this end, and to the use of artificial intelligence and automation.<span>  </span>He added that his country will participate in Working Group VI to develop a new instrument on multimodal transport documents.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Mr. LASRI (<u>Morocco</u>) commended UNCITRAL’s work in helping countries improve their domestic laws.<span>  </span>Morocco has updated its domestic laws in recent years to bring itself in line with the standard laws included in relevant texts.<span>  </span>Turning to a point of concern, he said that jurisprudence in the area of investments is basically English language-based and the document made available to the public by the arbitration centres is often in English, which is a violation of the principle of equal access to information.<span>  </span>“We have already raised the issue of the problem of translation of the decisions affecting State investors,” he added.<span>  </span>Several procedures could be considered in order to reduce the costs related to dispute settlements involving States, including establishing a measure to prevent legal processes and allow for an alternative settlement of disputes.<span>  </span>The use of arbitration is often expensive, he added.<span>  </span>The establishment of a preliminary review mechanism of frivolous or unfounded complaints could be very useful.<span>  </span>Developing countries could use assistance in this area, he added, pointing to the limited funds and the lack of human resources of people who have experience in dispute settlement between businesses and States. </span></p>
+
+<p><span>YOLANNIE CERRATO (<u>Honduras</u>), noting that her country has played an active role in the Commission since 2008, welcomed the finalization of the adoption of the draft convention on the international effects of the judicial sale of ships.<span>  </span>Honduras has ratified the </span><span lang="EN-GB" xml:lang="EN-GB">United Nations</span><span> Convention on International Transaction Agreements Resulting from Mediation, she added.<span>  </span>The work of the Commission is very important, especially as related to technical cooperation and assistance, which remains integral to developing countries.<span>  </span>For Honduras, cooperation with UNCITRAL is critical to making progress in several arenas such as migration, income inequality and sustainable development, she said.<span>  </span>That is particularly crucial at this stage of the country’s economic recovery following the COVID-19 pandemic and several tropical storms.<span>  </span>She also reported that her country aims to pass legislation that promotes business and competitiveness for micro-, small- and medium sized enterprises. </span></p>
+
+<p><u><span lang="EN-GB" xml:lang="EN-GB">Protocols Additional to the Geneva Conventions — Victims of Armed Conflicts</span></u></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">SIMONA POPAN, representative of the <u>European Union</u>, in its capacity as observer, recalled that the four Geneva Conventions were signed to establish rules for war and are universally ratified.<span>  </span>However, the two Additional Protocols adopted in 1977 to formulate more robust protection for victims of international and non-international armed conflicts, are not yet universally ratified.<span>  </span>She called on all remaining States to ratify those Protocols.<span>  </span>Expressing concern about armed conflicts across the globe, including the ongoing war of aggression by the Russian Federation against Ukraine, she cited the report by the United Nations Office for the Coordination of Humanitarian Affairs (OCHA) that noted civilians account for nearly 90 per cent of casualties.<span>  </span>Civilian populations enjoy general protection against the dangers posed by acts of war.<span>  </span>In addition, Security Council resolution 2222 (2015) deemed that journalists, media professionals and associated personnel are considered civilians and must be protected as such, provided that they take no action adversely affecting their status as civilians.<span>  </span></span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">She expressed concern that the number of attacks against health facilities and medical personnel continue to increase, including in Ukraine.<span>  </span>Additionally, protecting cultural property from the effects of armed conflict also remains a priority for the European Union.<span>  </span>Noting the importance of training and education on international humanitarian law, she reported that the bloc implemented such training into its Common Security and Defence Policy, which have been integrated into all non-military missions under their mandate.<span>  </span>Therefore, such training modules offered by the European Union Training Missions in Mali, Central African Republic, Somalia and Mozambique to the national armed forces have showcased the importance and relevance of that integrated approach.<span>  </span>Further, the bloc has adopted guidelines setting out operational tools to promote compliance with international humanitarian law, she said.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MOHAMMED HUSSEIN BAHR ALULOOM (<u>Iraq</u>), speaking for the Arab Group, reiterated the importance of humanitarian principles concerning the protection of victims of armed conflicts.<span>  </span>He appealed to all States to fully respect the provisions of the Geneva Convention and the two respective Protocols.<span>  </span>He also expressed concern regarding the situation of the occupied State of Palestine, including East Jerusalem.<span>  </span>The objective of international humanitarian law was to protect those who are not taking part or no longer taking part in a conflict, namely civilians, children, press, medical personnel, the injured and prisoners of war.<span>  </span>He further underscored that Israel has continued its crime relentlessly on the Palestinian people and their land, and stressed the need to take action on the ground that would guarantee independence and sovereignty over the State of Palestine occupied territory.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Also expressing concern regarding the difficult humanitarian situation in the Gaza sector, he noted that most people there suffer because of the collective punishment imposed.<span>  </span>He called on the international community to take responsibility to put an end to the colonizing occupation of Israel.<span>  </span>He also reiterated a request to the Government of Switzerland to hold a conference of the contracting parties to the Geneva Conventions and take legal measures concerning their application, as well as assessing the implementation of the respective declaration adopted by the Conference of the Parties.<span>  </span>He condemned all the measures undertaken by Israel to change the status quo of the occupied Syrian Golan and asked it to withdraw from all occupied Arab territories.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">JULIA FIELDING (<u>Sweden</u>), also speaking for Denmark, Finland, Iceland and Norway, encouraged States to report on measures to implement the Additional Protocols at the national level and underscored that respecting and upholding international humanitarian law is “more important than ever”.<span>  </span>In the Russian Federation’s ongoing war of aggression against Ukraine – and in other armed conflicts – civilians must not be targeted, and all efforts must be taken to protect them from the harmful effects of military operations.<span>  </span>She also stressed that assistance must be delivered safely to affected populations, stating that it is “unacceptable” that more than 468 aid workers were victims of attacks in 2021.<span>  </span>Security Council resolutions 2573 (2021) and 2601 (2021), demanding that all parties to armed conflict comply with international humanitarian law and condemning attacks against schools and teachers, respectively, are encouraging developments.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">She went on to stress that those who have committed international crimes must be held accountable.<span>  </span>While efforts towards this end must be made primarily at the domestic level, the international community can help with financial and in-kind support, or by exercising universal jurisdiction.<span>  </span>For its part, Sweden has increased its contribution to the International Criminal Court’s fight against impunity through funding and secondment of staff.<span>  </span>Also spotlighting other germane issues, she said that climate change and environmental degradation increase the risk of new conflicts and worsen ongoing ones.<span>  </span>Sweden, Denmark, Finland, Iceland and Norway are committed to curbing climate change with ambitious national targets and have made the link between climate and conflict a key priority in the Security Council.</span></p>
+
+<p><span>HEATHER MCINTYRE (<u>Australia</u>), also speaking for Canada and New Zealand, encouraged States that have not yet become parties to the three Additional Protocols to do so as soon as possible.<span>  </span>Many of the rules contained therein reflect rules of customary international law and, therefore, are binding on all parties to armed conflict.<span>  </span>Recent events – such as the Russian Federation’s aggression against Ukraine - serve to remind of the importance of these rules of international law.<span>  </span>She also stressed that actors who violate international humanitarian law must be held accountable, encouraging the International Conferences of the Red Cross and Red Crescent to continue engaging with States on mechanisms to enhance compliance with such law.</span></p>
+
+<p><span>She went on to say that increased implementation of international humanitarian law could be achieved through States taking practical measures to enhance respect for the same.<span>  </span>Such efforts included incorporating such law into their military doctrine, field training and rules of engagement; sharing lessons learned and good practices; and ensuring that national judicial structures are capable of effectively addressing violations of international humanitarian law.<span>  </span>Adding that the International Committee of the Red Cross (ICRC) plays a crucial role in promoting and disseminating such law and in working to improve compliance among parties to armed conflicts, she stressed that the countries for whom she speaks will continue working with all States and the ICRC to address pressing challenges in this field.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MOHAMMAD SADEGH TALEBIZADEH SARDAR (<u>Iran</u>) said that his country recognizes the vital role of international humanitarian law in minimizing the negative effects of armed conflicts and protecting vulnerable victims of warfare.<span>  </span>Iran is a signatory but not a party to the Protocols Additional to the Geneva Conventions.<span>  </span>Efforts have been undertaken through Iran’s internal procedures to ratify this instrument within its own domestic capabilities.<span>  </span>In order to effectively implement the Geneva Conventions of 1949, an ad hoc working group has been established within the Iranian judiciary, focused on the codification of the draft law and the national criminalization of the most heinous international crimes, including war crimes. The draft law is supposed to be ratified in the Iranian Parliament after its finalization.<span>  </span>Iran continues to endeavour to implement international humanitarian law and its related instruments, he said.<span>  </span>To this end, his country is also working to have several International Committee of the Red Cross (ICRC) resources translated into Persian. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">DAVID BIGGE (<u>United States</u>) said his country continues to ensure that all its military operations comply with international humanitarian law.<span>  </span>He called on all States and parties to armed conflicts to ensure that they comply fully with applicable standards as well.<span>  </span>The United States was a party to the third Additional Protocol to the 1949 Geneva Convention, but it was not party to the 1977 Additional Protocols.<span>  </span>However, his Government has chosen out of a sense of legal obligation to treat the principles set forth in article 75 as applicable to any individual it detains in an international armed conflict, he said.<span>  </span>It was crucial that all parties comply with their obligations under international humanitarian law, including the principles of distinction and proportionality.<span>  </span>Further, he pointed out that the Russian Federation’s recent, unlawful full-scale invasion of Ukraine in which its forces have committed war crimes was a reminder to all States of the importance of compliance with international humanitarian law and accountability for such violations, he said, adding that those responsible for atrocities must be held accountable. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">NATALIA JIMÉNEZ ALEGRÍA (<u>Mexico</u>) highlighted the beginning of her country’s domestic legal procedures to strengthen national norms related to the conduct of hostilities and respect for the civilian population affected by armed situations, and implementation of provisions related to the protection of cultural heritage in conflict situations.<span>  </span>She also stressed that, in situations in which hostilities already exist, action needs to be taken to minimize the negative impact of such conflicts.<span>  </span>She noted that in time of peace, Member States must adopt and develop norms that ensure the best protection of the fundamental rights, should conflict arise.<span>  </span>It was important to take actions on permanent basis aimed at respect for the norms contained in relevant instruments.<span>  </span>Some of these actions are materialized in the training of the armed forces, in the dialogue with civil society organizations and academia.<span>  </span>Consequently, the national and international legal framework must be improved to leave less room for arbitrariness and impunity in times of conflict and in times of peace.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">AHMED ABDELAZIZ AHMED ELGHARIB (<u>Egypt</u>), associating himself with the Arab Group, noted that his country has always upheld international humanitarian law.<span>  </span>In this regard, a national committee for international humanitarian law was established to implement the relevant legislation on the domestic level and make suggestions to policy and decision-making.<span>  </span>There was also an annual plan, which contains the necessary national measures for awareness-raising and respective training of officials.<span>  </span>He also underscored that a multidimensional plan has been developed to operationalize the terms of the national committee to maintain, uphold and protect the provisions and achieve best practices in its implementation.<span>  </span>In this regard, a memorandum of understanding was signed with the Chair of the International Committee of the Red Cross on dissemination and promotion of international humanitarian law.<span>  </span>The cooperation foresees the organization of conferences and workshops for personnel in the relevant sectors and other relevant implementation bodies.<span>  </span>He noted that recent training courses were conducted in collaboration with the International Red Cross and Red Crescent Movement.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">LIGIA LORENA FLORES SOTO (<u>El Salvador</u>), noting that her country ratified the Geneva Conventions and their Additional Protocols, emphasized that the same must be respected both in times of peace and of war.<span>  </span>Since 1997, an inter-agency committee on international humanitarian law has existed in El Salvador, which aims to guarantee adoption, implementation and dissemination of the standards of such law.<span>  </span>The committee has conducted activities including organizing training workshops for administrative health personnel regarding the protection of health workers during armed conflict; training judicial staff on the domestic application of international humanitarian law; and holding a conference for staff of the Ministry of Foreign Affairs on the importance of protecting cultural property.<span>  </span>She went on to welcome ICRC’s efforts to support Member States, including its publication of “Bringing IHL Home” — a set of guidelines on the national implementation of international humanitarian law.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">VICTOR SILVEIRA BRAOIOS (<u>Brazil</u>), reporting that his country has worked to foster respect for international humanitarian law both in international fora and at home, said that the Government promotes such laws both in domestic law and military practice.<span>  </span>For example, the Brazilian Armed Forces are professionally trained in the application of these rules at all levels, including through special courses for officials deployed in United Nations peacekeeping operations.<span>  </span>Brazil also works to alleviate the suffering of people displaced by armed conflict and political instability who seek safety within its borders, including migrants, refugees and asylum-seekers from Venezuela and Afghanistan.<span>  </span>He went on to point out that, in the Security Council, Brazil has urged more focus on Chapter VI rather than Chapter VII of the Charter of the United Nations.<span>  </span>He added that humanitarian principles must always guide the design of United Nations sanctions regimes, which, if ill-devised, can disproportionately affect the most vulnerable populations, hamper humanitarian work and worsen food-security crises.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">CORNEL FERUTA (<u>Romania</u>) said that the four Geneva Conventions and their Additional Protocols, as well as other relevant international treaties must continue to regulate the conduct of hostilities.<span>  </span>However, contrary to most other branches of international law, the core international humanitarian law treaties have a limited number of mechanisms to ensure compliance.<span>  </span>National voluntary reports are an important self-assessing tool.<span>  </span>He noted Romania’s publication of a national report on the implementation of international humanitarian law at the domestic level and his country’s ratification of the amendments to article 8 of the Rome Statue.<span>  </span>Turning to the conflict in his region, he said that the Russian Federation “is directing an unjustified and unprovoked illegal military aggression against Ukraine, committing blatant violations of international humanitarian law in the process.”<span>  </span>Romania has joined other States Parties to the Rome Statute in a referral to the Prosecutor of the Court to investigate any acts of war crimes, crimes against humanity and genocide that have occurred on the territory of Ukraine, he said. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">ARIANNA DEL CARMEN CARRAL CASTELO (<u>Cuba</u>) said that her country strictly complies with the obligations set out in the treaties, including the study of international humanitarian law in military training programmes to ensure that it is known throughout the armed forces, since they are at the forefront of applying those laws.<span>  </span>During the legislative changes currently taking place in Cuba, the National Assembly approved a new penal code.<span>  </span>It includes crimes against international humanitarian law that were previously regulated by the military legal system.<span>  </span>The move is in line with the first Additional Protocol.<span>  </span>Cuba aims to ensure that the crimes covered by this are recognized as crimes in its domestic laws.<span>  </span>Further, the new penal code regulates criminal cases related to international humanitarian law, including pillaging, violence against the population in areas affected by military actions, or the use of badges or logos of the Red Cross or other international organizations that are providing humanitarian assistance in situations of armed conflict.<span>  </span>Cuba supports a broad, transparent debate on this topic, but one without double standards, she stressed.</span></p>
+
+<p><span>INES MATOS (<u>Portugal</u>) observed that achieving effective implementation of the Additional Protocols to the Geneva Convention remains problematic due to both old and new challenges to the protection of victims of armed conflict. In this context, domestic measures were paramount, she said, adding that Portuguese authorities have implemented several measures, such as maintaining a close and fruitful collaboration with the Portuguese Red Cross.<span>  </span>In addition, the country created a national committee on international humanitarian law in 2021, having fulfilled a specific pledge made by Portugal and the Portuguese Red Cross at the thirty-third International Conference of the Red Cross and Red Crescent.<span>  </span>The national committee has a broad mandate, she said, noting that it will be a very useful mechanism to disseminate and implement relevant international legal obligations relating to the protection of victims of armed conflict.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">Ms. CHEARBHAILL (<u>Ireland</u>) reiterated her firm commitment to the implementation of international humanitarian law, as well as efforts to strengthen compliance and the protection of civilians.<span>  </span>Her country has continued to implement and disseminate such efforts through its national committee and is in the process of producing a voluntary report.<span>  </span>In addition, Ireland has recently established a national advisory committee on the protection of cultural property in the event of armed conflict.<span>  </span>At the international level, the country has led consultations on strengthening the protection of civilians from the use of explosive weapons in civilian areas.<span>  </span>A relevant declaration on the topics will be adopted in November, she reported, encouraging all the States to endorse the declaration.<span>  </span>Turning to the international criminal justice system, she reiterated her country’s support for it, including for the International Criminal Court, and urged all States to adhere to the Rome Statute and cooperate with the Court across its range of investigation.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MICHAEL IMRAN KANU (<u>Sierra Leone</u>), highlighting the Secretary-General’s report on the topic, welcomed information submitted by Austria on its continued voluntary financial contributions to institutions such as the Residual Special Court for Sierra Leone; the continued funding of that Court will strengthen the implementation of international humanitarian law.<span>  </span>He went on to detail national legislation that gives domestic effect to the Geneva Conventions and their Additional Protocols, which are the main instruments of international humanitarian law.<span>  </span>Among other provisions, such legislation provides the national armed forces with appropriate training and sets out procedures for punishing violations by the same.<span>  </span>With regard to grave breaches of such law, national law covers not only offenses committed by citizens of Sierra Leone or those committed on its territory, but also extends to persons of whatever nationality committing offenses either within or outside of Sierra Leone.<span>  </span>Further, it provides for the responsibility of military commanders and other superiors for offenses committed by those under their effective command and control, he noted.</span></p>
+
+<p><span>ZACHARIE SERGE RAOUL NYANID (<u>Cameroon</u>) recalled the statement by the International Criminal Tribunal for the Former Yugoslavia that armed conflict existed whenever armed force was used between States, or protracted conflict existed between a Government and an organized armed group, or between such groups within a State.<span>  </span>However, provisions relating to the status of prisoners of war only applied to individuals participating in international armed conflict.<span>  </span>Those participating in non-international conflicts are at the disposition of the criminal legislation of the country concerned.<span>  </span>He went on to note that provisions within the First Additional Protocol consider all individuals who do not correspond to certain criteria non-combatants who must be protected from the dangers stemming from military operations.<span>  </span>This could lead to misunderstanding, he noted, because the status of civilians is hard to identify in the context of direct, active participation in hostilities by non-uniformed men and women.<span>  </span>This legal gap challenged the application of the law of war.<span>  </span>Therefore, a definition of “active participation in hostilities” was needed to distinguish this from indirect participation.<span>  </span>He added that modern tactics such as cyberattacks demonstrate the intertwined nature of civilian and military activities, making it hard to determine who is taking part in a conflict.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">MOON DONG KYU (<u>Republic of Korea</u>) said that compliance with and strengthened implementation of the Geneva Conventions and Additional Protocols was of utmost importance. <span> </span>At the national level, the necessary legislative, administrative and practical measures, including incorporation of international humanitarian law into field training and rules of engagement, have been put in place.<span>  </span>Given the evolving nature of conflicts, there has also been a growing number of voices that believe international humanitarian law is applicable to non-traditional roles, such as in cyberspace and outer space. <span> </span>“No one can deny that civilians not engaged in hostilities” should not be the target of military attacks, he said, recalling that international humanitarian law prohibits attacks on the sick, health-care facilities and medical personnel. <span> </span>Nevertheless, the international community is witnessing such prohibited acts every day. <span> </span>“Evidence of violation of international humanitarian law reported from Ukraine is just the tip of the iceberg,” he said. <span> </span>States have a primary responsibility to investigate, prosecute and punish those responsible for violations of international humanitarian law, he stressed.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">KRZYSZTOF MARIA SZCZERSKI (<u>Poland</u>) said that since the Russian Federation’s launching of its aggression against Ukraine, it has deliberately created a humanitarian catastrophe and bluntly disregarded the most fundamental principles of international humanitarian law.<span>  </span>“We hear on a daily basis reports of Russian violence against civilians in Ukraine, involving tortures, mass killings or destruction of civilian buildings,” he said.<span>  </span>The ongoing situation in Ukraine poses the important question whether the current international legal regulations constitute a sufficient response to the enormity of the damage to the environment and the world’s food supply.<span>  </span>The Intragovernmental Commission on International Humanitarian Law, which Poland established, is tasked with the dissemination of the norms of international humanitarian law, among other activities.<span>  </span>Its reports reflect on the principles of special protection of certain categories of persons, such as prisoners of war, internees, repatriates and medical and religious personnel.<span>  </span>The reports also focus on the principles of special protection of specific categories of locations and premises that are to be protected against the impact of hostilities, namely cultural property and hospitals, he said. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">JONATHAN SAMUEL HOLLIS (<u>United Kingdom</u>) gave a detailed overview of his country’s activities related to the implementation and promotion of international humanitarian law.<span>  </span>In this regard, a toolkit was produced and made available online in several languages to provide guidance for other States to research and draft their own reports.<span>  </span>Reiterating his country’s commitment to tackle conflict-related sexual violence, he reported that the United Kingdom is a board member of the Global Survivor Fund, with a total contribution of £2.7 million.<span>  </span>In addition, the country will be hosting an international ministerial conference on preventing sexual violence in conflict, marking ten years since the initiative was launched.<span>  </span>This was an opportunity for the international community to come together and commit to making further tangible progress in this area.<span>  </span>He also reported that the national committee continues to meet annually to discuss policies, and is also leading a proposal to produce a public-facing handbook on the role of international humanitarian law in preventing and mitigating conflict.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">HAYFAA ABDULLATIF A. ALSHAIKH (<u>Saudi Arabia</u>), aligning herself with the Arab Group, spotlighted relevant rules developed on a national level to promote international humanitarian law, and highlighted the importance of adhering to respective conventions and other legal instruments.<span>  </span>Her country respects its commitments through international measures, including by establishing entities dealing with international humanitarian law.<span>  </span>She expressed concern about the non-respect of a number of principles of international humanitarian law, as well as consequent violations and the increased use of weapons and attacks against civilian installations by the Houthi forces, who are also using children in combat.<span>  </span>Reiterating her country’s support for bringing Yemen back to peace, she recalled a number of initiatives, including military missions, the creation of guidebooks and a list of places that should not be targeted.<span>  </span>Stressing the commitment to protect children in armed conflict, she said her country provided assistance to 86 countries with a total budget of more than $6 million.</span></p>
+
+<p><span>ADRIAN DOMINIK HAURI (<u>Switzerland</u>) stressed the importance of universal ratification of the Geneva Conventions and the Additional Protocols, noting that his country is the depository of these instruments.<span>  </span>While the Geneva Conventions have been universally ratified, the three Additional Protocols have been ratified by 174, 169 and 79 States, respectively.<span>  </span>He encouraged all States yet to accede to or ratify such instruments to do so soon, adding that 2024 will mark the seventy-fifth anniversary of the Geneva Conventions.<span>  </span>That anniversary presents an excellent opportunity for States not yet parties to reconsider the possibility of joining the Additional Protocols.<span>  </span>He also called on States parties to the First Additional Protocol that have yet to recognize the competence of the International Humanitarian Fact-Finding Commission to do so.<span>  </span>Switzerland published its first voluntary report on the implementation of international humanitarian law at the national level in 2020.<span>  </span>In that regard, he encouraged States yet to do so to draft such reports, as they can provide inspiration to other States and facilitate the development of common solutions.</span></p>
+
+<p><span>GALA PASTORA MATOS MENÉNDEZ (<u>Dominican Republic</u>) said that, given current global circumstances, the international community must address challenges affecting the protection of humanity as a singular whole.<span>  </span>For its part, the Dominican Republic is a strong supporter of human rights and will work to ensure that the millions affected by armed conflict or other humanitarian emergencies can enjoy optimism and hope and build a better future.<span>  </span>Spotlighting the tragic consequences of the many and different forms of violations of international humanitarian law, she noted that as such violations become more complex, the principles of such laws must be respected by all parties to armed conflict.<span>  </span>In Latin America and the Caribbean, many of the non-traditional forms of violence affecting the region did not exist when the Geneva Conventions were adopted.<span>  </span>While they may not fall within the ambit of international humanitarian law, they nevertheless result in significant humanitarian consequences.<span>  </span>She went on to say that her country is working to increase the capacity of all humanitarian actors — including those in the military — noting that more than 40,000 Dominican soldiers were trained in international humanitarian law between 2001 and 2022.</span></p>
+
+<p><u><span lang="EN-GB" xml:lang="EN-GB">Right of Reply</span></u></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The representative of <u>Venezuela</u>, in exercise of the right of reply, said that the delegate of Brazil was out of order.<span>  </span>The topic under discussion was related to the protection of victims in armed conflict.<span>  </span>Venezuela finds itself in “a perfect peace” today.<span>  </span>There is no armed conflict in Venezuela today despite the efforts of Brazil’s Government to promote not only an interventionist agenda, but a military one.<span>  </span>Brazil’s Government, in only three years, advocated for an armed intervention against Venezuela, from the southern border Venezuela shares with Brazil, by mercenary and terrorist groups.<span>  </span>Noting the increase in the migratory flows of nationals from Venezuela, he said that the underlying cause was the impact of the unilateral coercive measures imposed against his country, which aim to attack its economy and bring about a change of Government in ways contrary to what is indicated in its national Constitution.<span>  </span>Venezuelans who had to emigrate were not met with open arms but rather with discrimination, xenophobia and intolerance. </span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The representative of <u>Brazil</u>, responding to his counterpart, said his country received 770,000 Venezuelan refugees on its territory, all of whom were very well received.<span>  </span>In addition, he stressed that Brazil fully respects the principle of territorial integrity and sovereignty of other States.<span>  </span>“I have no news whatsoever of military intervention coming from Brazil into territory of Venezuela,” he said.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The representative of <u>Venezuela</u> said that, in the interest of transparency, his country had submitted a communication to the Sixth Committee that contained information being discussed and the statement with regard to the attempt of Brazil in 2017 to intervene in the internal events of Venezuela.</span></p>
+
+<p><span lang="EN-GB" xml:lang="EN-GB">The representative of <u>Brazil</u> welcomed his counterpart’s intention to send a report and reiterated that in his intervention, delivered in a non-aggressive way, he only mentioned facts on an operational outcome that was accessible on a public domain.</span></p>
+</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-2 radix-layouts-sidebar panel-panel"><div class="panel-panel-inner">
+          
+  <div class="views-element-container block">
+
+  
+            <h2>Highlights</h2>
+        
+
+      <div>
+<div class="js-view-dom-id-ebf17f47568ae9c55bbb9ac554dc79e11ee07d5d83b0f506f12e71c823c31000 view-highlights">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row">
+<div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/uploads/2022/09/UNGA77_highlight_1.png?itok=aFnhC_5V" width="60" height="60" alt="UNGA 77 logo" class="img-fluid">
+</div>
+      
+        
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/UNGA77">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">High-level meetings of the 77th session of the General Assembly</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">New York, 20-26 September 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row">
+<div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/ocean-logo.png?itok=lpSD4mXq" width="60" height="60" alt="SaveOurOcean" class="img-fluid">
+</div>
+      
+        
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/SaveOurOcean">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">The Ocean Conference</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Lisbon, 27 June-1 July 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row">
+<div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/Stockholm%2050_0.png?itok=TS7o2L4R" width="60" height="60" alt="" class="img-fluid">
+</div>
+      
+        
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/Stockholm50">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">"Stockholm+50" international meeting</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Stockholm, 2-3 June 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+  
+  </div>
+
+<div class="grey-bg noon-briefing-block">
+
+
+  
+            <h2>Daily Noon Briefing</h2>
+        
+
+      <div>
+<div class="js-view-dom-id-d8b98b93d484656e78c99e951c02fbb51c7cf76a9422ec57674731525133c83c view-home-press">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row">
+<div class="views-field views-field-view-node-1"><span class="field-content"><img src="/themes/custom/un_press_theme/assets/images/noon-briefing-image.jpg" alt="UN Spokesperson Stéphane Dujarric" class="img-responsive"></span></div>
+<div class="views-field views-field-view-node"><span class="field-content"><a href="/en/2022/db221019.doc.htm" hreflang="en"><time datetime="00Z">19 October 2022</time></a></span></div>
+<div class="views-field views-field-body">
+<p class="field-content"></p>
+<p>The World Health Organization’s new report noted that, in this decade, almost 500 million people will develop heart disease, obesity, diabetes or other noncommunicable diseases due to physical inactivity.  If Governments do not urgently encourage more physical activity, costs for this could reach $27 billion annually.</p>
+</div>
+</div>
+
+    </div>
+  
+            <div class="view-footer">
+      <div class="more-link"><a href="https://press.un.org/en/content/noon-briefings">Latest Noon Briefings</a></div>
+
+    </div>
+    </div>
+</div>
+
+  
+</div>
+
+        </div>
+      </aside>
+</div>
+  </div>
+</div>
+<!-- /.bartlett -->
+
+    </div>
+  </article><div class="field field-name-disclaimer">
+  <span class="disclaimer">For information media. Not an official record.</span>
+</div>
+
+  
+  </div>
+
+
+        </div>
+      </div>
+      </main><footer class="page__footer-tabs"><div class="container">
+        <div class="row">
+            
+  <div class="block block--resourcesandtools">
+
+  
+            <h2>Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="https://journal.un.org/en" class="nav-link" title="Journal">Journal</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/events-and-news" class="nav-link" title="Conferences &amp; Events">Conferences &amp; Events</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/media/accreditation/alert.shtml" class="nav-link" title="Media Alert">Media Alert</a>
+                  </li>
+            </ul>
+</div>
+
+  <div class="block block--newsandmediaresources">
+
+  
+            <h2>News &amp; Media Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="https://news.un.org/en/" title="Global perspective Human stories" class="nav-link">UN News</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://media.un.org/en/webtv" class="nav-link" title="Webcast">Webcast</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/photo/" class="nav-link" title="Photo">Photo</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/" class="nav-link" title="Multimedia">Multimedia</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/media/accreditation/" title="Media Accreditation" class="nav-link">Media Accreditation</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.unmultimedia.org/" class="nav-link" title="Television">Television</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/tv/unifeed/" title="UNIFEED" class="nav-link">UNIFEED</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/sg/spokesperson/" title="Spokesperson for the Secretary-General" class="nav-link">Spokesperson for the Secretary-General</a>
+                  </li>
+            </ul>
+</div>
+
+  <div class="block block--quicklinks">
+
+  
+            <h2>Quick Links</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="/en/content/general-assembly" class="nav-link" title="General Assembly section link" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/security-council" class="nav-link" title="Security Council section link" data-drupal-link-system-path="content/security-council">Security Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/economic-and-social-council" class="nav-link" title="ECOSOC section link" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/secretary-general" class="nav-link" title="Secretary-General section link" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/noon-briefings" class="nav-link" title="Latest Noon Briefing section link" data-drupal-link-system-path="content/noon-briefings">Latest Noon Briefing</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/meetings-coverage" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/meetings-coverage">Meetings Coverage</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-release" class="nav-link" title="Press Releases section link" data-drupal-link-system-path="content/press-release">Press Releases</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-conference" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/press-conference">Press Conferences</a>
+                  </li>
+            </ul>
+</div>
+
+
+        </div>
+      </div>
+    </footer><footer class="page__footer"><div class="container">
+        <div class="row d-flex justify-content-between align-items-md-center">
+          <div class="col-4 col-md-4 col-lg-5 col-xl-6 footer-brand">
+            <a href="https://www.un.org/en" title="Home">
+              <span class="site-name">United Nations</span></a>
+          </div>
+          <div class="col-8 col-md-8 col-lg-7 col-xl-6 justify-content-end">
+            <div class="row">
+              <div class="col-12 col-md-8 d-flex align-items-md-center menu-social">
+                <div class="social-media">
+                  <a href="https://www.un.org/en/get-involved/social-media/" target="_blank" class="footer-link">Join the conversation:</a>
+                    
+  <div class="block block--footersocialmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="https://www.facebook.com/unitednations" class="nav-link"><i class="fab fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://twitter.com/UNMediaLiaison" class="nav-link"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.youtube.com/channel/UC5O114-PQNYkurlTg6hekZw" class="nav-link"><i class="fab fa-youtube-square"></i><span class="sr-only">Youtube</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/rss.xml" class="nav-link" data-drupal-link-system-path="rss.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a>
+                  </li>
+            </ul>
+</div>
+
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 d-flex align-items-md-center justify-content-md-end donate-wrapper">
+                <div class="donate">
+                  <a href="https://www.un.org/en/about-us/how-to-donate-to-the-un-system/" target="_blank" class="btn btn-default btn-reverse dark" role="button" id="donate_button">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer><footer class="page__footer-bottom"><div class="container">
+        <div class="row d-flex justify-content-md-end align-items-md-center">
+          <div class="col-12">
+              
+  <div class="block block--ungloballinksfootermenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+<li class="nav-item">
+                      <a href="http://www.un.org/en/siteindex/" class="nav-link" title="Site Index">A-Z Site Index</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/contact-us-0" class="nav-link" title="Help">Contact</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/copyright/" title="Copyright" class="nav-link">Copyright</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/about-us/frequently-asked-questions" class="nav-link">FAQ</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/fraudalert/" title="Fraud Alert" class="nav-link">Fraud Alert</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/privacy/" title="Privacy Notice" class="nav-link">Privacy Notice</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/aboutun/terms" class="nav-link" title="Terms of Use">Terms of Use</a>
+                  </li>
+            </ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+</div>
+
+<div class="minimal-share-panel">
+  <p class="minimal-share"><a href="https://www.facebook.com/sharer.php?u=https://press.un.org/en/2022/gal3664.doc.htm" title="Share this via Facebook" class="facebook" data-ms="facebook">Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=Sixth%20Committee%20Speakers%20Highlight%20Progress%20Made%20on%20International%20Trade%20Law%20as%20Commission%20Presents%20Annual%20Report%20&amp;url=https://press.un.org/en/2022/gal3664.doc.htm" title="Share this via Twitter" class="twitter" data-ms="twitter">Twitter</a>
+<a href="mailto:?subject=Sixth%20Committee%20Speakers%20Highlight%20Progress%20Made%20on%20International%20Trade%20Law%20as%20Commission%20Presents%20Annual%20Report%20&amp;body=https://press.un.org/en/2022/gal3664.doc.htm" title="Share this via Email" class="email" data-ms="email">Email</a>
+<a href="" title="Share this via Print" class="print" data-ms="print">Print</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://press.un.org/en/2022/gal3664.doc.htm&amp;title=Sixth%20Committee%20Speakers%20Highlight%20Progress%20Made%20on%20International%20Trade%20Law%20as%20Commission%20Presents%20Annual%20Report%20" title="Share this via LinkedIn" class="linkedin" data-ms="linkedin">LinkedIn</a>
+</p>
+
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"en\/","currentPath":"node\/308632","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"themes\/custom\/un_press_theme"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"minimalShare":{"sizes":{"linkedin":{"width":520,"height":570},"twitter":{"width":600,"height":260},"facebook":{"width":600,"height":500}}},"ajaxTrustedUrl":{"\/en\/sitesearch":true},"user":{"uid":0,"permissionsHash":"d429094e8101c7fbbf66cf85f7616354d19f2337c642528ef74c3443208d6269"}}</script><script src="/sites/default/files/js/js_VjTj9kTLXs53zMhnoVLCsua_z80F6pFQzQNdSwRYQKs.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-b876a93492b9f256082","applicationID":"530317555","transactionName":"ZgQAMkICCkZRVxFRXF9OIwVECgtbH0QEX1ZuAgMFWAY=","queueTime":0,"applicationTime":101,"atts":"SkMDRAoYGUg=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>

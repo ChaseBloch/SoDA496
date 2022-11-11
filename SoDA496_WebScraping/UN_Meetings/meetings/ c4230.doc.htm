@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"594351857",accountID:"3442868",trustKey:"3442868",xpid:"VwIDU15VABAFV1FRBgYCU1E=",licenseKey:"NRJS-b876a93492b9f256082",applicationID:"530317555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script>
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/un_press_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://press.un.org/en/2018/gashc4230.doc.htm" />
+<link rel="canonical" href="https://press.un.org/en/2018/gashc4230.doc.htm" />
+<link rel="shortlink" href="https://press.un.org/en/node/263133" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWVSS4R');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-LQCS');</script>
+
+    <title>Code of Silence around Sexual Abuse Broken amid Calls in Third Committee for Holistic Approaches to Rooting out Violence, Advancing Women’s Rights | UN Press</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_lKEky3Js_pMC8KbPIp2Ksrm5Ezb2TrVq0TNXbNnzr5c.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsLzkwPv8J-ff6w1IZG2F3i3tgZ0FQYLJrJALJQXUSw.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" />
+
+    
+  </head>
+  <body class="node-263133 node-type--press">
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWVSS4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LQCS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="page">
+  <header class="main-header">
+  <div class="page-loader"></div>
+  <div class="container-fluid brandbar-header fixed-top">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-8 col-sm-3">
+                        
+  <div class="block block--un-press-theme-branding">
+
+  
+    
+
+    
+  <a href="/en" class="navbar-brand d-flex align-items-center " aria-label="">
+        
+  </a>
+
+
+  </div>
+
+
+            <a class="navbar-brand" href="https://www.un.org/en"><i class="home-icon fas fa-home fa-lg"></i> Welcome to the United Nations</a>
+                  </div>
+        <div class="col-4 col-sm-9 d-flex justify-content-end language-switcher">
+                        
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-lg-9 d-flex branding-top-wrapper">
+                    <a class="logo navbar-btn pull-left flip" href="https://www.un.org/en" title="United Nations"></a>
+          <a class="navbar-brand pull-left flip" href="https://press.un.org/en">Meetings Coverage and Press Releases</a>
+        </div>
+        <div class="col-12 col-lg-3 justify-content-end search-wrapper d-none d-md-block">
+                                      
+  <div class="views-exposed-form bef-exposed-form block block--exposedformsitesearchpage-1" data-drupal-selector="views-exposed-form-sitesearch-page-1">
+
+  
+    
+
+      
+<form action="/en/sitesearch" method="get" id="views-exposed-form-sitesearch-page-1" accept-charset="UTF-8" class="form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-group">
+      
+  
+  
+  
+  
+  
+
+<input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" class="form-textfield form-control" />
+<label class="sr-only" for="edit-search-api-fulltext">Search</label>
+<label class="sr-only" for="edit-search-api-fulltext--2">Search</label>
+
+
+  
+  
+  
+  
+  </div>
+<fieldset data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper card mb-3">
+    
+      <div class="card-header">
+      <legend class="m-0">
+        <label class="fieldset-legend mb-0">Sort By</label></legend>
+    </div>
+  
+  <div class="card-body fieldset-wrapper">
+                <div id="edit-sort-by" class="form-radios"><div class="form-radios">
+                  <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-field-dated" type="radio" id="edit-sort-by-field-dated" name="sort_by" value="field_dated" checked="checked" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-field-dated">Most Recent Entries</label>
+
+  
+  </div>
+
+                    <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-search-api-relevance" type="radio" id="edit-sort-by-search-api-relevance" name="sort_by" value="search_api_relevance" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-search-api-relevance">Most Relevant Entries</label>
+
+  
+  </div>
+
+      </div>
+</div>
+
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+
+<input data-drupal-selector="edit-submit-sitesearch" type="submit" id="edit-submit-sitesearch" value="Search" class="js-form-submit form-submit btn btn-primary" />
+</div>
+
+
+</form>
+
+  
+  </div>
+
+
+                              </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+                      <div class="menu-container bg-dark">
+              <div class="menu-main">
+                
+
+
+<nav class="navbar navbar-expand-lg justify-content-between  ">
+  
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                          
+  <div class="block block--mainenglishmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="/en" title="" class="nav-link" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+                  </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/secretary-general" title="Secretary-General" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/secretary-general" title="Latest Press Release, Statements etc. from the Secretary General" class="dropdown-item" data-drupal-link-system-path="content/secretary-general">Latest</a>
+              <a href="/en/content/secretary-general/press-release" title="Secretary General Press Releases" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-release">Press Releases</a>
+              <a href="/en/content/secretary-general/press-conference" title="Secretary Genral Press Conferences" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/general-assembly" title="General Assembly" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/general-assembly" title="" class="dropdown-item" data-drupal-link-system-path="content/general-assembly">Latest</a>
+              <a href="/en/content/general-assembly/meetings-coverage" title="General Assembly Meetings Coverage" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/general-assembly/press-release" title="General Assembly Press Releases" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/security-council" title="Security Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/security-council">Security Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/security-council" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council">Latest</a>
+              <a href="/en/content/security-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/security-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-release">Press Releases</a>
+              <a href="/en/content/security-council/press-conference" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/economic-and-social-council" title="Economic and Social Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/economic-and-social-council" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council">Latest</a>
+              <a href="/en/content/economic-and-social-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/economic-and-social-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item">
+                      <a href="https://www.icj-cij.org/en/press-releases" title="" class="nav-link"> International Court of Justice</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                    </div>
+
+  </nav>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="">
+    <a id="main-content" tabindex="-1"></a>
+          <div class="page__content">
+        <div class="container">
+            <div data-drupal-messages-fallback class="hidden"></div>
+  <div class="block block--un-press-theme-content">
+
+  
+    
+
+      
+<article role="article" class="node press press--full">
+  
+  
+
+      
+    
+    <div>
+      
+<div  class="panel-display bryant-flipped clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+		  
+  <div class="block inline print-sub-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-doctype field--type-entity-reference field--label-hidden field__item"><a href="/en/meetings-coverage" hreflang="en">Meetings Coverage</a></div>
+      
+  
+  </div>
+
+  <div class="block print-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-un-bodies field--type-entity-reference field--label-hidden field__item"><ul class="shs clearfix shs-linked"><li><a href="/en/general-assembly" hreflang="en">General Assembly</a></li><li><a href="/en/third-committee" hreflang="en">Third Committee</a></li></ul></div>
+      
+  
+  </div>
+
+        </div>
+      </div>
+      <div class="col-md-3 radix-layouts-sidebar panel-panel">
+        <div >
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.bryant-flipped -->
+
+<div class="panel-display bartlett clearfix">
+  <div class="container-fluid layout">
+    <div class="row">
+      <div id="printlogo">
+        <div class="header-bg"></div>
+        <div class="emblem" style="width:200px; float:left;">
+          <img src="/themes/custom/un_press_theme/assets/images/United_Nations_bw_hq.png" alt="United Nations">
+          <h5> United Nations</h5>
+        </div>
+      </div>
+      <div class="col-md-9 mb-2 panel-panel radix-layouts-main-column">
+                <div class="row">
+          <div class="col-6 radix-layouts-contentcolumn1 panel-panel left-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-session field--type-string field--label-hidden field__item">Seventy-third Session,</div>
+      
+  
+  </div>
+
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-info field--type-string field--label-hidden field__item">Third Committee</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-6 radix-layouts-contentcolumn2 panel-panel right-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-symbol field--type-string field--label-hidden field__item">GA/SHC/4230</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-dated field--type-datetime field--label-hidden field__item"><time datetime="2018-10-08T12:00:00Z">8 October 2018</time>
+</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-md-12 radix-layouts-content panel-panel main-column">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-display-title field--type-string field--label-hidden field__item"><h1 class="page-header">Code of Silence around Sexual Abuse Broken amid Calls in Third Committee for Holistic Approaches to Rooting out Violence, Advancing Women’s Rights</h1>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>With the #MeToo rallying cry at full volume, calls to bring the perpetrators of sexual assault to justice have broken the code of silence plaguing survivors for too long, delegates told the Third Committee (Social, Humanitarian and Cultural) today as it continued its debate on the advancement of women amid appeals for Governments, schools and board rooms to root out abuse.</p>
+
+<p>Israel’s delegate said Netta Barzilai’s victory in the Eurovision competition with her “Toy” anthem against sexual harassment and abuse amplified the public outcry.  “It’s hard to believe that in 2018 we still feel the need to state the obvious:  that all people, women and men, are created equal and therefore are entitled to equal rights,” she stressed.</p>
+
+<p>Along similar lines, Iceland’s delegate pushed the international community to involve men, “especially those who can influence change in gender norms.”  Sustainable Development Goal 5, on gender equality, will not be achieved by 2030 if mainly discussed among women.  Women, girls and adolescents continue to face discrimination, violence and harmful practices, she said.</p>
+
+<p>The fact that such efforts remain on the Committee’s agenda speaks to the structural barriers against women, stressed Mexico’s youth delegate, expressing disappointment that it is still necessary to state that women represent half of the planet.  Yet, Mexico has made progress, achieving gender parity in the legislature after recent elections.  She warned against the effects of polarization in multilateral forums and rejected any attacks on gender equality.</p>
+
+<p>Australia’s delegate pointed out that success cannot be achieved in isolation and called on all United Nations agencies to deliver on gender‑parity commitments.  She expressed deep concern over revelations of sexual exploitation, abuse and harassment within the Organization and welcomed the Secretary‑General’s zero‑tolerance position, urging continued leadership in reforming the culture underlying such unacceptable behaviour.</p>
+
+<p>In India, said that country’s delegate, a quota for women in local government enabled the election of 1.3 million women.  She deplored that “feminization of poverty remains a reality”, stressing that women are the largest beneficiaries of Government income security, health insurance and financial inclusion programmes.  Vijaya Lakshmi Pandit’s election as the first female President of the General Assembly underscores the importance of women in decision‑making.</p>
+
+<p>Elevating specific needs, Italy’s delegate said women constitute the majority of the world’s 68.5 million refugees, internally displaced persons and asylum seekers.  Women in such emergency situations require protection.  “Empowerment starts with the abolition of violence against women, including female genital mutilation and child and forced marriage,” she said.</p>
+
+<p>Those calls were echoed by the representative of the State of Palestine, who said Palestinian women suffer “unimaginable” physical violence at the hands of Israel’s forces.  Economic empowerment will never materialize in a substantial way without ending Israel’s occupation, which only exacerbates and entrenches gender inequality.  States must hold Israel accountable for its crimes against Palestinian women and their families.</p>
+
+<p>In other business, the Committee decided to postpone for 48 hours a request for a legal opinion on whether to include an agenda item pertaining to Burundi, by a recorded vote of 67 in favour, to 56 against, with 11 abstentions.</p>
+
+<p>Also speaking in the general debate today were representatives of Pakistan, Dominican Republic, Guatemala, Nicaragua, Kazakhstan, Ecuador, Maldives, Afghanistan, Turkey, Jamaica, China, Zambia, Iran, Spain, Namibia, Democratic People’s Republic of Korea, Republic of Korea, Myanmar, Bulgaria, Sudan, Viet Nam, Rwanda, Gambia, Tunisia, Canada, Panama, Algeria, Gabon, Sierra Leone, Egypt (on behalf of the “Group of 77” developing countries and China), Syria, Bahrain, Senegal, Burkina Faso, El Salvador (speaking on behalf of the Community of Latin American and Caribbean States), Lebanon, Costa Rica, Comoros, Ghana, United Arab Emirates, Honduras, Cabo Verde, Libya, Philippines, Malaysia, Malawi, Albania, Andorra, Guinea, Ethiopia and Thailand, as well as of the Holy See.</p>
+
+<p>The representatives of Japan, Republic of Korea and the Democratic People’s Republic of Korea spoke in exercise of the right of reply.</p>
+
+<p>The Third Committee (Social, Humanitarian and Cultural) will reconvene at 10 a.m. on Tuesday, 9 October, to consider the rights of children.</p>
+
+<p><u>Background</u></p>
+
+<p>The Third Committee (Social, Humanitarian and Cultural) continued its debate on the advancement of women today.  (For background, see Press Release <a href="https://www.un.org/press/en/2018/gashc4229.doc.htm">GA/SHC/4229</a>.)</p>
+
+<p><u>Statements</u></p>
+
+<p>MALEEHA LODHI (<u>Pakistan</u>) said ensuring equal rights includes addressing structural discrimination, changing how societies think and work, and responding to the challenges faced by women when they step out of their homes to play their due socioeconomic roles.  Efforts should focus on economic empowerment, which is far from being accomplished.  The #MeToo movement points towards the dimensions of violence which must combated.  Women’s meaningful participation is a force multiplier to achieving the Sustainable Development Goals, and women’s empowerment is a priority for Pakistan’s new Government.  In his inaugural address, Prime Minister Imran Khan presented an ambitious plan that aims to lift women out of poverty.  Pursuit of this agenda focuses on reducing the feminization of poverty, promoting gender equality, ending violence and introducing legislation to protect and empower women.  An early testimony to its effectiveness is that half the Parliamentary Secretaries are women, she said, adding that Pakistan elected the first female Prime Minister of a Muslim country.</p>
+
+<p>LUZ ANDUJAR (<u>Dominican Republic</u>), aligning herself with the “Group of 77” developing countries and China, and the Community of Latin American and Caribbean States (CELAC), reiterated her country’s commitment to the Beijing Declaration and Plan of Action for the achievement of full gender equality.  The Government has put in place a series of public policy instruments, notably the National Development Strategy 2030, to achieve gender equality.  It has also implemented a paid parental leave, plans tackling sexual harassment in the workplace and an equality stamp to foster gender equality in the public and private sectors.  She stressed the importance of female representation at the highest decision‑making levels.</p>
+
+<p>EDGAR ANDRÉS MOLINA LINARES (<u>Guatemala</u>), aligning himself with CELAC, said women are not only affected by climate change and conflict, but also have leadership abilities to resolve those problems.  Their meaningful participation in decision‑making accelerates economic recovery, improves peacebuilding and leads to sustainable peace.  Without security for women and girls, lasting peace cannot be achieved, he said, noting that Guatemala is working to increase women’s access to justice and to promote their empowerment beyond development, as there is a need for greater female participation in politics and economic circuits.</p>
+
+<p>JAIME HERMIDA CASTILLO (<u>Nicaragua</u>), aligning himself with the Group of 77 and CELAC, said public policies in his country have increased the range of rights women enjoy.  Maternal mortality was reduced thanks to improved health care offered to women living in rural areas.  There can be no social, economic or political successes that do not have women as their protagonists, he stressed, drawing attention to Nicaragua’s law requiring that all political parties include an equal number of men and women on their electoral lists, which had led to women occupying more than 50 per cent of State and municipal positions.</p>
+
+<p>AZAT SHAKIROV (<u>Kazakhstan</u>) said collective efforts are needed to translate all United Nations conventions, treaties and resolutions into national legislation, services and programmes.  Actions should be directed to reducing discrimination, stereotyping and biases barring women from hidden structural and cultural disadvantages.  Globally, one in five girls are in households with deep poverty, while more women than men are living on less than $1.90 a day, not enough for food, housing, health care or education.  He cited the Kazakhstan 2050 plan, the “100 Steps” programme and Nurly Zhol initiative which aim to ensure that Kazakh women and men have equal rights to economic resources, education, health care and nutrition, as well as control over land and other property.  Government reports include strict criteria and indicators, based on gender disaggregated data, he said, also pointing to efforts to make women financially independent.</p>
+
+<p>Ms. DEV (<u>India</u>) said the feminization of poverty remains a reality.  Recalling that Vijaya Lakshmi Pandit was the first President of the General Assembly, which underscores the importance of women in decision‑making, she said that thanks to a reservation of seats for women in local government, 1.3 million women have been elected, enabling them to formulate and implement gender‑sensitive public policies.  Women are the largest beneficiaries of Government income security, health insurance and financial inclusion programmes, and today, 164 million women have bank accounts.  She also pointed to the extension of mandatory paid maternity leave from 12 weeks to 26 weeks — the third longest in the world — and the fact that nurseries are now mandatory at organizations with 50 or more employees.  The criminal law outlines stringent punishment for violence against women, she said, citing the one stop centres and help lines.  There are also legal safeguards to protect women from child marriage, domestic violence and sexual harassment.  Aiming to achieve a 33 per cent representation of women in police forces, she highlighted India’s first deployment of an all‑women formed police unit as part of the United Nations Mission in Liberia (UNMIL) more than a decade ago.  She expressed support for zero‑tolerance of sexual exploitation and abuse in the United Nations.</p>
+
+<p>FABIÁN OSWALDO GARCÍA PAZ Y MIÑO (<u>Ecuador</u>) said that there is a long way to go to achieve gender equality and empowerment of women and girls.  Ecuador’s national development plan focuses on a cross‑cutting element to improve women’s lives:  equal access to education and health care.  In addition, Ecuador is committed to providing for decent work, and therefore, Government programs target underemployment and decrease pay differences.  Moreover, the Foreign Affairs Ministry is committed to ensuring that gender policy is a cross‑cutting element of foreign policy, he said, calling for collective efforts to advance women’s rights.</p>
+
+<p>MARIA ANGELA ZAPPIA (<u>Italy</u>), aligning herself with the European Union, said empowerment starts with the abolition of violence against women, including female genital mutilation and child and forced marriage.  Pointing out that women constitute the majority of the world’s 68.5 million refugees, internally displaced persons and asylum seekers, she stressed the need to protect women in emergency situations.  Italy has advocated for the inclusion of provisions to prevent and counter sexual violence in peacekeeping mandates, she recalled, emphasizing that women are not simply victims of conflict but also drivers of peace.  They should be included in the entire cycle of peace, notably conflict prevention and mediation.  Their full protection, empowerment and emancipation are core priorities of Italy’s development cooperation.</p>
+
+<p>The representative of <u>Maldives</u>, describing the national prevailing egalitarian tradition, said women and men mostly make joint household decisions and all citizens enjoy universal adult suffrage and maternal and paternal leave, which is now guaranteed by law.  Despite these achievements, alongside discrimination‑free school enrolment and employment, Maldives faces significant challenges in the advancement of women.  The number of women in executive positions in both Government and the private sector is still small.  In recent years, the Government implemented a policy of requiring at least 30 per cent of seats in the boards of State‑owned companies to be filled by women.  The 2016 Gender Equality Act created a legal basis of equal rights for all.  As a landmark step, Maldives criminalized marital rape in 2014, she added, recognizing the need to fast‑track efforts to achieve gender equality in national and international arenas.</p>
+
+<p>ZUHAL SALIM (<u>Afghanistan</u>) said for the first time, Afghan women competed in a global robotics competition, stressing:  “the voices of Afghan women are stronger than ever.”  The Government has prioritized women’s advancement, deploying tools through “pillars” such as a national program to promote women in Government and business.  As a country in conflict, the goal is to increase women’s participation in all levels of society and he cited the country’s achievements as related to Security Council resolution 1325 (2000), stressing that women’s contributions to peace and security are more important than ever.  The Government aims to reverse violence against women by improving access to justice and with the passage of an anti‑harassment law.  He also cited a national strategy to prevent violence against women.</p>
+
+<p>EINAT SHLEIN (<u>Israel</u>) expressed concern over sexual violence and sexual harassment, as more than one in three women experienced such violence globally.  Noting the spike in calls for justice in 2017, he said the code of silence plaguing survivors of sexual assault and harassment has been broken.  With the launch of the #MeToo movement, women everywhere have called out offenders.  Netta Barzilai won the Eurovision competition with “Toy”, her anthem for female empowerment against sexual harassment.  More broadly, the United Nations adopted a resolution, introduced by Israel, on preventing and eliminating sexual harassment in the workplace.  On the national front, Israel adopted a law fining clients of prostitution, seeking to curb demand and assist sex workers in their rehabilitation and reintegration into society.  Its cooperation and development agency provides leadership and entrepreneurship training, as well as financial assistance for graduates.  “It is our collective moral obligation to treat all people with decency and respect,” he said.  “We cannot defeat sexual violence and harassment if we do not accept that basic principle.”</p>
+
+<p>Ms. LOPEZ, youth delegate from <u>Mexico</u>, said women need equality.  That this item remains on the Committee’s agenda speaks to the structural barriers against women.  She expressed regret that it is still necessary to reiterate that women — who represent half of the planet — are also subjects of law.  Progress in Mexico shows that investments and actions bear results:  In its recent elections, it achieved gender parity in the legislature.  Mexican women are increasingly present in armed and public security forces.  She pressed the international community to recognize migrant women as development agents, in both origin and destination countries.  Warning against the effects of polarization in multilateral forums, she rejected the Committee’s attacks on gender equality.  Reversing the progress is not an option, especially when no country has achieved full gender equality.  Pledging to promote an intersectional approach, she pointed out the need for more data and statistics to better understand the challenges.</p>
+
+<p>Ms. INANA-ORNEKAL (<u>Turkey</u>) said achieving Sustainable Development Goal 5 (gender equality) has a central place in the formulation and implementation of national policies.  Turkey pays attention to preventing all kinds of discrimination, combating violence and ensuring women’s empowerment.  It is impossible to achieve the Sustainable Development Goals without women’s contributions, but progress has been slow.  Women and girls suffer disproportionately from violence in all spheres.  The advancement of women and girls must be prioritized during crises, conflict and in post‑conflict situations, and as such, Turkey attaches importance to making further progress within the peace agenda.</p>
+
+<p>TYESHA O’LISA TURNER (<u>Jamaica</u>) said efforts to promote gender equality and eliminate violence are based on the inextricable link between sustainable development and prospects for improving people’s lives, especially for the most vulnerable.  Violence against women is ubiquitous and impedes their enjoyment of all human rights.  Member States should do more to bridge the gaps and surmount the obstacles, she said, underscoring the constant need to strengthen legislative and policy frameworks for both reducing and eliminating violence.  For its part, Jamaica has undertaken a review of key legislation to assist in curbing violence against women.</p>
+
+<p>TOMASZ GRYSA, observer for the <u>Holy See</u>, said Pope Francis has called human trafficking a “crime against humanity”.  Catholic sisters around the world contribute to anti‑slavery efforts through international networks, such as Talitha Kum, and by investing in education and youth employment.  Prosecuting traffickers and stamping out demand are crucially important elements in those efforts.  Women in politics make an indispensable contribution and should be protected from violence and intimidation.  Regarding domestic violence, he said while awareness raising is encouraging, domestic violence perpetrators must face legal consequences as they violate the “glue of society”.  Turning to the devaluing of the elderly, elderly women in particular, he emphasized the critical usefulness of grandmothers as those who pass on culture, value and wisdom to younger generations.</p>
+
+<p>SHI YUEFENG (<u>China</u>) outlined how development imbalances, wars and conflicts, climate change, violence and human trafficking are major obstacles.  Moreover, he said, the rights of women and girls in the economic, educational and health spheres have yet to be guaranteed.  In line with its commitment to gender equality, China has formulated a national plan to promote women’s development and adopted more than 100 laws and regulations, he said, pointing out that women account for 43.1 per cent of the workforce and 52.5 per cent of college students in the country.  Meanwhile, China continues to support the work of UN‑Women and other agencies, while supporting developing countries in achieving the Sustainable Development Goals.</p>
+
+<p>CHRISTINE KALAMWINA (<u>Zambia</u>) said her country’s Gender Equity and Equality Act, enacted in 2015, aims to promote those activities in all spheres of life.  The Government is implementing the Women’s Development Programme, aimed at enhancing access to productive resources and increasing entrepreneurship among vulnerable women.  Further, Zambia, with support from the World Bank, is implementing the Girls’ Education and Women’s Empowerment and Livelihoods Project, which both aims to keep girls in school and support women’s livelihoods.  Zambia recognizes that increasing girls’ access to education has a profound impact on the realization of their full potential, she said.</p>
+
+<p>JO FELDMAN (<u>Australia</u>), while underscoring the progress made on gender parity at the United Nations, stressed that success cannot be achieved in isolation and called on all agencies to deliver on their commitment.  She expressed deep concern at recent revelations of sexual exploitation, abuse and harassment within the Organization.  Commending the Secretary‑General’s zero‑tolerance position, she urged continued leadership in reforming the culture underlying these unacceptable behaviours.  Violence against women requires coordinated multisectoral approaches and attitudinal changes.  Australia’s action plans on that issue will focus on prevention, response and recovery.  Women’s control over their bodies is a prerequisite to full equality, she stated.  Ensuring universal access to sexual and reproductive health and rights is essential for their advancement.</p>
+
+<p>ZAHRA ERSHADI (<u>Iran</u>) said “women and girls disproportionately bear the burdens of conflicts emanating from violent extremism and terrorism exacerbated by foreign interventions and occupation of the Middle East,” citing in particular the demolition of basic infrastructure, the loss of loved ones, displacement and the impacts of illegal and inhumane unilateral sanctions.  That remains the case in Iran, where sanctions affect women’s and girls’ access to health care, education, food and medicine.  Decrying the use of such punishments, she spotlighted the critical role women play in achieving sustainable development, peace and prosperity.  More than 99 per cent of girls in Iran attend primary school, while more women are entering university than in years past, she said, adding that the country’s sixth national development plan reserves at least 30 per cent of public sector managerial positions for women.</p>
+
+<p>JOSÉ MARÍA BASTIDA PEYDRO (<u>Spain</u>) described progress within his country’s political landscape, including eleven female ministers and six male ministers.  However great the gains, there is a long way to go.  Spain is working on a strategic plan to draw up laws for addressing gender gaps in the labour market and increasing women’s presence in science and technology.  Their participation in humanitarian activities in conflict zones is also important.  As a member of the Human Rights Council, Spain is defending the universality of human rights and will continue to combat all forms of discrimination against women through its dialogue with that Council and the General Assembly.</p>
+
+<p>BERGDÍS ELLERTSDÓTTIR (<u>Iceland</u>) said her country has experienced first‑hand the immense potential of gender equality.  As the world celebrates the seventieth anniversary of the Universal Declaration of Human Rights, women, girls and adolescents continue to be subjected to discrimination, violence and harmful practices.  The Sustainable Development Goal of gender equality will not be achieved by 2030 if it is mainly discussed amongst women.  The international community must involve men — especially those who can influence change in gender norms.  Although Iceland sits at the top of the Women, Peace and Security Index, it has yet to achieve complete gender equality.  Specific efforts are necessary to achieve progress.  She spotlighted a recent law on equal pay certification which made Iceland the first country in the world to require employers to obtain certification based on an obligatory management standard.</p>
+
+<p>NEVILLE MELVIN GERTZE (<u>Namibia</u>) said women’s advancement is about human rights and justice.  The Constitution incorporates these values into national laws, however more must be done, he said, noting that the legal framework must be developed and buy‑in ensured.  Namibia’s ruling party has demonstrated political will, along with the opposition party.  Noting that 43 per cent of households in southern Africa are headed by women, he said their advancement is intertwined with economic advancement.  While there have been many positive steps, violence still plagues Namibia, rooted in societal norms which cannot be “legislated away”.  Unless systemic discrimination is tackled, the cycle of patriarchy that inhibits women’s inclusion will persist.</p>
+
+<p>RI SONG CHOL (<u>Democratic People’s Republic of Korea</u>) said that under the wise leadership of Comrade Kim Jong Un, every woman takes part in the State and in social activities, fully enjoying their rights.  Throughout the country, women’s rights are respected through enforcement of the “law on the protection of women’s rights”.  Great achievements have been made as a result of attention to improving health and work conditions for women.  Sexual slavery committed by Japan during the Second World War is a brutal crime against humanity and flagrant violation of women’s rights.  Japan forced 200,000 Korean women and girls, and many other women in Asia, into sexual slavery.  In August 2018, the Committee on the Elimination of Racial Discrimination pointed out that Japan does not accept its explicit accountability.  He called on Japan to officially recognize its crimes against humanity, apologize and offer compensation.</p>
+
+<p>PARK CHULL-JOO (<u>Republic of Korea</u>) said women’s voices are now being heard more clearly than ever.  Urging Member States to continue that momentum, protect victims of sexual abuse and exploitation, and protect whistle‑blowers, he also voiced strong support for the United Nations zero‑tolerance policy on that issue.  “Gender equality starts with changes in discriminatory structures in society,” he said, noting that the Republic of Korea is working to better mainstream gender equality in its national policies.  Outlining strategies to close gender gaps in the workplace and end violence against women, he said a new plan to improve women’s representation in key public sectors (2018‑2022)” aims to increase women’s participation in decision‑making and support women who had previously discontinued their careers.  As a member of the Group of Friends of Security Council resolution 1325 (2000), the Republic of Korea also supports victims of “comfort women” practices during the Second World War, and recently launched the “Action with Women and Peace” initiative to address the needs of those who survived sexual violence in conflict and post‑conflict situations.</p>
+
+<p>TIN MARLAR MYINT (<u>Myanmar</u>), associating herself with the Non‑Aligned Movement and the Association of Southeast Asian Nations (ASEAN), said that while significant progress has been seen in women’s roles in politics, business, education and health care, much remains to be done.  Myanmar has integrated the Convention on the Elimination of Discrimination against Women and its principles into national plans, she said, describing the work of its National Committee for Women’s Affairs, Myanmar Women Affairs Federation, and Women Entrepreneurs Association in that context.  In particular, Myanmar is using information and communication technology in its rural development programmes and has developed the “i‑women” mobile application to enlarge women’s democratic space and help them solve problems related to accessing contacts, networks and mentors within the community.  The Government has also established an independent commission of inquiry to investigate all allegations of human rights violations and atrocities committed in Rakhine State, including sexual violence, since the Arakan Rohingya Salvation Army terrorist attack in October 2016.</p>
+
+<p>GEORGI VELIKOV PANAYOTOV (<u>Bulgaria</u>), associating himself with the European Union, said gender equality is now rightly receiving its due as a sine qua non in discussions on human rights.  The topic is one of Bulgaria’s priorities for its candidacy on the Human Rights Council, he said, also outlining its national policies in that arena.  Bulgaria works to reduce gender‑based differences in payment and income, promotes gender equality in decision‑making and combats gender stereotypes in public life.  Noting that promoting gender equality is crucial for global economic development, he said Bulgaria implements strategies aimed at increasing the number of women in the labour market, including ensuring equal pay for work of equal value.</p>
+
+<p>NAWAL AHMED MUKHTAR AHMED (<u>Sudan</u>), aligning herself with the Group of 77 and the African Group, said many strategies and policies, such as the creation of a dedicated unit, have been put in place to eliminate violence against women.  The Government also enacted a law to combat trafficking in persons, including women and girls, and adopted legislation that led to a reduction in female mutilation.  Factors such as migrations, poverty, conflict and cultural practices are daunting challenges that complicate women’s advancement in Sudan.  She nevertheless reiterated the country’s commitment to pursue it, stressing the importance of a multidisciplinary approach.</p>
+
+<p>NGUYEN LIEN HUONG (<u>Viet Nam</u>), associating with the Group of 77 and ASEAN, said that while gender equality and empowerment of women and girls are at the centre of the 2030 Agenda for Sustainable Development, limits on women’s workforce participation cost the region some $89 billion annually.  Citing Viet Nam’s national action programme on gender equality for 2016‑2020 and support for women’s start‑ups, she said her country also chaired the 2017 Asia‑Pacific Economic Cooperation (APEC) Forum on Women and the Economy, which adopted Gender Inclusion Guidelines for implementing gender‑responsive policies.  “A sustainable country leaving no one behind is a country where all women and girls no longer suffer any form of discrimination or violence,” she said, noting that Viet Nam’s annual Action Month of Gender Equality and Preventing Violence against Women and Girls, from 15 November to 15 December, aims to mobilize all stakeholder efforts towards that end.</p>
+
+<p>KAGENZA SAFUKI-RUMONGI (<u>Rwanda</u>) said his country has made significant efforts to increase women’s participation in politics:  61 per cent of the seats in the lower house are occupied by women, and 48 per cent of judges in the Supreme Court are women.  Violence against girls is unacceptable and Rwanda has implemented a 24‑hour crisis line for counselling and legal aid.  Kigali is part of UN‑Women’s “Safe Cities” initiative.  Rwanda has also established an anti‑trafficking initiative, which includes awareness campaigns.  He urged women to participate in income‑generating activities, giving them more economic opportunity.</p>
+
+<p>ISATOU BADJIE (<u>Gambia</u>) stressed the linkage between her country’s development and female economic empowerment, which it seeks to enhance through a national female entrepreneurship fund.  Pointing out that women and girls are the main beneficiaries of social protection programmes, she said a dedicated secretariat will be created to coordinate their implementation.  She reaffirmed Gambia’s commitment to aligning its national policies with international gender‑equality mechanisms.</p>
+
+<p>NESRINE ELMANSOURI (<u>Tunisia</u>) stressed that, since the independence of her country, women's rights have continued to record considerable progress, in line with Tunisian reforms, citing as evidence the reform of the Constitution in 2014, which made it possible to devote equal rights between men and women.  The adoption by Parliament in 2017 of a law on violence against women has strengthened the legal arsenal in this area.  Shelters for victims of such violence have also been put in place.  In the field of education, Tunisia is working to anchor the principles of human rights and gender equality within Tunisian society.</p>
+
+<p>RICHARD ARBEITER (<u>Canada</u>) said the issue of gender equality is difficult and delicate to address, requiring work on a multilateral level.  Canada is aware of the areas it has not yet reached, for example, on equal pay and on providing opportunities to indigenous women.  Discrimination in a digital context not only impacts the right to freedom of expression, it fosters radicalization and violence offline.  Assembly resolutions on women, peace and security represent important steps forward, but the challenge now is to ensure their implementation so that peacebuilding and reconciliation are both effective and sustainable.  Together, progress can be made in combating sexual and gender‑based violence, as well as advancing women’s participation in peace processes and in United Nations peace operations.</p>
+
+<p>ISBTEH LISBETH QUIEL MURCIA (<u>Panama</u>), aligning herself with CELAC and the Group of 77, stressed the importance of listening to all women and understanding their needs.  Panama has implemented a national agenda for gender equality, which seeks to foster female economic autonomy and empowerment; prevent and monitor teenage pregnancies; and strengthen institutional actions for equality.  Underscoring that women and girls are among the most affected by human trafficking, she said Panama is committed to ending this scourge through inter‑institutional cooperation.</p>
+
+<p>NADYA RIFAAT RASHEED, observer for the <u>State of Palestine</u>, said Israel’s occupation deprives Palestinian women of their most basic human rights, threatening their emotional and physical safety.  Palestinian women suffer “unimaginable physical violence at the hands of Israeli forces”, she added.  The occupation inflicts invisible damage on the daily lives of Palestinian women.  Despite the obvious need for economic advancement, the blockade in Gaza physically bars Palestinian women from financial opportunities.  Economic empowerment will never materialize without ending the occupation, which exacerbates and entrenches the injustices of gender inequality.  She pressed the international community to hold Israel accountable for its flagrant violations of international law and crimes against Palestinian women and their families.</p>
+
+<p>NORA IMANE BELLOUT (<u>Algeria</u>) said the country was engaging women in national development through measures such as microcredit programs.  Other measures include involving women in education and in higher education where the percentage of women’s participation has exceeded 50 per cent.  The legal system has paid special attention to violence and has led to the establishment of a trust fund to support and protect nursing women.  At the international level, she noted that Algeria has joined human rights instruments, especially on the rights of women.</p>
+
+<p>BLANCHARD ONANGA NDJILA (<u>Gabon</u>), aligning himself with the African Group, said his country has made the improvement of women’s status and the protection of their rights a priority.  It has created a ministry for the family, which is responsible for protecting childhood and promoting women, as well as an Observatory of Women’s Rights and Parity.  In 2015, Gabon proclaimed the Decade of the Gabonese Woman, and a 30 per cent quota was established to foster the political participation of women and youth.</p>
+
+<p><u>Action — Organizational Matters</u></p>
+
+<p>The representative of <u>Burundi</u> requested a legal opinion from the Office of Legal Affairs, with the representatives of Syria, Russian Federation, Cuba, China, Morocco and Saudi Arabia expressing support for that position.</p>
+
+<p>The representative of <u>Austria</u>, speaking on behalf of the European Union, said the Committee could not choose which mandates to ignore or enforce.</p>
+
+<p>The representative of <u>Egypt</u> requested clarity on what the Committee is considering.  It is the Chair’s duty to guarantee issues are addressed properly before considering organizational matters.</p>
+
+<p>The representative of <u>Liechtenstein</u>, stressing that there is no legal way mandate holders can be excluded from interactive dialogues, rejected such a selective approach and expressed full support for such participation.</p>
+
+<p>The representative of the <u>United States</u> said there is no basis for a legal opinion to be rendered, especially at the request of one State.  It is for the Committee to determine whether to request an opinion, and as such, rejected the motion.</p>
+
+<p>A Secretariat official clarified that any Member State can request an opinion but the decision to transmit that request to legal counsel must be taken by consensus by the Third Committee, a United Nations intergovernmental body.  He asked whether the United States delegate is requesting a vote, to which the delegate asked what might happen in the absence of a vote.</p>
+
+<p>Following the Secretariat official’s response that the Committee can take action on the request, the representative of the United States requested a vote.</p>
+
+<p>The representative of <u>Burundi</u> said a paragraph was needed in order to move to a vote, to which the Secretariat official replied that there is no rule on such an issue, reiterating that any request for a legal opinion must come from the Committee, as an intergovernmental body of the United Nations.</p>
+
+<p>Following further questions over which Rule of Procedure the Committee was following, the representative of Burundi recommended that action be suspended pending consultations.</p>
+
+<p>The Chair suspended the meeting for 5 minutes to resume at 3.15 p.m.</p>
+
+<p>There was a misunderstanding on the matter at hand followed by some discussions on clarifying which rule of procedure of the General Assembly applies to the matter of adjourning the meeting.</p>
+
+<p>The representative of <u>Burundi</u> clarified that he had not asked for the meeting to be suspended, but rather for action to be suspended pending further consultation, a call echoed by the representatives of Morocco and Syria.</p>
+
+<p>The representatives of <u>Austria</u> and the <u>United States</u> raised the same point of order in asking how much time is being requested.</p>
+
+<p>The representative of the <u>Burundi</u> requested an adjournment of 48 hours to allow for further consultations.</p>
+
+<p>The representative of the <u>United States</u> recommended moving forward with a vote.</p>
+
+<p>The representative of <u>Mexico</u>, in a point of order, requested clarification on whether the Committee is adjourned or suspended, or whether it is advancing its organisation of work, to which the Secretariat official clarified that this was not an adjournment.</p>
+
+<p>The representative of <u>Morocco</u> asked why the Committee is in a rush on the issue, pointing out that in Rule 74.116, two delegates against the motion must be heard.</p>
+
+<p>A vote was then held on the motion to adjourn the action for 48 hours.</p>
+
+<p>The Committee approved the motion to adjourn action seeking a legal opinion by a recorded vote of 67 in favour to 56 against, with 11 abstentions.</p>
+
+<p>After the vote, the representatives of <u>Comoros</u> and <u>Somalia</u> said their voting machines had not worked.</p>
+
+<p>The Secretariat official reminded that countries in arrears are not allowed to vote.</p>
+
+<p><u>Statements</u></p>
+
+<p>NIMATULAI BAH-CHANG (<u>Sierra Leone</u>), aligning with statements made on behalf of the Group of 77 and the African Group, said that empowering women and protecting them from abuse are priorities of his country.  Sierra Leone is committed to full implementation of related conventions, including the Convention on the Elimination of All Forms of Discrimination against Women.  Major issues in economic empowerment, anti‑discrimination and ending abuse are being addressed nationally at the legal and policy levels.  A policy of “no rite of passage for girls below 18” is being enforced, while a national strategy for the reduction of female genital mutilation is under consideration.  A strategy for reducing adolescent pregnancy and child marriage through a multisectoral approach will soon be launched.  Structures to combat trafficking in persons have been created, and a policy of free quality education for girls in Government and Government‑assisted schools has been put in place.  Laws fighting discrimination against women in numerous other areas have been enacted, although enforcement is incremental.  Finalization of an equality and empowerment umbrella policy, which would include establishment of a Gender Affairs Commission, is likely by the end of the year.  Health efforts are ongoing in a difficult environment, he said, welcoming sustained cooperation in mobilizing required resources.</p>
+
+<p>MOHAMED FATHI AHMED EDREES (<u>Egypt</u>), speaking on behalf of the Group of 77, voiced support for the full, effective and accelerated implementation of the Beijing Declaration and Platform for Action, and the twenty‑third Special Session of the General Assembly outcome.  Gender equality and women’s empowerment are linked to sustainable development, he said, calling for collective efforts to translate the 2030 Agenda into benefits on the ground.  Expressing concern about persistent challenges in the advancement of women – and over the disproportionate impact of unilateral coercive measures and colonialism on women and girls – he said the impacts of climate change also fall heavily on women.  Underlining the critical principles of human rights, democracy, peaceful dispute settlement, non‑use of force, territorial integrity, sovereignty and political independence in that context, he described a high‑level interactive dialogue titled, “Innovative practices for the financial inclusion and economic empowerment of women, especially rural women:  lessons from the South”, convened by the Group in collaboration with UN‑Women, the United Nations Development Programme (UNDP).</p>
+
+<p>KOUSSAY ALDAHHAK (<u>Syria</u>) said that, for the past seven years, women in his country have suffered crimes at the hands of terrorist organizations that only view them as objects of slavery and sexual exploitation.  Some of them have been forced to flee to other countries where they resorted to illegal acts to make a living, faced forced and early marriages, hatred and discrimination.  Regimes in neighbouring States use refugees to blackmail the European Union and obtain membership in the bloc.  Yet, Syria managed to implement programmes that enhanced the status of women and took major steps to support and empower them.  The extremist thinking that leads to the abuse of women will not gain a foothold in Syria, he assured.</p>
+
+<p>Ms. BUSHAQER (<u>Bahrain</u>) said her country is working to enable women to fully enjoy their rights and become equal partners in achieving development.  It has established a national observatory to measure the effectiveness of gender‑equality policies, among others.  The experience of Bahraini women in entrepreneurship has become an international model.  Their participation in business has now reached 28 per cent.  Bahrain is committed to promoting successful national practices, she added, underscoring the importance of women’s contributions to the achievement of the 2030 Agenda.</p>
+
+<p>MARIE GNAMA BASSENE (<u>Senegal</u>), aligning herself with the Group of 77 and the African Group, said her country has designed and implemented programmes to foster the empowerment of women and girls and gender equality, notably:  budgetary allocation for gender clusters in 11 departments; entrepreneurship; and grant programmes in the scientific, professional and technical fields for gifted girls from underprivileged families.  Senegal adopted a law that prevents and bans female genital mutilation and combats obstetrical fistula — a health problem affecting the most marginalized.  Moreover, to protect women from gender‑based violence, the Government has set up regional committees and created a national technical committee tasked with the promotion of human rights.</p>
+
+<p>MARIAME FOFANA (<u>Burkina Faso</u>) aligning with the Group of 77 and the African Group, reaffirmed his country’s commitment to overcome gender inequality, notably with the adoption of a national plan for the period 2016‑2020, which works to protect women’s rights and empowerment in development processes.  There is a divide between national and international legislation.  Rural women have difficulties finding jobs due to a lack of education, she said, noting more broadly that women often have the lowest paid jobs and their access to land is limited, due to social resistance.  Women must be allowed real economic development, she stressed, drawing attention to a recently created fund to support their income.  “If more women are working, the more prosperous the economy will be,” she said, noting that Burkina Faso aims to reduce unemployment by promoting women’s self‑employment.</p>
+
+<p>MAYRA LISSETH SORTO ROSALES (<u>El Salvador</u>), aligning with the Group of 77, as well as the Group of Friends of Older Persons, and speaking on behalf of CELAC, described legislative progress in protecting women’s rights, notably the law for ensuring a life free of violence, the creation of a long‑term political framework for protection, prevention and redress, and punishment for perpetrators of violence against women.  Citing resolution 1325 (2000) on women, peace and security, he detailed El Salvador’s enhanced commitment in many spheres, particularly through the “Spotlight initiative” to eliminate violence against women, adolescents and girls, and efforts in preventing femicide and sexual violence.  Older, indigenous and migrant women suffer multiple forms of discrimination, she said, noting that the health‑care system has a gender focus in addressing reproductive rights and underscoring El Salvador’s commitment to promoting the welfare of rural women.</p>
+
+<p>CYNTHIA CHIDIAC (<u>Lebanon</u>) paid tribute to the women involved in the #MeToo, #TimesUp and #NiUnaMenos movements, which generated sincere and energetic debate on sexual violence around the world.  The Lebanese Council of Ministers has approved draft legislation on workplace sexual harassment and abolished the law that allowed rapists to avoid prosecution by marrying their victims.  It is vital to reduce the legal gaps regarding the protection of women.  To prevent and eradicate all forms of violence against women in private and public life, efforts must be redoubled, she said.</p>
+
+<p>ADELAIDA LEÓN MURILLO (<u>Costa Rica</u>), aligning herself with CELAC, the Group of Friends of Older Persons, and the Group of 77, underscored the importance of gender equality as a route for a society committed to an inclusive, democratic and sustainable coexistence.  According to a recent report, in 2017 only 18 women were heads of delegation of the 196 delegations, he noted, stressing the importance of structural and integral policies on gender equality.  Citing Costa Rica’s national policy for equality and gender equity, and operational stage of the new national policy for effective equality between women and men, he also emphasized the need to transform the distribution of time, wealth and power.  “Changing reality does not only happen through the law but also and especially through the empowerment of women,” she said, placing their economic empowerment on top of the agenda.  Underscoring the importance of ending the wage gap, she also advocated for destroying structural barriers, as well as adverse social norms, stereotypes and cycles of discrimination.</p>
+
+<p>SAID MOHAMED OUSSEIN (<u>Comoros</u>), associating himself with the Group of 77, African Group and Southern African Development Community (SADC), said sustainable development will only be possible if half of humanity’s rights are no longer denied.  Women and girls are development drivers, he stressed, reaffirming his country’s commitment to implement the Beijing Declaration and the Convention on the Elimination of All Forms of Discrimination against Women.  Comoros has a higher representation of women in high‑ranking positions in national institutions.  To fight the extremes of poverty, unemployment and violence, the Government facilitates women’s access to microcredit, allowing them to play an important role in the national economy.</p>
+
+<p>MARTHA AMA AKYAA POBEE (<u>Ghana</u>), aligning with the African Group, stressed that women’s equal participation in decision‑making and political processes is pivotal to ensure their needs are taken into account.  She commended the African Women’s Leaders Network for promoting such participation.  Ghana’s actions include consultations on a revised gender equality law and stronger microfinance assistance, as well as enacting laws that counter sexual harassment in the workplace.  Measures to address gender‑based violence include a national campaign to end early and forced marriages, including a framework to end child marriage by 2026, and legislation on property rights.</p>
+
+<p>SHAHD JAMAL YOUSUF IBRAHIM MATAR (<u>United Arab Emirates</u>), recalling the anniversary of the Beijing Declaration, referred to Beijing +25, in 2020, as a milestone to accelerate gender equality.  The United Arab Emirates continues to work on women’s empowerment, in line with the Beijing platform, with the Constitution ensuring gender equality, and drawing attention to the composition of her delegation, said one third of the ministers in her country are women.  Further, the General Women’s Union developed a new method to empower women, in line with the United Arab Emirates vision for 2020 and international normative standards.  Gender equality is one of three pillars for the United Arab Emirates foreign aid strategy, she said, stressing also that “women are the first respondents during crisis”.  Citing the creation of a liaison office in 2016, she stressed that “no society can advance by using only half of its society.”</p>
+
+<p>IRMA ALEJANDRINA ROSA SUAZO (<u>Honduras</u>), aligning herself with CELAC, the Group of 77 and the Group of Friends of Older Persons, pressed the international community to implement holistic and multidimensional programmes to improve the conditions for women and girls.  The link between gendered violence and the actions of non‑State actors — such as gangs — must be made visible.  This will foster the adoption of gendered perspectives by human rights organizations and lead to suitable and comprehensive solutions.  Honduras has implemented assorted programmes to improve women’s education, health and development with the collaboration of sixteen government entities.  Pointing out that 44 per cent of Honduran women live in rural areas, she said female economic empowerment is essential in the fight against all forms of gender‑based violence.</p>
+
+<p>MIRYAM DJAMILA SENA VIERA (<u>Cabo Verde</u>) said the Government is fully committed to addressing barriers to women and girls, and thus has set up investment and inclusive policies in all levels of education and vocational training to ensure universal access.  Cabo Verde achieved parity in access to primary education, with supremacy of girls in relation to boys in secondary and higher education.  Other measures include those for gender parity in partnership with the Parliament and non‑governmental organizations, adoption of a national plan for gender equality, the national plan to fight gender‑based violence, and a special fund for victim’s protection and assistance.  In addition, the country is preparing for the adoption of a national plan against trafficking in persons, as well as bold policies to strengthen institutional capacity.  Political participation and leadership is being improved to ensure women’s broad representation in decision‑making.</p>
+
+<p>SAMIRA BEN ATEGH (<u>Libya</u>) associated herself with the Group of 77 and the African Group, stressing that women must be included politically, economically and socially in all development processes.  Referring to the political crisis in Libya, and the unstable situation of women’s involvement in political and social activities, she deplored that Libyan women are unable to achieve their aspirations.  The Presidential Council issued resolution 210 in 2016, on supporting and enabling women to participate in political institutions.  The protection of women and their advancement, empowerment and equality have been outlined in the new Constitution.  The Government is concerned that women and girls are victims of rape during strife on the ground, horrible acts that constitute crimes against women.  The Government criminalizes trafficking in persons and is harmonising national legislation with international conventions, especially the United Nations Convention against Corruption.</p>
+
+<p>TEODORO LOPEZ LOCSIN, JR., (<u>Philippines</u>) said trafficking of women and girls can be stopped, but only if dealt with comprehensively.  As the repulsive practice exists in all societies, whether developed or developing, alleviating poverty is not enough; neither is achieving the Sustainable Development Goals, though both can contribute to the solution.  The security sector and criminal justice response is equally critical.  That response would be more effective if women law‑enforcement officials were put in charge of cases.  It was important to get the traffickers by any means to ensure they can harm no more.  While he noted that international human rights law must be borne in mind, he voiced a preference for putting traffickers in small cages similar to where they have kept their victims for years.</p>
+
+<p>AMIR HAMZAH BIN MOHD NASIR (<u>Malaysia</u>) underscored her country’s commitment towards achieving gender equality, stressing that it has integrated women into social development and elevated their status in society.  Steps have been taken to encourage women to return to the workforce, notably through career comeback programs, grants for establishing child care centres — including at the workplace — increased maternity leave and flexible work.  Malaysia has ratified several international agreements to ensure the rights of women and girls, while its efforts on women’s empowerment have led to female labour force participation reaching 54.7 percent in 2017.</p>
+
+<p>PERKS M. LIGOYA (<u>Malawi</u>), associating himself with the Group of 77, African Group, Non‑Aligned Movement and SADC, outlined various national initiatives aimed at achieving gender equality and women’s empowerment.  Noting that Malawi’s President, Arthur Peter Mutharika, is among the Impact Champions of UN‑Women’s HeForShe campaign, he said strategies have been implemented to provide sanitary facilities for girls in secondary schools and to end child marriage.  Some 600,000 child marriages have been nullified to date and the children reintegrated back into school, he said, adding that the intake of female students in tertiary schools has simultaneously risen from 5 per cent in 2000 to 48 per cent in 2016.  In Malawi’s agriculture‑based economy, women contribute about 70 per cent of agricultural labour and produce about 80 per cent of the country’s food.  In that vein, he said, a new Lands Act has ensured women also have the right to own land with secured tenure.</p>
+
+<p>INGRIT PRIZRENI (<u>Albania</u>) highlighted that as of June 2017 parliamentary elections, women’s participation reached 28 per cent, achieved through a gender quota system and dynamic outreach.  Further, the Government is composed of 50 per cent women.  These major achievements could not have been reached without informing youth about the gender quota and the importance of women’s and girls’ leadership.  On inclusion, she said that alongside national policies, the Government and national human rights institutions together fulfilled their monitoring obligations relating to gender equality and ending violence against women.  At a local level, the National Network of Women Councilors was established to bring together all alliances of such Councilors under a common national women’s agenda.  Albania has taken the most advanced steps to bolster its legislative and institutional framework for achieving gender equality.</p>
+
+<p>ELISENDA VIVES BALMAÑA (<u>Andorra</u>) stressed that Sustainable Development Goals 4 and 5 must be cross‑cutting.  Education also must be a right, she underlined, noting the importance of boosting education, especially for girls.  Referring to a United Nations Educational, Scientific and Cultural Organization (UNESCO) report, she said more than 61 per cent of women are illiterate.  Sustainable development and integration projects can help overcome this problem.  “How we educate girls and women is having a large impact on the SDGS,” she said, stressing the importance of links to the Committee on the Elimination of Discrimination against Women and to human rights.  Stereotypes must be tackled at their roots.  On violence against women, she highlighted the work of recent Nobel Peace Prize winner Denis Mukwege, who gives voice to victims, noting Andorra’s early childhood education policies and support to victims of gender‑based violence.  She also cited the adoption of an equality and non‑discrimination law to achieve a culture of equality, currently being debated in Parliament.</p>
+
+<p>IBRAHIMA KOMARA (<u>Guinea</u>) said women’s action and leadership can be brought to bear in managing conflict and fostering environmental protection.  Countries that give women a role make progress in social, political and economic spheres.  However, women are still on the front lines of climate change and poverty, he said, stressing that attaining the Sustainable Development Goals will not be possible without women.  Drawing attention to programmes designed for women, as well as centres that are equipped for their empowerment, he said Guinea has built 4,000 classrooms in rural areas, set up a fund for African women and created microcredit, which encourages women’s entrepreneurship.  Among the challenges are the burdens of tradition, access to technology and creating a climate of peace.</p>
+
+<p>NURIA MOHAMMED (<u>Ethiopia</u>), aligning herself with the African Group and the Group of 77, cited a number of institutional measures supporting gender equality and women’s empowerment.  The Government aims to ensure female land ownership and foster women’s access to credit and other fixed assets.  It is also working to enhance access to reproductive health and ensure gender equality in education and employment.  A strategic plan was put in place to address violence against women and children.  Further, the Government reduced the rate of female genital mutilation and child marriage in 2016.  Acknowledging the remaining gaps, she pledged to redouble efforts to fully realize the rights of women and girls.</p>
+
+<p>NATTAPORN PHROMLERT (<u>Thailand</u>), aligning with the Group of 77 and ASEAN, and supporting gender parity throughout the United Nations system, said that gender‑equality and empowerment commitments must be implemented more comprehensively by all levels of society to achieve the 2030 Agenda.  Thailand has taken a multisectoral approach, working with the private sector, civil society, media and youth.  Efforts to end violence against women extend to those who face multiple forms of discrimination, trafficking and prison.  Women’s economic empowerment has been critical as women account for 64 per cent of the workforce and 47 per cent of the business population.  The Government facilitates access to finance and technology to women entrepreneurs.  Towards greater participation of women in decision‑making, and in peace and security, national guidelines have been adopted and Thai female military and police now serve in three peacekeeping missions.</p>
+
+<p><u>Right of Reply</u></p>
+
+<p>The representative of <u>Japan</u> replied to the statement by his counterpart from the Democratic People’s Republic of Korea, stressing that for over 70 years, Japan has respected human rights and democracy.  His Government wants to bring peace to North‑East Asia by overcoming distrust and seeks a bright future together.</p>
+
+<p>The representative of the <u>Republic of Korea</u>, in response to the statement by his counterpart from the Democratic People’s Republic of Korea, said defectors from the latter country enjoy freedoms of citizenship.  His Government expresses hope for free movement and overcoming family separation.</p>
+
+<p>The representative of the <u>Democratic People’s Republic of Korea</u> said Japan’s heinous crimes have neither been officially recognized nor sincerely compensated.  Without recognition and compensation, there is no bright future for Japan and no improvement between the two countries.  Japan has tried to evade past crimes, he said, noting that on the issue of women citizens, they have been deceived and their families are awaiting their return.</p></div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-2 radix-layouts-sidebar panel-panel">
+        <div  class="panel-panel-inner">
+          
+  <div class="views-element-container block">
+
+  
+            <h2>Highlights</h2>
+        
+
+      <div><div class="js-view-dom-id-13120d83877f13aada3c5a1c9c24c11af67c6be5bda94eb1b7b96831a7b22794 view-highlights">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/uploads/2022/09/UNGA77_highlight_1.png?itok=aFnhC_5V" width="60" height="60" alt="UNGA 77 logo" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/UNGA77">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">High-level meetings of the 77th session of the General Assembly</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">New York, 20-26 September 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/ocean-logo.png?itok=lpSD4mXq" width="60" height="60" alt="SaveOurOcean" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/SaveOurOcean">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">The Ocean Conference</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Lisbon, 27 June-1 July 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/Stockholm%2050_0.png?itok=TS7o2L4R" width="60" height="60" alt="" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/Stockholm50">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">&quot;Stockholm+50&quot; international meeting</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Stockholm, 2-3 June 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+  
+  </div>
+
+<div class="grey-bg noon-briefing-block">
+
+
+  
+            <h2>Daily Noon Briefing</h2>
+        
+
+      <div><div class="js-view-dom-id-4613a8c29cbf80d64629f6e9e34888081d2d961a39ebc7675183c1cf27ad8305 view-home-press">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="views-field views-field-view-node-1"><span class="field-content"><img src="/themes/custom/un_press_theme/assets/images/noon-briefing-image.jpg" alt="UN Spokesperson Stéphane Dujarric" class="img-responsive" /></span></div><div class="views-field views-field-view-node"><span class="field-content"><a href="/en/2022/db221017.doc.htm" hreflang="en"><time datetime="00Z">17 October 2022</time>
+</a></span></div><div class="views-field views-field-body"><p class="field-content">The United Nations Environment Programme (UNEP) today released a report which says plastics are accumulating in the world’s soil at a high rate.  The report found that plastics used extensively in farming — from plastic coated fertilizers to mulch film — are contaminating the soil and potentially threatening food security.</p></div></div>
+
+    </div>
+  
+            <div class="view-footer">
+      <div class="more-link"><a href="https://press.un.org/en/content/noon-briefings">Latest Noon Briefings</a></div>
+
+    </div>
+    </div>
+</div>
+
+  
+</div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div><!-- /.bartlett -->
+
+    </div>
+  </article>
+
+<div class="field field-name-disclaimer">
+  <span class="disclaimer">For information media. Not an official record.</span>
+</div>
+
+  
+  </div>
+
+
+        </div>
+      </div>
+      </main>
+
+      <footer class="page__footer-tabs">
+      <div class="container">
+        <div class="row">
+            
+  <div class="block block--resourcesandtools">
+
+  
+            <h2>Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://journal.un.org/en" class="nav-link" title="Journal">Journal</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/events-and-news" class="nav-link" title="Conferences &amp; Events">Conferences &amp; Events</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/media/accreditation/alert.shtml" class="nav-link" title="Media Alert">Media Alert</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--newsandmediaresources">
+
+  
+            <h2>News &amp; Media Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="https://news.un.org/en/" title="Global perspective Human stories" class="nav-link">UN News</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://media.un.org/en/webtv" class="nav-link" title="Webcast">Webcast</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/photo/" class="nav-link" title="Photo">Photo</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/" class="nav-link" title="Multimedia">Multimedia</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/media/accreditation/" title="Media Accreditation" class="nav-link">Media Accreditation</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.unmultimedia.org/" class="nav-link" title="Television">Television</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/tv/unifeed/" title="UNIFEED" class="nav-link">UNIFEED</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/sg/spokesperson/" title="Spokesperson for the Secretary-General" class="nav-link">Spokesperson for the Secretary-General</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--quicklinks">
+
+  
+            <h2>Quick Links</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="/en/content/general-assembly" class="nav-link" title="General Assembly section link" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/security-council" class="nav-link" title="Security Council section link" data-drupal-link-system-path="content/security-council">Security Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/economic-and-social-council" class="nav-link" title="ECOSOC section link" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/secretary-general" class="nav-link" title="Secretary-General section link" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/noon-briefings" class="nav-link" title="Latest Noon Briefing section link" data-drupal-link-system-path="content/noon-briefings">Latest Noon Briefing</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/meetings-coverage" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/meetings-coverage">Meetings Coverage</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-release" class="nav-link" title="Press Releases section link" data-drupal-link-system-path="content/press-release">Press Releases</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-conference" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/press-conference">Press Conferences</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer">
+      <div class="container">
+        <div class="row d-flex justify-content-between align-items-md-center">
+          <div class="col-4 col-md-4 col-lg-5 col-xl-6 footer-brand">
+            <a href="https://www.un.org/en" title="Home">
+              <span class="site-name">United Nations</span></a>
+          </div>
+          <div class="col-8 col-md-8 col-lg-7 col-xl-6 justify-content-end">
+            <div class="row">
+              <div class="col-12 col-md-8 d-flex align-items-md-center menu-social">
+                <div class="social-media">
+                  <a href="https://www.un.org/en/get-involved/social-media/" target="_blank" class="footer-link">Join the conversation:</a>
+                    
+  <div class="block block--footersocialmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://www.facebook.com/unitednations" class="nav-link"><i class="fab fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://twitter.com/UNMediaLiaison" class="nav-link"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.youtube.com/channel/UC5O114-PQNYkurlTg6hekZw" class="nav-link"><i class="fab fa-youtube-square"></i><span class="sr-only">Youtube</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/rss.xml" class="nav-link" data-drupal-link-system-path="rss.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 d-flex align-items-md-center justify-content-md-end donate-wrapper">
+                <div class="donate">
+                  <a href="https://www.un.org/en/about-us/how-to-donate-to-the-un-system/" target="_blank" class="btn btn-default btn-reverse dark" role="button" id="donate_button">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer-bottom">
+      <div class="container">
+        <div class="row d-flex justify-content-md-end align-items-md-center">
+          <div class="col-12">
+              
+  <div class="block block--ungloballinksfootermenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="http://www.un.org/en/siteindex/" class="nav-link" title="Site Index">A-Z Site Index</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/contact-us-0" class="nav-link" title="Help">Contact</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/copyright/" title="Copyright" class="nav-link">Copyright</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/about-us/frequently-asked-questions" class="nav-link">FAQ</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/fraudalert/" title="Fraud Alert" class="nav-link">Fraud Alert</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/privacy/" title="Privacy Notice" class="nav-link">Privacy Notice</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/aboutun/terms" class="nav-link" title="Terms of Use">Terms of Use</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<div class="minimal-share-panel">
+  <p class="minimal-share"><a href="https://www.facebook.com/sharer.php?u=https://press.un.org/en/2018/gashc4230.doc.htm" title="Share this via Facebook" class="facebook" data-ms="facebook">Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=Code of Silence around Sexual Abuse Broken amid Calls in Third Committee for Holistic Approaches to Rooting out Violence, Advancing Women’s Rights&amp;url=https://press.un.org/en/2018/gashc4230.doc.htm" title="Share this via Twitter" class="twitter" data-ms="twitter">Twitter</a>
+<a href="mailto:?subject=Code of Silence around Sexual Abuse Broken amid Calls in Third Committee for Holistic Approaches to Rooting out Violence, Advancing Women’s Rights&amp;body=https://press.un.org/en/2018/gashc4230.doc.htm" title="Share this via Email" class="email" data-ms="email">Email</a>
+<a href="" title="Share this via Print" class="print" data-ms="print">Print</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://press.un.org/en/2018/gashc4230.doc.htm&amp;title=Code of Silence around Sexual Abuse Broken amid Calls in Third Committee for Holistic Approaches to Rooting out Violence, Advancing Women’s Rights" title="Share this via LinkedIn" class="linkedin" data-ms="linkedin">LinkedIn</a>
+</p>
+
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"en\/","currentPath":"node\/263133","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"themes\/custom\/un_press_theme"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"minimalShare":{"sizes":{"linkedin":{"width":520,"height":570},"twitter":{"width":600,"height":260},"facebook":{"width":600,"height":500}}},"ajaxTrustedUrl":{"\/en\/sitesearch":true},"user":{"uid":0,"permissionsHash":"d429094e8101c7fbbf66cf85f7616354d19f2337c642528ef74c3443208d6269"}}</script>
+<script src="/sites/default/files/js/js_VjTj9kTLXs53zMhnoVLCsua_z80F6pFQzQNdSwRYQKs.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-b876a93492b9f256082","applicationID":"530317555","transactionName":"ZgQAMkICCkZRVxFRXF9OIwVECgtbH0QEX1ZuAgMFWAY=","queueTime":0,"applicationTime":86,"atts":"SkMDRAoYGUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

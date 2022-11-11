@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"594351857",accountID:"3442868",trustKey:"3442868",xpid:"VwIDU15VABAFV1FRBgYCU1E=",licenseKey:"NRJS-b876a93492b9f256082",applicationID:"530317555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script>
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/un_press_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://press.un.org/en/2018/gaef3495.doc.htm" />
+<link rel="canonical" href="https://press.un.org/en/2018/gaef3495.doc.htm" />
+<link rel="shortlink" href="https://press.un.org/en/node/263127" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWVSS4R');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-LQCS');</script>
+
+    <title>World’s Poorest Nations Left Behind in Reaching Sustainable Development Goals, Delegates Stress as Second Committee Begins General Debate | UN Press</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_lKEky3Js_pMC8KbPIp2Ksrm5Ezb2TrVq0TNXbNnzr5c.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsLzkwPv8J-ff6w1IZG2F3i3tgZ0FQYLJrJALJQXUSw.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" />
+
+    
+  </head>
+  <body class="node-263127 node-type--press">
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWVSS4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LQCS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="page">
+  <header class="main-header">
+  <div class="page-loader"></div>
+  <div class="container-fluid brandbar-header fixed-top">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-8 col-sm-3">
+                        
+  <div class="block block--un-press-theme-branding">
+
+  
+    
+
+    
+  <a href="/en" class="navbar-brand d-flex align-items-center " aria-label="">
+        
+  </a>
+
+
+  </div>
+
+
+            <a class="navbar-brand" href="https://www.un.org/en"><i class="home-icon fas fa-home fa-lg"></i> Welcome to the United Nations</a>
+                  </div>
+        <div class="col-4 col-sm-9 d-flex justify-content-end language-switcher">
+                        
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-lg-9 d-flex branding-top-wrapper">
+                    <a class="logo navbar-btn pull-left flip" href="https://www.un.org/en" title="United Nations"></a>
+          <a class="navbar-brand pull-left flip" href="https://press.un.org/en">Meetings Coverage and Press Releases</a>
+        </div>
+        <div class="col-12 col-lg-3 justify-content-end search-wrapper d-none d-md-block">
+                                      
+  <div class="views-exposed-form bef-exposed-form block block--exposedformsitesearchpage-1" data-drupal-selector="views-exposed-form-sitesearch-page-1">
+
+  
+    
+
+      
+<form action="/en/sitesearch" method="get" id="views-exposed-form-sitesearch-page-1" accept-charset="UTF-8" class="form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-group">
+      
+  
+  
+  
+  
+  
+
+<input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" class="form-textfield form-control" />
+<label class="sr-only" for="edit-search-api-fulltext">Search</label>
+<label class="sr-only" for="edit-search-api-fulltext--2">Search</label>
+
+
+  
+  
+  
+  
+  </div>
+<fieldset data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper card mb-3">
+    
+      <div class="card-header">
+      <legend class="m-0">
+        <label class="fieldset-legend mb-0">Sort By</label></legend>
+    </div>
+  
+  <div class="card-body fieldset-wrapper">
+                <div id="edit-sort-by" class="form-radios"><div class="form-radios">
+                  <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-field-dated" type="radio" id="edit-sort-by-field-dated" name="sort_by" value="field_dated" checked="checked" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-field-dated">Most Recent Entries</label>
+
+  
+  </div>
+
+                    <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-search-api-relevance" type="radio" id="edit-sort-by-search-api-relevance" name="sort_by" value="search_api_relevance" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-search-api-relevance">Most Relevant Entries</label>
+
+  
+  </div>
+
+      </div>
+</div>
+
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+
+<input data-drupal-selector="edit-submit-sitesearch" type="submit" id="edit-submit-sitesearch" value="Search" class="js-form-submit form-submit btn btn-primary" />
+</div>
+
+
+</form>
+
+  
+  </div>
+
+
+                              </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+                      <div class="menu-container bg-dark">
+              <div class="menu-main">
+                
+
+
+<nav class="navbar navbar-expand-lg justify-content-between  ">
+  
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                          
+  <div class="block block--mainenglishmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="/en" title="" class="nav-link" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+                  </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/secretary-general" title="Secretary-General" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/secretary-general" title="Latest Press Release, Statements etc. from the Secretary General" class="dropdown-item" data-drupal-link-system-path="content/secretary-general">Latest</a>
+              <a href="/en/content/secretary-general/press-release" title="Secretary General Press Releases" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-release">Press Releases</a>
+              <a href="/en/content/secretary-general/press-conference" title="Secretary Genral Press Conferences" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/general-assembly" title="General Assembly" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/general-assembly" title="" class="dropdown-item" data-drupal-link-system-path="content/general-assembly">Latest</a>
+              <a href="/en/content/general-assembly/meetings-coverage" title="General Assembly Meetings Coverage" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/general-assembly/press-release" title="General Assembly Press Releases" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/security-council" title="Security Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/security-council">Security Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/security-council" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council">Latest</a>
+              <a href="/en/content/security-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/security-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-release">Press Releases</a>
+              <a href="/en/content/security-council/press-conference" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/economic-and-social-council" title="Economic and Social Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/economic-and-social-council" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council">Latest</a>
+              <a href="/en/content/economic-and-social-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/economic-and-social-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item">
+                      <a href="https://www.icj-cij.org/en/press-releases" title="" class="nav-link"> International Court of Justice</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                    </div>
+
+  </nav>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="">
+    <a id="main-content" tabindex="-1"></a>
+          <div class="page__content">
+        <div class="container">
+            <div data-drupal-messages-fallback class="hidden"></div>
+  <div class="block block--un-press-theme-content">
+
+  
+    
+
+      
+<article role="article" class="node press press--full">
+  
+  
+
+      
+    
+    <div>
+      
+<div  class="panel-display bryant-flipped clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+		  
+  <div class="block inline print-sub-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-doctype field--type-entity-reference field--label-hidden field__item"><a href="/en/meetings-coverage" hreflang="en">Meetings Coverage</a></div>
+      
+  
+  </div>
+
+  <div class="block print-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-un-bodies field--type-entity-reference field--label-hidden field__item"><ul class="shs clearfix shs-linked"><li><a href="/en/general-assembly" hreflang="en">General Assembly</a></li><li><a href="/en/second-committee" hreflang="en">Second Committee</a></li></ul></div>
+      
+  
+  </div>
+
+        </div>
+      </div>
+      <div class="col-md-3 radix-layouts-sidebar panel-panel">
+        <div >
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.bryant-flipped -->
+
+<div class="panel-display bartlett clearfix">
+  <div class="container-fluid layout">
+    <div class="row">
+      <div id="printlogo">
+        <div class="header-bg"></div>
+        <div class="emblem" style="width:200px; float:left;">
+          <img src="/themes/custom/un_press_theme/assets/images/United_Nations_bw_hq.png" alt="United Nations">
+          <h5> United Nations</h5>
+        </div>
+      </div>
+      <div class="col-md-9 mb-2 panel-panel radix-layouts-main-column">
+                <div class="row">
+          <div class="col-6 radix-layouts-contentcolumn1 panel-panel left-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-session field--type-string field--label-hidden field__item">Seventy-third Session,</div>
+      
+  
+  </div>
+
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-info field--type-string field--label-hidden field__item">2nd &amp; 3rd Meetings (AM &amp; PM)</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-6 radix-layouts-contentcolumn2 panel-panel right-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-symbol field--type-string field--label-hidden field__item">GA/EF/3495</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-dated field--type-datetime field--label-hidden field__item"><time datetime="2018-10-08T12:00:00Z">8 October 2018</time>
+</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-md-12 radix-layouts-content panel-panel main-column">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-display-title field--type-string field--label-hidden field__item"><h1 class="page-header">World’s Poorest Nations Left Behind in Reaching Sustainable Development Goals, Delegates Stress as Second Committee Begins General Debate</h1>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Hampered by such obstacles as trade barriers, debt distress, food insecurity, climate change and meagre resources, the world’s poorest countries lagged furthest behind in reaching the Sustainable Development Goals, speakers told the Second Committee (Economic and Financial) today as it began its general debate.</p>
+
+<p>Presenting a research project his organization completed on “Counting who gets left behind”, Homi Kharas, Interim Vice‑President at the Brookings Institution, said poor, large countries like Nigeria, India, the Democratic Republic of the Congo, Pakistan and China, host the lion’s share of people left behind in meeting development targets.</p>
+
+<p>On more specific goals, he said the international community is far from reducing the number of lives lost to non‑communicable diseases by one third and is falling significantly short on reducing child mortality.  Other hard‑to‑reach goals include gender equality, universal access to sanitation and reducing air pollution.</p>
+
+<p>Speaking for the Group of Least Developed Countries, Malawi’s representative said 33 nations in his 47‑member group, which has a combined population of about 81.8 million, need urgent food assistance and long-term investment in agriculture in achieving the Sustainable Development Goals.</p>
+
+<p>Five least developed countries are in debt distress and 12 others at high risk of it, he said.  Noting that his group’s share of world exports dropped from 1.09 per cent in 2014 to 0.89 per cent in 2016, he stressed that duty‑free and quota‑free market access, simplified rules of origin and increased trade assistance for these nations was vital in building manufacturing capacity.</p>
+
+<p>On a like note, Morocco’s delegate, speaking on behalf of the Arab Group, noted that disadvantaged States, especially in Africa, are hampered in achieving the Goals by an unequal, unfavourable and uncertain global environment.  Noting that several African countries are already fiscally constrained in generating necessary resources to implement the 2030 Agenda for Sustainable Development, he called on the international community to explore balancing debt sustainability with financing, and work to curb illicit financial flows from Africa.</p>
+
+<p>Also addressing trade, Liu Zhenmin, Under‑Secretary‑General for Economic and Social Affairs, said that tensions in that arena continue to escalate, stressing that such uncertainty may impact consumer confidence and investment behaviour, with protectionist and retaliatory measures posing setbacks to growth and multilateralism.</p>
+
+<p>Adding that developing countries face increased volatility, he said nations with fragile gross domestic product (GDP) growth are more susceptible to external shocks.  Climate risks in weather‑sensitive regions are especially challenging in small island developing States, where the resilience of economies must be bolstered.</p>
+
+<p>Similarly, Egypt’s delegate, speaking on behalf of the “Group of 77” developing countries and China, stressed the importance of official development assistance (ODA) and international trade in achieving the 2030 Agenda, underscoring the need for a rules‑based and inclusive trading system as well as accelerated technology transfer.  To meet the challenges of climate change, the balance achieved in the Paris Agreement on adaption, mitigation and means of implementation must be maintained, along with a scaled-up response informed by science.</p>
+
+<p>Highlighting climate change in his country, Tajikistan’s delegate said its negative impact over the past decade has led to a 25 per cent increase in natural hazards, including floods, mudslides and avalanches, inflicting $600 million in damage to the nation’s economy.  He emphasized the importance of strengthening existing financial mechanisms and transferring technology to adapt to the threat.</p>
+
+<p>Addressing the financial plight of middle‑income States in reaching the Goals, the representative of El Salvador, speaking on behalf of the Community of Latin American and Caribbean States (CELAC), underscored the need to mobilize adequate financial and non-financial resources.  Noting that access to concessional finance from international financial institutions is reduced as a country’s per capita income grows, he called for the use of multidimensional indicators that will accurately measure complex and diverse development realities.</p>
+
+<p>Likewise, Nauru’s delegate, speaking on behalf of Pacific small island developing States said the international community must re‑examine the eligibility criteria for access to financing for development and technical assistance.  Classification according to income often excludes small island developing States from preferential treatment, despite significant vulnerabilities.</p>
+
+<p>Also speaking today were representatives of the Philippines (also for the Association of Southeast Asian Nations), Maldives (also for the Alliance of Small Island States), Costa Rica (also for the Like‑minded Group of Supporters of Middle‑Income Countries), Antigua and Barbuda (speaking for the Caribbean Community), Australia (also speaking for Canada and New Zealand), Oman (speaking for the Arab Group), India, South Africa, Russian Federation, Cuba, Israel, Saudi Arabia, Sierra Leone, Sudan, Bangladesh, Iraq, Thailand, Nicaragua, Mongolia, Mali, Liberia, Viet Nam, Syria, Mexico, Chile and the United Republic of Tanzania, as well as the European Union.</p>
+
+<p>The Committee will meet again at 10 a.m. on Tuesday, 9 October to continue its general debate.</p>
+
+<p><u>Opening Remarks</u></p>
+
+<p>JORGE SKINNER‑KLÉE (Guatemala), Chair of the Second Committee (Economic and Financial), described the 2030 Agenda for Sustainable Development as a plan of action for people, planet, prosperity, peace and partnerships.  The Agenda guides the global community with an uncontested and universal vision for the welfare of future generations, all of which underpin Second Committee work, which will seek to provide political guidance on many pressing sustainable development issues.</p>
+
+<p>Under the item on eradication of poverty, the Committee will recall that all sustainable development policies and frameworks must include explicit commitments to poverty eradication and gender equality, he said.  Under macroeconomic policy questions, there will be discussions on the international financial system, external debt sustainability, international trade and their interlinkages.</p>
+
+<p>The international community must support countries in their efforts to achieve universal development goals, especially countries in special situations, he stressed.  Poverty remains widespread in least developed countries and is pervasive for most middle‑income countries.  Special attention must be paid to productive capacities and infrastructural challenges in Africa to help countries realize their development potential, which is also affected by unjust trade practices.  Efforts must also be made to redouble collective efforts to create new and more robust global partnerships for sustainable development through a multi‑stakeholder approach.</p>
+
+<p>LIU ZHENMIN, Under‑Secretary‑General for Economic and Social Affairs, said the focus of the seventy‑third session is clearly on implementing the 2030 Agenda.  There is continued strong for momentum for the Sustainable Development Goals, with 51 countries committed to mobilizing their institutions.  However, he noted that global progress is still too low and uneven and must be accelerated in this session.  The United Nations projects annual global economic growth of 3 per cent for the next few years.  However, trade tensions continue to escalate, and uncertainty in the trade arena may impact consumer confidence and investment behaviour, with protectionist and retaliatory measures posing setbacks to growth and multilateralism.</p>
+
+<p>Noting that developing countries face increased volatility, he said those with fragile gross domestic product (GDP) growth are more susceptible to external shocks.  Climate risks in weather sensitive regions are especially challenging in small island developing States, where the resilience of economies must be bolstered.  He pointed to several continued unfortunate trends emerging in recent years, including a slowed decline in poverty risks, growing worldwide hunger and the rise of conflict, particularly given poverty is associated with an increased risk of conflict.</p>
+
+<p>The solutions are also interlinked, he said.  Countries at risk must have their economic resilience strengthened through sustainable development, as achieving the Goals requires financial stability.  It is critical for Member States to remain engaged with the unfolding repositioning process.  Noting that trends shaping the world of tomorrow include diminishing population growth, aging and increased migration, he stated the Department of Economic and Social Affairs remains fully committed to the development and review of the Global Compact for Safe, Orderly and Regular Migration.  The technological revolution is transforming our lives at an “amazing speed”, he said, and harnessing these new technologies is paramount.  Next year will be an important one as it will reveal just how far we have come in implementing the Sustainable Development Goals.  The international community must step up efforts on multiple levels, although there exists a solid foundation for solidifying multilateralism.</p>
+
+<p>HOMI KHARAS, Interim Vice‑President and Director of the Global Economy and Development programme at the Brookings Institution, spoke on the theme “Counting who gets left behind”, based on research carried out at his organization on 21 selected elements of the 2030 Agenda.  The research focused on issues as well as countries making the most and least progress in reaching the Sustainable Development Goals.  Development targets were broken down from 169 to 21 based on whether they were outcome‑focused at country level, quantifiable and measurable, and capability of being examined in terms of trends.</p>
+
+<p>The remaining targets were divided into four categories — lives at stake, basic needs at stake, absolute outcome and relative outcomes, he said.  For example, one of the targets is to reduce by one third lives lost to non‑communicable diseases.  The Brookings research suggests that the international community is far from achieving that goal and is falling significantly short on reducing child mortality.  It is also far from achieving the desired reduction in air pollution, gender equality and access to sanitation.  Close to 2 billion people in the world still lack access to sanitation.</p>
+
+<p>The research also looks at progress in individual countries to determine where most people are being left behind, he said.  Lack of progress is concentrated in countries with large populations, including China and the Democratic Republic of the Congo, but also in large advance economies like the United States, where little has been achieved in the areas of obese children and gender equality.  It is necessary to concentrate on these few counties if trajectories are to be improved.</p>
+
+<p>The poorest countries remain furthest behind, he continued, as their starting points are lower than richer countries.  Of 15 countries furthest from absolute targets by 2030, 13 are in Africa.  About 44 million lives are at stake, hundreds of millions and, in some instances, billions of people’s basic needs are at stake.  On multiple indicators, Nigeria, India, the Democratic Republic of the Congo, Pakistan and China are home to a large share of the people left behind, as are the United States and Brazil in specific instances.  Independent of population size, countries like the Central African Republic, Chad, South Sudan and Somalia will be furthest from absolute targets in 2030.</p>
+
+<p>GERT ROSENTHAL, economist and diplomat from Guatemala, noted a number of takeaways from Mr. Kharas’ keynote address, including the importance of identifying gaps to make sure no one is left behind in implementing the 2030 Agenda and the Sustainable Development Goals.  There is limited time on the remaining horizon to provoke significant shifts in past trends to accelerate achievements, while the Goals remain universal, for both developing and developed countries.  Stating that the division of life and death targets and basic needs targets is especially useful, he added that the gaps presented for meeting targets offer substance to nurture the Committee’s debate and decision-taking.  While most countries are making progress on many issues, the development targets still require more advancement if the goal is to leave no one behind.  There is, however, some basis for optimism.  While no country has achieved such a society, trends seem to be moving in the right direction and can be accelerated by appropriate policies at the national and international levels.  He expressed concern for countries in sub‑Saharan Africa where conflict grew and retrogression is sadly plausible.  Peace and security, development and human rights remain paramount.  Since the 2030 Agenda was adopted in 2015, the global order has been considerably eroded by the scepticism or hostility some Member States express towards multilateralism.</p>
+
+<p>When the floor opened for discussion, the representative of <u>Nigeria</u> asked how countries facing different challenges can benefit from increased cooperation.</p>
+
+<p>The representative for the <u>European Union</u> asked how data collection can be improved as we must do more for partner countries and the poorest and most excluded.</p>
+
+<p>Mr. KHARAS, responding to Nigeria’s representative, noted that a more nuanced understanding of data is required, and it must be timely.  He suggested outside researchers like himself were turning to alternative sources of information to official Government statistics, although their trustworthiness and accessibility is worthy of debate.   He hopes the spirit of identifying trends is not critical of a country’s policies, rather a comment on the size and nature of the challenge.  Implementation requires resources, sometimes policy changes, and favourable global condition.  We need breakthroughs to address these issues, through innovation, research and development and new ideas, he said.</p>
+
+<p><u>Statements</u></p>
+
+<p>MOHAMED EDREES (<u>Egypt</u>), speaking on behalf of the “Group of 77” developing countries and China, expressed concern over an “elusive consensus” on achieving the 2030 Agenda, underlining the plan’s importance for poverty eradication.  He reaffirmed the principles of “leaving no one behind” and “common but differentiated responsibilities” in that context.  He also reaffirmed the full sovereignty of every State over its territory and economic activity and strongly urged avoidance of any unilateral sanctions that impede developing countries from reaching their economic and social goals.  He said that macroeconomic policies must focus on job creation and social inclusion, with a focus on the employment of youth and the economic empowerment of women.</p>
+
+<p>Stressing the importance of official development assistance (ODA) and international trade for the achievement of the Agenda, he emphasized the need for a rules‑based and inclusive trading system and accelerated technology transfer.  To meet the challenges of climate change, the balance achieved in the Paris Agreement on adaption, mitigation and means of implementation must be maintained, along with a scaled‑up response informed by science.  In that vein, he welcomed efforts to strengthen efforts to stem the loss of biodiversity at the Parties conference on the issue planned for Egypt in November 2018.  Towards the achievement of the 2030 Agenda, specific challenges of each developing country must be addressed, and South‑South solidarity promoted, he added.  He pledged his country’s constructive engagement in the Committee in all those efforts, affirming the importance of the consensus rule in that light.</p>
+
+<p>TEODORO LOPEZ LOCSIN, JR. (<u>Philippines</u>), speaking on behalf of the Association of Southeast Asian Nations (ASEAN) and aligning himself with the Group of 77, outlined the Association’s progress in achieving the Sustainable Development Goals.  He said that it remained competitive and prosperous by managing and harnessing digital technologies and by equipping its citizens with the right skills and capabilities.  It has taken concrete steps to develop a regional smart cities ecosystem, which considers the specific needs and potential of each city as well as its local and cultural context.  The Association is also promoting complementarities between the ASEAN Community Vision 2025 and the 2030 Agenda.</p>
+
+<p>Other ASEAN achievements include substantive progress in enhancing trade facilitation in ensuing food security, food safety, better nutrition and equitable distribution, he said.  The Association’s ongoing work at all levels of education, from early childhood to higher education and technical and vocational education, contribute to the development of a stronger ASEAN community.  It has made substantial progress in implementation of the ASEAN Post‑2015 Health Development Agenda for 2016‑2020, which focuses on promoting health lifestyles as well as responding to all hazards and emerging threats.  ASEAN has also strengthened cooperation to promote sustainable development through development of the circular economy, use of renewable energy and sustainable and integrated water resources management at all levels.</p>
+
+<p>FARZANA ZAHIR (<u>Maldives</u>), speaking on behalf of the Alliance of Small Island States and associating herself with the Group of 77, said that 2018 is an important year for small island developing States given the approach of the midway review of Samoa Pathway.  Emphasizing the need to step up international support for small island States in sustainable development, including access to finance, she stated the United Nations can assume a greater leadership role.  Synergies must be built across all levels.  She noted that the impacts of climate change offer the biggest challenge to small island developing States, which have made major efforts on the issue despite their own miniscule emissions.</p>
+
+<p>RODRIGO ALBERTO CARAZO ZELEDÓN (<u>Costa Rica</u>), speaking on behalf of the Like‑minded Group of Supporters of Middle‑Income Countries, said his group of nations still faces significant challenges in achieving the Sustainable Development Goals, requiring a country‑context approach.  At all levels of per capita income, those nations face major issues including external debt.  Improved macroeconomic indicators do not necessarily mean improvement in poverty levels at a national level.  He expressed concern that, after the graduation process based on per capita income, many developing countries have problems accessing concessional financing.  Stressing the need of middle‑income countries to access more development and climate change financial sources, he noted international cooperation remains a powerful tool for them to mobilize domestically.  Recognizing “those few countries” that have met or surpassed their commitment to the 0.7 per cent of ODA/gross national income and the target of 0.15 to 0.20 per cent of ODA/gross national income to the least developed nations, he called on all other providers to fulfil commitments.</p>
+
+<p>PERKS LIGOYA (<u>Malawi</u>), speaking on behalf of the Group of Least Developed Countries and aligning himself with the Group of 77, said 33 nations in his group, with a combined population of about 81.8 million, need urgent food assistance in addition to long‑term investment in the agricultural sector to ensure food and nutrition security.  Five of the least developed countries are in debt distress and 12 others at high risk of it.  The share of world exports originating in his group declined from 1.09 per cent in 2014 to 0.89 per cent in 2016.  Duty‑free and quota‑free market access, simplified rules of origin and an increased share of aid for trade going to least developed countries are vital to building the required manufacturing and trade capacity.</p>
+
+<p>Access to electricity has increased to 38.3 per cent in 2014, but attaining universal access will require major new investments and improved governance of public utilities, he said.  School enrolment rates have improved, but two in five of all out‑of‑school children and adolescents in the world are in least developed countries.  Women’s participation rates have increased with respect to the percentage holding elected office in least developed countries, as have enrolment rates in primary, secondary and tertiary education, but gender disparities persist, requiring greater investment in institutions and policies empowering women and girls.</p>
+
+<p>WALTON WEBSON (<u>Antigua and Barbuda</u>), speaking on behalf of the Caribbean Community (CARICOM) and associating himself with the Group of 77 and the Alliance of Small Island States, said United Nations reform efforts form the backdrop in which the Committee will perform its work and stressed the importance of system‑wide strategic planning for the implementation of the 2030 Agenda.  States must ensure the work of the Committee contributes to achieving the success of international agreements, he said, adding that sustainable development must be at the core of its work.  He stressed that small island developing States face unique development challenges and maintain the Samoa Pathway as their point of reference for discussions on the matter.</p>
+
+<p>He underscored the link between climate change and development and said that sustainable development must be based on the equality of nations and mutual respect for all.  He said CARICOM is facing the withdrawal by global banks of corresponding banking relations with regional financial institutions and stressed that correspondent banking is a global public good that must be available to all countries.  Furthermore, having reached middle‑income status, many countries in the region are losing access to concessionary financing and incurring significant debt, he said.  Comprehensive global financial reform efforts must include the input of CARICOM States, he stressed, adding that the United Nations is the only forum for small, vulnerable countries to make a tangible contribution to global discourse.</p>
+
+<p>OMAR HILALE (<u>Morocco</u>), speaking on behalf of the Arab Group and aligning himself with the Group of 77, noted that States in disadvantaged positions, especially in Africa, are hampered in achieving the Sustainable Development Goals by an unequal, unfavourable and uncertain global environment.  Member States particularly from the global North must implement their commitments to achieve long‑term sustainable development.  Regrettable reactionary tendencies cause global decline in ODA.  Noting that several African countries are already fiscally constrained in generating the necessary resources to implement the 2030 Agenda, he called on the international community to explore balancing debt sustainability with financing, and work to curb illicit financial flows from Africa.  A transparent, open and inclusive multilateral trading system remains a priority.  Turning to climate change, “one of the greatest challenges of our time as its widespread impacts disproportionately burden Africa”, he called for a progressive international response to the threat to food security.</p>
+
+<p>GILLIAN BIRD (<u>Australia</u>), also speaking on behalf of Canada and New Zealand, said her group of countries have developed a reputation for demanding effective and efficient working methods.  The group particularly will appreciate early warning of resolutions with possible budget implications and it is also important that all Member States have time to consult, discuss and debate resolutions by ensuring they are submitted within set deadlines.  This would maximize the Second Committee’s opportunity to reach consensus on important issues.  As agreed in General Assembly resolution 72/313, the Committee should seek to minimize overlap with other Committees and consider streamlining discussions by considering some items on a biennial or triennial basis and clustering or eliminating some agenda items.</p>
+
+<p>Achieving the vision of the 2030 Agenda relies on several key foundations, including the redoubling of the international community’s commitment to leave no one behind, she said.  This requires a strong awareness of the unique needs of least developed nations, landlocked developing States and countries in special situations.  Climate change is a top challenge and it can only be combatted by acting together in concert and with shared purpose.  If the 2030 Agenda is the “what of development”, the Addis Ababa Agreement is the “how”.  She said her group recognizes the need to overhaul global financial practices and mobilize partnerships through the international community.  The group shares a commitment to a progressive trade agenda that promotes meaningful trade liberalization and ensures the benefits of trade are enjoyed broadly across societies.</p>
+
+<p>HÉCTOR ENRIQUE JAIME CALDERÓN (<u>El Salvador</u>), speaking on behalf of the Community of Latin American and Caribbean States (CELAC), emphasized the importance of mobilizing adequate financial and non‑financial resources in achieving the Sustainable Development Goals.  In that regard, draft resolutions from the Second Committee must give political guidance while addressing sustainable development from the perspective of the challenges faced by developing States.  Noting that access to concessional finance from international financial institutions is reduced as a country’s per capita income grows, he called for the use of multidimensional indicators that will accurately measure complex and diverse development realities.  Shareholders in multilateral development banks and donor countries should meanwhile develop graduation policies that are sequenced, phased and gradual.</p>
+
+<p>Expressing the Community’s support for South‑South cooperation, including through alternative financial institutions, he commended the Secretary‑General’s efforts to adapt the United Nations development system to better support Member States in implementing the 2030 Agenda.  He went on to reaffirm his group’s commitment to promote gender equality and underscored the region’s vulnerability to climate change and natural and man‑made disasters.  Noting that each country has the primary responsibility for their own economic and social development, he said CELAC rejects economic, financial or commercial measures incompatible with international law and the United Nations Charter which hinder development finance and prevent the full achievement of economic and social development, particularly in developing countries.</p>
+
+<p>JOÃO PEDRO VALE DE ALMEIDA of the <u>European Union</u> delegation said the Second Committee must embrace more innovative strategies to reach the Goals and achieve its full potential.  Expressing regret that discussions on revitalization have not made more progress, he was keen to engage in good faith to do so and have the Committee function more efficiently.  Addressing the practicalities of streamlining debate, the European Union and Member States will seek further focus on implementing the 2030 Agenda, Addis Ababa Action Agenda and Paris Agreement.  The 2030 Agenda “sets out a transformative vision and a plan of action to achieve universal peace and sustainable development to leave no on behind”.  Gender equality, empowerment and ending both discrimination and violence against women and girls in all forms are essential elements of that programme.  The Union also considers climate change one of the greatest, most pressing challenges in eradicating poverty and inequality.</p>
+
+<p>MARGO REMINISSE DEIYE (<u>Nauru</u>), speaking on behalf of Pacific small island developing States and associating herself with the Alliance of Small Island States and the Group of 77, stressed the need to re‑examine the eligibility criteria for access to financing for development and technical assistance so as to improve access to small island nations.  Classification according to income often excludes them from preferential treatment, despite significant vulnerabilities.</p>
+
+<p>Financing for development is also an urgent priority, she said.  Without actionable streams of financing, the goals of the 2030 Agenda will be empty promises, without means of implementation.  International development cooperation and genuine as well as durable partnerships are essential for sustainable development, especially for small island States where opportunities for additional domestic resource mobilization are limited.  In particular, there is a need for continued support for strengthening the national capacity for data collection and statistical analysis as well as investment in targeted research.</p>
+
+<p>KHALID SAEED MOHAMED AL SHUAIBI (<u>Oman</u>), speaking on behalf of the Arab Group and associating himself with the Group of 77, said the eradication of poverty is far from being achieved.  Noting that 7 per cent of the world’s people live in extreme poverty, many of them in sub‑Saharan Africa and Asia, he called combating poverty the <em>sine qua non</em> for achieving development.  With 3 billion people still using primitive means of fuel to cook or in other aspects of daily life, clean energy is essential for Sustainable Development Goal 7.  Turning to the refugee issue, he said the Nakba experienced by the Palestinians, along with colonization by Israel since 1967, have forced half of Palestinians to become refugees.  Other conflicts involving terrorist groups and foreign fighters have led to unprecedented destruction and refugee crises in Jordan and Lebanon, with Yemen and Libya also experiencing complex events.  Humanitarian assistance to refugees and displaced persons is vital, but he emphasized that it is not development assistance.  As most refugees are hosted by developing countries, they require help to become more stable.  In view of that, developed countries must provide 0.7 per cent of GDP, especially to least developed States, and illicit financial flows from developing to developed nations must be returned to the countries of origin.</p>
+
+<p>N.K. PREMCHANDRAN (<u>India</u>), associating himself with the Group of 77, said his country is on track to achieve the Sustainable Development Goals ahead of schedule and fully supports the Secretary‑General’s reform proposals for the United Nations development system.  He said India’s national policy efforts are in sync with the Goals and that his country in 2014 launched the largest sanitation and hygiene programme in the world.  India is pursuing inclusive development and is also taking bold action on climate change, he said, adding that it is transitioning towards increased use of renewable energy sources.  The International Solar Alliance — championed by India and France — is making tangible contributions to global efforts on climate change.  He said that his Government is committed to South‑South cooperation and has allocated $150 million for development programmes in less developed countries and small island developing States.</p>
+
+<p>MBULUNGENI SYDNEY MUENDA (<u>South Africa</u>), aligning himself with the Group of 77, said developed countries should show leadership in implementation that is integral for the Sustainable Development Goals, especially policies that can ease food insecurity and poverty.  He stressed that South‑South cooperation is beneficial but should be considered as a complement to North‑North cooperation.  He also underscored the removal of trade barriers, which hinders the expansion of global trade and contributes to imbalances and inequalities.  Developing countries, especially in Africa, should be allowed to participate in equitable trade in making the continent viable and placing it on an industrial trajectory.</p>
+
+<p>MAHMADAMIN MAHMADINOV (<u>Tajikistan</u>), associating himself with the Group of 77, called on the developed world to step up efforts to help developing countries on a range of issues essential to sustainable development.  The negative impact of climate change over the past decade has led to a 25 per cent increase in natural hazards including floods, mudslides, avalanches and other events in Tajikistan inflicting $600 million in damages to the country’s economy.  It is therefore essential to strengthen existing financial mechanisms and the transfer of technology to adapt to climate change.  Stating that Sustainable Development Goal 6 is a national priority, he said Tajikistan’s global water‑related initiatives contributed significantly to raising awareness on water‑related challenges.  Quoting the Secretary‑General, he said “Let us work collectively towards a more sustainable world.”</p>
+
+<p>VASSILY A. NEBENZIA (<u>Russian Federation</u>) said multilateral cooperation is disappearing and open markets as well as honest competition are gradually being squeezed out.  This is aimed at blocking access to financial resources and new technologies, which is threatening global growth and successful implementation of the 2030 Agenda.  Stressing that it is impossible to eliminate trade issues by reaching a simple arithmetic balance, he said trade, like politics, must be negotiated, not dictated.  A growth model is needed that offers increased trade, solves environmental problems, increases well‑being and broadens technological knowledge.  Discussions must be wrapped up on issues like debt, and focused on technology transfer and international trade.</p>
+
+<p>ANA SILVIA RODRÍGUEZ ABASCAL (<u>Cuba</u>), associating herself with the Group of 77, CELAC and the Alliance of Small Island States, urged the Committee to make progress on the 2030 Agenda and other agreed frameworks through the exercise of political will and commitment and recognition of the equality of all members, as well as their different realities and policy space.  Proposals that only represent the developed countries should not be imposed on the majority, he said.  He asserted that extreme poverty can only be eliminated with an end to conflict and attention to the causes of underdevelopment.  In addition, developed countries must meet their official commitments in ODA.  A new financial architecture is also needed to eliminate monopolies of technology and knowledge and other inequalities.  South‑South cooperation must be supported as a complement and not a substitute for North‑South cooperation.  Industrialized countries must accept their historical debt.  To mitigate climate change, they must change their consumption and production patterns and honour their transfer commitments.  Unilateral coercive measures inconsistent with the United Nations Charter, such as the blockade kept on Cuba by the United States, must not be allowed to impede any people’s full achievement of social development, she stressed.</p>
+
+<p>ANAT FISHER TSIN (<u>Israel</u>) said the private sector must assist Governments in promoting growth and sustainable development.  The Second Committee should strive for efficiency and to limit resolutions, sticking to those with the widest possible relevance.  It should not be another venue for politicized mudslinging.  Stressing the importance of United Nation reform for achieving the 2030 Agenda, she said its deliberations must lead to meaningful outcomes.  Noting that entrepreneurship provides the vast majority of jobs in developing countries, she said Governments must create an enabling environment for them.  They also function as a pillar in women’s economic empowerment at every level.  Noting the responsibility of the global community, she said “Those left behind are depending on us”.</p>
+
+<p>MOHAMMAD ABDURRAHMAN S. ALKADI (<u>Saudi Arabia</u>), associating himself with the Group of 77, said the acceleration of international development in various fields has given great momentum to discussions in the Second Committee.  The view of the United Nations for implementation of the 2030 Agenda is the best evidence of the Organization’s wish to take serious steps to eradicate poverty in all its forms and to ensure that all enjoy full human rights and that no one falls behind.  His country has created a national road map for economic development, working on a vision of collaborative action to build its future.  It has the ambition to be a strong, rich country in all fields, with Islam as its constitution.  The vision is based on three pillars — an active population, strong economy and ambitious nation.  His nation is open to the private sector being a strategic partner and will encourage that sector to transform the economy into one of the strongest in the world.</p>
+
+<p>NIMATULAI BAH-CHANG (<u>Sierra Leone</u>) said that her Government is developing a new national development plan that is aligned with the Sustainable Development Goals with the principle of “leaving no one behind”.  In that connection, the country identified education, justice, peace and security, as well as the fight against corruption and illicit financial flows as principle issues.  Additionally, Government accounting systems have been addressed with the implementation of a treasury single account, which is a unified structure of the Government’s bank accounts, giving a consolidated view of cash resources.  Fully committed that no one remains poor by 2030, the Government is mobilizing resources, education, and health care. She said that the country remained committed to the Paris Agreement and recognizes the need for renewed efforts at all levels.  In closing, she envisioned the repositioning of the United Nations Development System in the context of the quadrennial comprehensive policy review which will increase the support given to the least developed countries.</p>
+
+<p>TORE HATTREM (<u>Norway</u>) noted the many accomplishments of the multilateral system, while observing that it is under attack.  He said stepped-up, collective efforts are critical to stemming climate change, conflict and instability — the worst enemies of sustainable development, which must be pursued at all levels to reverse setbacks in hunger and other areas.  His country, a candidate for the Security Council in 2021-2022, wants to highlight those links and apply a gender perspective in all policy areas, he stressed, supporting the work of the related high-level panel.  Praising the universality of the 2030 Agenda, he pledged Norway’s commitment to do its part to accelerate achievement of the Goals both at home and through international cooperation.  For the United Nations to do its full part, his country will pay its share of funding needed to implement necessary reforms without delay.  It will also continue to allocate more than required in ODA, he stated, although he also emphasized the need to mobilize domestic resources by addressing illicit financial flows and instituting fair taxation.  He affirmed that Norway stands ready to help bring about the transformative change that the 2030 Agenda requires.</p>
+
+<p>OMER DAHAB FADL MOHAMED (<u>Sudan</u>), associating himself with the Group of 77 and the African Group, said the eradication of poverty is a major challenge in achieving the Sustainable Development Goals.  He noted his nation faces unique challenges as a least developed country.  Sudan is a low‑income country emerging from conflict and hosting 2 million refugees from neighbouring States.  As it also bears a heavy debt burden hindering the implementation of sustainable development, he called on the international community to help remove barriers preventing development, and examination of processes to ensure such countries do not regress.  Sustainable development requires synergy, with financing and technical assistance being decisive elements for those countries trying to transform themselves, rebuild and establish stability.</p>
+
+<p>MASUD BIN MOMEN (<u>Bangladesh</u>) said the poverty rate in his country dropped to 21.4 per cent in 2018 and that it is setting up 100 special economic zones to help create 10 million job opportunities.  Power generation capacity has gone up to 20,000 megawatts in remote areas without transmission lines, as power supply is being ensured with the help of 5.5 million solar panels.  Some 99 per cent of the population has electricity.  The country has ensured food security and people’s access to medical facilities.  Multipurpose programmes have been taken to ensure social safety nets for the underprovided section of society.  Some 99 per cent of the people have access to sanitation and 88 per cent to safe drinking water thanks to several initiatives taken by the Government.  Efforts to realize “Digital Bangladesh” has appealed to the millions of youth in the country.  Widespread introduction of Internet‑based public service delivery has led to growth in job creation at the grass‑roots level.</p>
+
+<p>Mr. ALAITHI (<u>Iraq</u>), associating himself with the Group of 77 and the Arab Group, said the economy is the main driver of development, and there is no stable economy without peace, food security, and improved use of natural and human resources.  Those challenges are particularly difficult in a country facing desertification, drought and the effects of climate change.  Progress is impossible without financial support and technology transfer from the international community.  Noting his country has fought a long war against Islamic State in Iraq and the Levant (ISIL/Da’esh), it is making great strides to overcome recession and improve its banking system.  However, the country must be rebuilt, he said, noting that 6 million Iraqis are displaced and national revenue is down significantly following a major decrease in oil prices.  A national plan seeks to return displaced persons to villages, rebuild infrastructure and is now attracting foreign direct investment (FDI).  Stating Iraq is exposed to droughts, which raise temperatures and harm the agricultural sector, he called on all neighbours to respect shared water resources.  The country paid a heavy price fighting an unprecedented war against terrorism that benefited all countries, and now calls on all parties to honour their commitments.</p>
+
+<p>VITAVAS SRIVIHOK (<u>Thailand</u>), associating himself with the Group of 77 and ASEAN, said that implementation of the 2030 Agenda has not been fast enough and that the Second Committee can do more to accelerate action.  On financing for development, he reaffirmed his country’s commitment to the implementation of the Addis Ababa Action Agenda and said he supports innovative and affordable financing solutions and public‑private partnerships.  He voiced concern over increasing protectionism and trade tensions and urged commitment to a universal, rules‑based and open multilateral trade system.  He called for more political will to tackle climate change and stressed that the key to disaster risk reduction lies in mainstreaming the concept into national development policies.  Achieving the 2030 Agenda requires partnerships at all levels and Thailand has allocated $520,000 to the Perez Guerrero Trust Fund for South‑South development, he said.</p>
+
+<p>Mr. CARAZO ZELEDÓN (<u>Costa Rica</u>), speaking in his national capacity and associating himself with the Group of 77, CELAC and the Like‑minded Group of Supporters of Middle‑Income Countries, said his nation remains committed to the concept that the 2030 Agenda is part of a holistic development framework and emphasized that macroeconomic indicators do not reflect the ability of individuals to overcome their poverty status or the eradication of inequality.  Costa Rica submitted a draft resolution to declare 7 June as the World Day of Food Safety, he said, noting that some 6 million people per year fall ill after eating contaminated food.  Welcoming the adoption of the International Decade of Family Farming, he said the Committee should also seek to help implement the International Decade of Afro‑Descendants — including by assisting countries in combating discrimination and xenophobia — and work to help anchor trade policies in sustainable development.  Countries should be able to share knowledge on tax matters through peer exchange programmes.  Spotlighting national policies to protect the environment and combat pollution, he said the Committee should build on progress made during the third United Nations Assembly on the Environment.</p>
+
+<p>MARTÍN GARCÍA MORITÁN (<u>Argentina</u>), associating himself with the Group of 77 and CELAC, highlighted national efforts to combat the phenomena of forced labour and child labour — including by implementing the 2017 Buenos Aires Declaration on Child Labour, Forced Labour and Youth Employment.  Voicing support for a draft resolution to declare the year 2021 as the International Year for the Eradication of Child Labour, he also underlined the importance of South‑South and triangular development cooperation.  Expressing concern over unequal access to resources and development solutions, which threatens to hamper the achievement of Sustainable Development Goals, he urged States of the global South to cooperate towards the exchange of best practices.  In that regard, he said Argentina will in 2019 host the second high‑level United Nations Conference on South-South Cooperation.  South‑South cooperation should be at the heart of the 2030 Agenda, but should never be seen as a replacement for North-South cooperation.  In that vein, he advocated for the establishment of a regular high‑level process tasked with reviewing progress in both South-South and triangular cooperation.</p>
+
+<p>JAIME HERMIDA CASTILLO (<u>Nicaragua</u>), associating himself with the Group of 77 and CELAC, stated this is a critical juncture for the 2030 Agenda, with vulnerable marginalized groups and those under foreign meddling particularly affected.  The right to development belongs to all, and developed countries must therefore live up to their ODA commitments.  Poverty eradication is the common goal of all, with development financing crucial, but we cannot entertain the notion that developing and developed countries bear equal responsibilities.  He noted that in recent years Nicaragua has experienced 4.7 per cent annual growth, decreasing poverty from 42.5 per cent to 22.9 per cent, and extreme poverty from 14.6 per cent to 6.9 per cent from 2009 to 2016.  The World Bank stated that Nicaragua is the third fastest growing country in Latin America.  Turning to the Palestinian issue, he reiterated support for the Palestinian people’s unalienable right to self‑determination, saying there can be no development if schools are destroyed.</p>
+
+<p>SUKHBOLD SUKHEE (<u>Mongolia</u>), associating himself with the Group of 77 and the Group of Landlocked Developing Countries, said his country’s growth reached 6.3 per cent in the first half of 2018 and is projected to increase 8 per cent in 2019.  Mongolia is looking forward to presenting its National Voluntary Review at the next High‑level Political Forum on Sustainable Development.  Turning to climate change, he stressed that Asia is one of the most disaster‑prone regions in the world.  Mongolia is keen to contribute to the regional cooperation for enhancing disaster resilience, reducing disaster risk and increasing effectiveness of disaster prevention activities.  He underscored the importance of South‑South cooperation as an important mechanism for international cooperation for development, also noting various ways Mongolia was promoting the interests of landlocked developing countries.</p>
+
+<p>ISSA KONFOUROU (<u>Mali</u>), associating himself with the Group of 77 and the African Group, said his country has been dealing with a multidimensional crisis since 2017 which includes food insecurity, extreme poverty and the impacts of climate change.  In response, Mali is improving the provision of basic services and health care, improving its roads, and creating income‑generating activities for the most vulnerable.  In July, the country presented its Voluntary National Review to the High‑Level Political Forum held under the auspices of the Economic and Social Council, which identified additional core priorities such as equitable growth and good governance.  Some 70,000 households to date have benefited from a new programme of targeted monetary transfers.  Turning to gender equality, he said Mali enacted a law aimed at increasing the number of women in elected decision‑making positions.  Underlining the country’s commitment to the United Nations Resident Coordinator system, he called on all States to fulfil their commitments to that system as well as their broader commitments to Mali’s sustainable development.</p>
+
+<p>DEE-MAXWELL SAAH KEMAYAH, SR. (<u>Liberia</u>) stressed the need to fast‑track the implementation of the 2030 Agenda.  To make progress on the Sustainable Development Goals, scrupulous efforts must be made to address the infrastructure gaps and debt vulnerability of developing countries, especially least developed countries.  Making the United Nations relevant to the people of the world also requires successful reform of the United Nations development system.  “Sustainable development is about improving the living conditions of the people,” he stressed.  That includes empowering people through reducing and eliminating inequality so they can prosper and stimulating economic stability and job creation through effective resource mobilization.  Achieving the Sustainable Development Goals will depend on facilitating the necessary means of implementation and domestic resource mobilization.  Liberia is expanding its internal revenue generation, he said, also emphasizing his country’s commitment to transparency and accountability in public financial management.</p>
+
+<p>PHAM ANH THI KIM (<u>Viet Nam</u>), associating herself with the Group of 77 and ASEAN, urged the Committee to seize the current momentum to facilitate concrete actions for impact on the ground.  As the Paris Agreement enters into force, countries vulnerable to climate change — including Viet Nam — are working to enhance their preparedness and build resilience.  However, all stakeholders must work to provide tailored development support to address multi‑crisis risks and provide long‑term, integrated solutions.  Noting that the role of trade can never be overemphasized, she declared:  “For countries to lift themselves up and retain progress, we need to recommit ourselves to promoting a rules-based, transparent, non‑discriminatory, open and inclusive multilateral trading system.”  Underlining the critical role of science, technology and innovation, she said Viet Nam is at risk of falling into the “middle‑income country trap”, which leads to the prevalence of disparities.  Indeed, graduation from least developed status does not mean the end of inherent vulnerability, and while many middle-income countries still require ODA and other concessional financing, many donors are phasing out or downsizing such support.  In that context, the United Nations should continue to work to develop more comprehensive ways to measure sustainable development that goes beyond per capita income.</p>
+
+<p>ALI NASEER MOHAMED (<u>Maldives</u>), speaking in his national capacity and associating himself with the Group of 77, said commitments to the Samoa Pathway made in 2014 must be honoured.  Every country must set its own development mission, but there is also a need for an international system to support small island developing States’ specific requirements in capacity‑building, technology‑sharing and access to financing.  Despite establishing partnerships, Maldives are still facing financing challenges in certain sectors for the implementation of sustainable development.  Middle‑income countries must not be placed at a financing disadvantage and small island developing States require additional support, he said, calling for greater international assistance in achieving mandate outcomes.</p>
+
+<p>Mr. LOPEZ LOCSIN, JR. (<u>Philippines</u>), speaking in his national capacity, warned Member States against “picking and choosing” which Sustainable Development Goals to implement, stressing that all are critical and represent part of a whole.  At the national level, the Philippines is focusing on eradicating poverty and has developed strategies based on “practical compassion”.  “We must restore the United Nations to its historic role as an organization, first and foremost, of States,” and more than just a podium for “grand grievances”, he said.  Also calling for a more realistic measurement to evaluate the development achievements of middle‑income countries, he cautioned against a “scattershot approach” to that important issue.  Meanwhile, if properly handled, migration can help accelerate development, he said, adding that disaster risk reduction must also be integrated into national development plans.  Any part of humanity under threat or undergoing violence must be recused.  However, such policies should be carefully carried out in order to avoid exacerbating those challenges, he stressed.</p>
+
+<p>ROUA SHURBAJI (<u>Syria</u>), associating herself with the Group of 77, lamented the slow pace and selectivity of implementation of the 2030 Agenda.  She underscored that there must be no politicization in development work and there must be transparency in dealings between the United Nations development system and Governments.  A clear international position must be struck against unilateral coercive measures, which hamper development and contribute to the deterioration of the social fabric, rising poverty levels, growing food insecurity and damaged energy and health sectors, as in Syria.  Noting that Syria is in a unique phase, she said it is now more stable in the wake of successes against the terrorist menace.  However, fostering the preconditions for the return of displaced persons requires international determination.  The United Nations development system must meet Syria’s reconstruction needs as the people await immediate action in rebuilding and rehabilitation, free of politicization, double standards or any international interference imposing restrictions on United Nations actions.</p>
+
+<p>Ms. DIAZ CORONA, youth delegate from <u>Mexico</u>, said the Committee plays an intrinsic part of helping countries deliver on the Sustainable Development Goals, as well as ensuring their appropriate financing.  Underlining the important role of young people and women in that work, she called for public policies aimed at harnessing their potential, as well as those of indigenous peoples, minority communities and other marginalized persons.  Mexico established a National 2030 Agenda Council aimed at expediting implementation of the Goals at the national level, she said, pledging to uphold its integrated nature and to avoid any “cherry‑picking” approach.  Spotlighting several key issues, she said promoting and harnessing technological innovation will be critical to implementing the Sustainable Development Goals.  A universal, open, rules‑based, equitable and non‑discriminatory global trade system benefits everyone, she stressed, also drawing attention to the challenges posed by climate change and the need to close the “ambition gap” on that crucial issue.  In the Committee itself, there is a need to overcome divisions between developed and developing countries and consider streamlining its work including by discussing some issues every other year instead of annually.</p>
+
+<p>MILENKO ESTEBAN SKOKNIC TAPIA (<u>Chile</u>) reiterated that the United Nations development system must come up with multidimensional mechanisms to measure development and poverty, as criteria based on per capita income can no longer be relied on to determine the development level of a country and its classification in a given category.  In that regard, he mentioned the concept of “development in transition” discussed by the Organization for Economic Cooperation and Development (OECD) and welcomed the establishment by the European Union of the mechanism for developing countries in transition which will be implemented in January 2019.  Turning to migration, he stated that the phenomenon contributes to the development of countries of origin, transit and destination if it is managed in a safe and orderly manner and in accordance with human rights of migrants and international law.  On climate change, he considered the commitments of the Paris Agreement to be essential and non-negotiable.</p>
+
+<p>MODEST JONATHAN MERO (<u>United Republic of Tanzania</u>), associating himself with the Group of 77, the African Group and the Group of Least Developed Countries, expressed concern about the impacts of climate change, assaults on multilateralism, increasing protectionism, persistently high levels of inequality, a disorderly tightening of financial conditions and the escalation of geopolitical tensions, among other things.  Noting that such challenges could affect the pace of implementation of the Sustainable Development Goals, he called for collective efforts to tackle them within the framework of multilateralism and for stronger emphasis on creating an enabling environment.  Global partnerships should be balanced against the increasing emphasis on domestic resource mobilization, he said, outlining some of the United Republic of Tanzania’s national efforts to achieve the global development targets.  For example, the country strengthened its tax management system, doubling revenue collection, which allows much-needed resources to help finance sustainable development.  In addition, the Government declared all primary and secondary education to be both universal and free, and it continues to strengthen health systems to address communicable and non‑communicable diseases.</p></div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-2 radix-layouts-sidebar panel-panel">
+        <div  class="panel-panel-inner">
+          
+  <div class="views-element-container block">
+
+  
+            <h2>Highlights</h2>
+        
+
+      <div><div class="js-view-dom-id-ceda2da354097b1faed8ffc17b928fd1d41bec946781109cd6ad6f0c12be8fcc view-highlights">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/uploads/2022/09/UNGA77_highlight_1.png?itok=aFnhC_5V" width="60" height="60" alt="UNGA 77 logo" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/UNGA77">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">High-level meetings of the 77th session of the General Assembly</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">New York, 20-26 September 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/ocean-logo.png?itok=lpSD4mXq" width="60" height="60" alt="SaveOurOcean" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/SaveOurOcean">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">The Ocean Conference</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Lisbon, 27 June-1 July 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/Stockholm%2050_0.png?itok=TS7o2L4R" width="60" height="60" alt="" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/Stockholm50">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">&quot;Stockholm+50&quot; international meeting</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Stockholm, 2-3 June 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+  
+  </div>
+
+<div class="grey-bg noon-briefing-block">
+
+
+  
+            <h2>Daily Noon Briefing</h2>
+        
+
+      <div><div class="js-view-dom-id-bbc471d7cb560f09c6d8e82d8f581d6c6a7c21a98664a6693dd5a4c4685f6430 view-home-press">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="views-field views-field-view-node-1"><span class="field-content"><img src="/themes/custom/un_press_theme/assets/images/noon-briefing-image.jpg" alt="UN Spokesperson Stéphane Dujarric" class="img-responsive" /></span></div><div class="views-field views-field-view-node"><span class="field-content"><a href="/en/2022/db221017.doc.htm" hreflang="en"><time datetime="00Z">17 October 2022</time>
+</a></span></div><div class="views-field views-field-body"><p class="field-content">The United Nations Environment Programme (UNEP) today released a report which says plastics are accumulating in the world’s soil at a high rate.  The report found that plastics used extensively in farming — from plastic coated fertilizers to mulch film — are contaminating the soil and potentially threatening food security.</p></div></div>
+
+    </div>
+  
+            <div class="view-footer">
+      <div class="more-link"><a href="https://press.un.org/en/content/noon-briefings">Latest Noon Briefings</a></div>
+
+    </div>
+    </div>
+</div>
+
+  
+</div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div><!-- /.bartlett -->
+
+    </div>
+  </article>
+
+<div class="field field-name-disclaimer">
+  <span class="disclaimer">For information media. Not an official record.</span>
+</div>
+
+  
+  </div>
+
+
+        </div>
+      </div>
+      </main>
+
+      <footer class="page__footer-tabs">
+      <div class="container">
+        <div class="row">
+            
+  <div class="block block--resourcesandtools">
+
+  
+            <h2>Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://journal.un.org/en" class="nav-link" title="Journal">Journal</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/events-and-news" class="nav-link" title="Conferences &amp; Events">Conferences &amp; Events</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/media/accreditation/alert.shtml" class="nav-link" title="Media Alert">Media Alert</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--newsandmediaresources">
+
+  
+            <h2>News &amp; Media Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="https://news.un.org/en/" title="Global perspective Human stories" class="nav-link">UN News</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://media.un.org/en/webtv" class="nav-link" title="Webcast">Webcast</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/photo/" class="nav-link" title="Photo">Photo</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/" class="nav-link" title="Multimedia">Multimedia</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/media/accreditation/" title="Media Accreditation" class="nav-link">Media Accreditation</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.unmultimedia.org/" class="nav-link" title="Television">Television</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/tv/unifeed/" title="UNIFEED" class="nav-link">UNIFEED</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/sg/spokesperson/" title="Spokesperson for the Secretary-General" class="nav-link">Spokesperson for the Secretary-General</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--quicklinks">
+
+  
+            <h2>Quick Links</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="/en/content/general-assembly" class="nav-link" title="General Assembly section link" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/security-council" class="nav-link" title="Security Council section link" data-drupal-link-system-path="content/security-council">Security Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/economic-and-social-council" class="nav-link" title="ECOSOC section link" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/secretary-general" class="nav-link" title="Secretary-General section link" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/noon-briefings" class="nav-link" title="Latest Noon Briefing section link" data-drupal-link-system-path="content/noon-briefings">Latest Noon Briefing</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/meetings-coverage" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/meetings-coverage">Meetings Coverage</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-release" class="nav-link" title="Press Releases section link" data-drupal-link-system-path="content/press-release">Press Releases</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-conference" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/press-conference">Press Conferences</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer">
+      <div class="container">
+        <div class="row d-flex justify-content-between align-items-md-center">
+          <div class="col-4 col-md-4 col-lg-5 col-xl-6 footer-brand">
+            <a href="https://www.un.org/en" title="Home">
+              <span class="site-name">United Nations</span></a>
+          </div>
+          <div class="col-8 col-md-8 col-lg-7 col-xl-6 justify-content-end">
+            <div class="row">
+              <div class="col-12 col-md-8 d-flex align-items-md-center menu-social">
+                <div class="social-media">
+                  <a href="https://www.un.org/en/get-involved/social-media/" target="_blank" class="footer-link">Join the conversation:</a>
+                    
+  <div class="block block--footersocialmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://www.facebook.com/unitednations" class="nav-link"><i class="fab fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://twitter.com/UNMediaLiaison" class="nav-link"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.youtube.com/channel/UC5O114-PQNYkurlTg6hekZw" class="nav-link"><i class="fab fa-youtube-square"></i><span class="sr-only">Youtube</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/rss.xml" class="nav-link" data-drupal-link-system-path="rss.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 d-flex align-items-md-center justify-content-md-end donate-wrapper">
+                <div class="donate">
+                  <a href="https://www.un.org/en/about-us/how-to-donate-to-the-un-system/" target="_blank" class="btn btn-default btn-reverse dark" role="button" id="donate_button">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer-bottom">
+      <div class="container">
+        <div class="row d-flex justify-content-md-end align-items-md-center">
+          <div class="col-12">
+              
+  <div class="block block--ungloballinksfootermenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="http://www.un.org/en/siteindex/" class="nav-link" title="Site Index">A-Z Site Index</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/contact-us-0" class="nav-link" title="Help">Contact</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/copyright/" title="Copyright" class="nav-link">Copyright</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/about-us/frequently-asked-questions" class="nav-link">FAQ</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/fraudalert/" title="Fraud Alert" class="nav-link">Fraud Alert</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/privacy/" title="Privacy Notice" class="nav-link">Privacy Notice</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/aboutun/terms" class="nav-link" title="Terms of Use">Terms of Use</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<div class="minimal-share-panel">
+  <p class="minimal-share"><a href="https://www.facebook.com/sharer.php?u=https://press.un.org/en/2018/gaef3495.doc.htm" title="Share this via Facebook" class="facebook" data-ms="facebook">Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=World’s Poorest Nations Left Behind in Reaching Sustainable Development Goals, Delegates Stress as Second Committee Begins General Debate&amp;url=https://press.un.org/en/2018/gaef3495.doc.htm" title="Share this via Twitter" class="twitter" data-ms="twitter">Twitter</a>
+<a href="mailto:?subject=World’s Poorest Nations Left Behind in Reaching Sustainable Development Goals, Delegates Stress as Second Committee Begins General Debate&amp;body=https://press.un.org/en/2018/gaef3495.doc.htm" title="Share this via Email" class="email" data-ms="email">Email</a>
+<a href="" title="Share this via Print" class="print" data-ms="print">Print</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://press.un.org/en/2018/gaef3495.doc.htm&amp;title=World’s Poorest Nations Left Behind in Reaching Sustainable Development Goals, Delegates Stress as Second Committee Begins General Debate" title="Share this via LinkedIn" class="linkedin" data-ms="linkedin">LinkedIn</a>
+</p>
+
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"en\/","currentPath":"node\/263127","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"themes\/custom\/un_press_theme"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"minimalShare":{"sizes":{"linkedin":{"width":520,"height":570},"twitter":{"width":600,"height":260},"facebook":{"width":600,"height":500}}},"ajaxTrustedUrl":{"\/en\/sitesearch":true},"user":{"uid":0,"permissionsHash":"d429094e8101c7fbbf66cf85f7616354d19f2337c642528ef74c3443208d6269"}}</script>
+<script src="/sites/default/files/js/js_VjTj9kTLXs53zMhnoVLCsua_z80F6pFQzQNdSwRYQKs.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-b876a93492b9f256082","applicationID":"530317555","transactionName":"ZgQAMkICCkZRVxFRXF9OIwVECgtbH0QEX1ZuAgMFWAY=","queueTime":0,"applicationTime":79,"atts":"SkMDRAoYGUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

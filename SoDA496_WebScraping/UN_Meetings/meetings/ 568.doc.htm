@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"594351857",accountID:"3442868",trustKey:"3442868",xpid:"VwIDU15VABAFV1FRBgYCU1E=",licenseKey:"NRJS-b876a93492b9f256082",applicationID:"530317555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script>
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/un_press_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://press.un.org/en/2018/gal3568.doc.htm" />
+<link rel="canonical" href="https://press.un.org/en/2018/gal3568.doc.htm" />
+<link rel="shortlink" href="https://press.un.org/en/node/263106" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWVSS4R');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-LQCS');</script>
+
+    <title>International Treaty Framework Needs Review, Modernization, Speakers Tell Sixth Committee | UN Press</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_lKEky3Js_pMC8KbPIp2Ksrm5Ezb2TrVq0TNXbNnzr5c.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsLzkwPv8J-ff6w1IZG2F3i3tgZ0FQYLJrJALJQXUSw.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" />
+
+    
+  </head>
+  <body class="node-263106 node-type--press">
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWVSS4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LQCS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="page">
+  <header class="main-header">
+  <div class="page-loader"></div>
+  <div class="container-fluid brandbar-header fixed-top">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-8 col-sm-3">
+                        
+  <div class="block block--un-press-theme-branding">
+
+  
+    
+
+    
+  <a href="/en" class="navbar-brand d-flex align-items-center " aria-label="">
+        
+  </a>
+
+
+  </div>
+
+
+            <a class="navbar-brand" href="https://www.un.org/en"><i class="home-icon fas fa-home fa-lg"></i> Welcome to the United Nations</a>
+                  </div>
+        <div class="col-4 col-sm-9 d-flex justify-content-end language-switcher">
+                        
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-lg-9 d-flex branding-top-wrapper">
+                    <a class="logo navbar-btn pull-left flip" href="https://www.un.org/en" title="United Nations"></a>
+          <a class="navbar-brand pull-left flip" href="https://press.un.org/en">Meetings Coverage and Press Releases</a>
+        </div>
+        <div class="col-12 col-lg-3 justify-content-end search-wrapper d-none d-md-block">
+                                      
+  <div class="views-exposed-form bef-exposed-form block block--exposedformsitesearchpage-1" data-drupal-selector="views-exposed-form-sitesearch-page-1">
+
+  
+    
+
+      
+<form action="/en/sitesearch" method="get" id="views-exposed-form-sitesearch-page-1" accept-charset="UTF-8" class="form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-group">
+      
+  
+  
+  
+  
+  
+
+<input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" class="form-textfield form-control" />
+<label class="sr-only" for="edit-search-api-fulltext">Search</label>
+<label class="sr-only" for="edit-search-api-fulltext--2">Search</label>
+
+
+  
+  
+  
+  
+  </div>
+<fieldset data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper card mb-3">
+    
+      <div class="card-header">
+      <legend class="m-0">
+        <label class="fieldset-legend mb-0">Sort By</label></legend>
+    </div>
+  
+  <div class="card-body fieldset-wrapper">
+                <div id="edit-sort-by" class="form-radios"><div class="form-radios">
+                  <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-field-dated" type="radio" id="edit-sort-by-field-dated" name="sort_by" value="field_dated" checked="checked" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-field-dated">Most Recent Entries</label>
+
+  
+  </div>
+
+                    <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-search-api-relevance" type="radio" id="edit-sort-by-search-api-relevance" name="sort_by" value="search_api_relevance" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-search-api-relevance">Most Relevant Entries</label>
+
+  
+  </div>
+
+      </div>
+</div>
+
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+
+<input data-drupal-selector="edit-submit-sitesearch" type="submit" id="edit-submit-sitesearch" value="Search" class="js-form-submit form-submit btn btn-primary" />
+</div>
+
+
+</form>
+
+  
+  </div>
+
+
+                              </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+                      <div class="menu-container bg-dark">
+              <div class="menu-main">
+                
+
+
+<nav class="navbar navbar-expand-lg justify-content-between  ">
+  
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                          
+  <div class="block block--mainenglishmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="/en" title="" class="nav-link" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+                  </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/secretary-general" title="Secretary-General" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/secretary-general" title="Latest Press Release, Statements etc. from the Secretary General" class="dropdown-item" data-drupal-link-system-path="content/secretary-general">Latest</a>
+              <a href="/en/content/secretary-general/press-release" title="Secretary General Press Releases" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-release">Press Releases</a>
+              <a href="/en/content/secretary-general/press-conference" title="Secretary Genral Press Conferences" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/general-assembly" title="General Assembly" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/general-assembly" title="" class="dropdown-item" data-drupal-link-system-path="content/general-assembly">Latest</a>
+              <a href="/en/content/general-assembly/meetings-coverage" title="General Assembly Meetings Coverage" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/general-assembly/press-release" title="General Assembly Press Releases" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/security-council" title="Security Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/security-council">Security Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/security-council" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council">Latest</a>
+              <a href="/en/content/security-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/security-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-release">Press Releases</a>
+              <a href="/en/content/security-council/press-conference" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/economic-and-social-council" title="Economic and Social Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/economic-and-social-council" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council">Latest</a>
+              <a href="/en/content/economic-and-social-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/economic-and-social-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item">
+                      <a href="https://www.icj-cij.org/en/press-releases" title="" class="nav-link"> International Court of Justice</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                    </div>
+
+  </nav>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="">
+    <a id="main-content" tabindex="-1"></a>
+          <div class="page__content">
+        <div class="container">
+            <div data-drupal-messages-fallback class="hidden"></div>
+  <div class="block block--un-press-theme-content">
+
+  
+    
+
+      
+<article role="article" class="node press press--full">
+  
+  
+
+      
+    
+    <div>
+      
+<div  class="panel-display bryant-flipped clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+		  
+  <div class="block inline print-sub-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-doctype field--type-entity-reference field--label-hidden field__item"><a href="/en/meetings-coverage" hreflang="en">Meetings Coverage</a></div>
+      
+  
+  </div>
+
+  <div class="block print-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-un-bodies field--type-entity-reference field--label-hidden field__item"><ul class="shs clearfix shs-linked"><li><a href="/en/general-assembly" hreflang="en">General Assembly</a></li><li><a href="/en/sixth-committee" hreflang="en">Sixth Committee</a></li></ul></div>
+      
+  
+  </div>
+
+        </div>
+      </div>
+      <div class="col-md-3 radix-layouts-sidebar panel-panel">
+        <div >
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.bryant-flipped -->
+
+<div class="panel-display bartlett clearfix">
+  <div class="container-fluid layout">
+    <div class="row">
+      <div id="printlogo">
+        <div class="header-bg"></div>
+        <div class="emblem" style="width:200px; float:left;">
+          <img src="/themes/custom/un_press_theme/assets/images/United_Nations_bw_hq.png" alt="United Nations">
+          <h5> United Nations</h5>
+        </div>
+      </div>
+      <div class="col-md-9 mb-2 panel-panel radix-layouts-main-column">
+                <div class="row">
+          <div class="col-6 radix-layouts-contentcolumn1 panel-panel left-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-session field--type-string field--label-hidden field__item">Seventy-third Session,</div>
+      
+  
+  </div>
+
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-info field--type-string field--label-hidden field__item">5th &amp; 6th Meetings (AM &amp; PM)</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-6 radix-layouts-contentcolumn2 panel-panel right-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-symbol field--type-string field--label-hidden field__item">GA/L/3568</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-dated field--type-datetime field--label-hidden field__item"><time datetime="2018-10-05T12:00:00Z">5 October 2018</time>
+</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-md-12 radix-layouts-content panel-panel main-column">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-display-title field--type-string field--label-hidden field__item"><h1 class="page-header">International Treaty Framework Needs Review, Modernization, Speakers Tell Sixth Committee</h1>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><h4>Measures to Eliminate International Terrorism, Criminal Accountability of Officials, Experts on Mission Debates Concludes</h4>
+
+<p>Increasing the efficiency of the registration process for treaties will contribute to an improved international treaty framework, the Sixth Committee (Legal) heard today as it took up that topic for the first time, alongside criminal accountability of United Nations officials and experts on mission.</p>
+
+<p>After concluding its debate on international terrorism, the Committee took up a new agenda item on strengthening and promoting the international treaty framework.  (See Press Release <a href="https://www.un.org/press/en/2018/gal3567.doc.htm">GA/L/3567</a>.)  It had before it the reports of the Secretary‑General on review of the regulations to give effect to Article 102 of the Charter of the United Nations and a letter from concerned delegations (documents <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/72/86">A/72/86</a> and <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/73/141">A/73/141</a>).</p>
+
+<p>“Statistics demonstrate the relevance of this issue,” said the representative of Brazil, also speaking for the countries that requested the new item, namely Argentina, Austria, Italy and Singapore.  Calling for a review of the regulations concerning the treaty framework, he noted that the Treaty Section registers 1300 treaties per year, and double that amount of treaty actions.  Yet treaty registration seems geographically imbalanced, with a large number of treaties not registered at all, he said, adding that a review could help clarify the procedural requirements and facilitate further use of electronic resources.</p>
+
+<p>Treaties represent the foundation of a rules-based international order, Canada’s delegate said, adding that registration and publication of treaties promote transparency in international relations and establish a comprehensive and central source of international agreements for practical, operational and academic research purposes.  Not all States have the same resources, she pointed out, adding that maximizing electronic communications could be helpful.</p>
+
+<p>The Committee also heard from several countries who commended the work of the Treaty Section, with the representative of Tonga underscoring that small island developing States rely heavily on the records and resources published on the United Nations Treaty Series online.  He called for a more enhanced role of the Treaty Section, including through capacity—building, publications and technical assistance.</p>
+
+<p>The representative of Togo commended the Office of Legal Affairs for fostering an international framework of norms, and the Treaty Section for strengthening the capacity of legal advisers through regional workshops.  While the regulations on treaty registration are important in guiding Member States, there is geographical imbalance in registration, he said, adding his voice to the call for revising them.</p>
+
+<p>Sudan’s delegate, while acknowledging that the current regulations are now obsolete and the use of electronic means seems to be the best way to register treaties, pointed out that developing countries continue to encounter challenges in accessing these technologies.</p>
+
+<p>The representative of the United States also called for caution, expressing concern about proposals that could have the effect of limiting the accessibility and usefulness to Member States of information and treaty texts made available by the Secretary‑General.</p>
+
+<p>With the related reports before them (documents <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/73/128">A/73/128</a>, <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/73/129">A/73/129</a> and <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/73/155">A/73/155</a>), the Committee then turned to criminal accountability of United Nations officials and experts on mission.</p>
+
+<p>It is a topic, the Netherlands representative pointed out, that has been under discussion for more than 10 years.  Despite that, Member States seem unable to prevent criminal misconduct and hold those responsible to account.  Contributing States should accept the arrangements set out in the Voluntary Compact on the Commitment on Preventing and Addressing Sexual Exploitation and Abuse.  Voicing concern about the ongoing culture of silence vis-à-vis sexual exploitation and criminal misconduct, he warned that if United Nations funds and programmes fail to address those problems, his Government will halt its contributions.</p>
+
+<p>Also urging Member States to do more in responding to referrals of criminal allegations, the representative of Switzerland observed that only four additional States have submitted information on how they exercise jurisdiction over their nationals who serve as United Nations officials.  Ideally, a single report should compile information on all alleged crimes, she said, noting that her Government has commissioned an independent study to analyse gaps between various national legal systems.</p>
+
+<p>Speaking for the African Group, Gambia’s delegate responded to concerns about jurisdictional gaps, noting that remedial measures adopted under relevant Assembly resolutions can address them.  The Group prefers to emphasize the role of the State of nationality, as opposed to the host State playing a predominant role, he said, underscoring his support for the Organization’s zero-tolerance policy concerning criminal conduct.</p>
+
+<p>The representative of Iran, speaking for the Non-Aligned Movement, also spotlighted that policy, underscoring that it should be made known to all officials and experts on mission at all levels, especially those in managerial positions.  The countries of the Movement are both major recipients as well as contributors to peacekeeping, he pointed out, encouraging the State of nationality to act in a timely manner and highlighting the importance of victim support.</p>
+
+<p>To that end, Bangladesh, its delegate said, is currently in the process of settling financial responsibility for victim and child support against a sustained allegation of sexual abuse and paternity claim involving one of its peacekeepers at the United Nations Organization Stabilization Mission in the Democratic Republic of the Congo (MONUSCO).  The offender is liable for appropriate disciplinary measures, he noted, adding that the system-wide cultural and operational response against sexual exploitation is indeed bearing results.</p>
+
+<p>Also speaking on the international treaty framework were representatives of El Salvador (on behalf of the Community of Latin American and Caribbean States), Gabon, Switzerland, Romania, Mexico, Colombia, Singapore, New Zealand, Togo, Iran, Argentina, Austria, Mauritius and Paraguay, as well as the European Union.</p>
+
+<p>El Salvador (also for the Community of Latin American and Caribbean States), Norway (for the Nordic Countries), Australia (for Canada and New Zealand), Brazil, Israel, Gabon, India, Thailand, Sudan, South Africa, Mexico, Russian Federation, United States, Indonesia, Republic of Korea, Senegal, Nigeria, Morocco, Ethiopia, Egypt, and Paraguay.  A representative of the European Union also spoke on the topic of criminal accountability of United Nations officials and experts on mission.</p>
+
+<p>Speaking on international terrorism were representatives of Uruguay, Ecuador, Eritrea, Iran, Georgia, Burkina Faso, Cameroon, Bahrain and Zambia, as well as the Holy See and the International Committee of the Red Cross.</p>
+
+<p>The Sixth Committee will next meet at 10 a.m. on Monday, 8 October, to begin its consideration of rule of law.</p>
+
+<p><u>International Terrorism</u></p>
+
+<p>JORGE DOTTA (<u>Uruguay</u>), reiterating the importance of adhering to international human rights law in the fight against terrorism, said that terrorism is a global phenomenon and therefore must be tackled globally.  Noting the increasing frequency of terrorist attacks, he stressed the role of the international community in rejecting the scourge in a coordinated manner.  Despite many years of negotiations, the Sixth Committee is still divided on the definition of the phenomenon.  However, he pointed out that various Security Council resolutions referred to elements of terrorism and its shared characteristics.  That may be helpful in considering a common shared definition.  “Where if not here can we discuss a draft comprehensive convention on terrorism?” he asked, urging delegates to reach consensus.</p>
+
+<p>LUIS OÑA GARCÉS (<u>Ecuador</u>), associating himself with the Non‑Aligned Movement and the Community of Latin American and Caribbean States (CELAC), condemned terrorism in all its forms, regardless of justification.  Calling for joint action, he said that the United Nations is responsible for establishing a global order based on its Charter.  A balanced implementation of the Global Counter‑Terrorism Strategy is vital because it addresses root causes and stresses the importance of boosting States’ capacities to fight terrorism.  Recalling the recent violence in his country, perpetrated by illegal armed groups connected to transnational organized crime, he said it caused deaths and destruction of Ecuador’s infrastructure.  The Government is enhancing border security and is committed to bolstering the international counter‑terrorism compact.</p>
+
+<p>STEPHANIE AFEUENKI GEBREMEDHIN (<u>Eritrea</u>), associating herself with the African Group and the Non‑Aligned Movement, said terrorism is a multifaceted threat to peace, security and stability at all levels of society.  The crisis in the Red Sea Basin and the potential spread of terrorism to the rest of the region poses a serious concern.  Eritrea is a diverse nation and, while stable, secure and harmonious, is rich in its experience in thwarting radicalization, extremism and terrorism.  It is currently developing overarching projects with the United Nations Office on Drugs and Crime (UNODC) to build the human, infrastructural and technological capacities of the Eritrean law enforcement agencies.  On 9 July, Eritrea and Ethiopia signed a “Joint Declaration of Friendship”, ending 20 years of hostilities.  The recent renewal of peace and cooperation in the Horn of Africa is a historic achievement and is pacing the way for peace and economic development in the region.</p>
+
+<p>ALI NASIMFAR (<u>Iran</u>), noting that terrorism has been a global threat for decades, said that it is becoming more diffused and pervasive.  Although Islamic State in Iraq and the Levant (ISIL/Da’esh) has been defeated in Iraq and Syria, the Takfiri ideology used by Al‑Qaida, ISIL and other groups to misinterpret and misrepresent Islam in order to justify violence is still present and cannot be eliminated solely through political or economic means.  Any effective strategy against it must entail a major cultural and ideological component.  Expressing support for the integration of the Global Counter‑Terrorism Strategy in a balanced way, he said that double standards and a one‑sided interpretation of terrorism provides a safe haven for terrorist groups.  As well, categorizing “good” and “bad” terrorists for political interests will not help the fight against terrorism.  There is also the age‑old problem of foreign occupation, particularly the 70‑year occupation of Palestine which is the most pressing.  This has been compounded by foreign and military interventions in the region to preserve desired political arrangements.</p>
+
+<p>GIORGI MIKELADZE (<u>Georgia</u>) said that the weakening of ISIL/Da’esh is a major achievement but has given rise to new challenges.  Such groups are prioritizing expanding the network of global fighters, regrouping based on geographical proximity and concentrating on smaller groups in various countries.  His country has enhanced its counter‑terrorism legislation by criminalizing related offenses to a greater extent.  Strengthening the legal framework has resulted in effective enforcement measures, with criminal charges imposed for participation in ISIL/Da’esh on fighters returning to Georgia.  Moreover, his country has accepted hundreds of asylum seekers from Syria and Iraq fleeing violence.</p>
+
+<p>DIE MILLOGO (<u>Burkina Faso</u>) associating himself with the Non‑Aligned Movement and the African Group, said that his country is undertaking legal and institutional reforms to counter terrorism, including a new law adopted in December 2017.  Other measures included a specialist legal unit with national jurisdiction for investigating and prosecuting terrorist acts as well as a police combat unit to tackle terrorism.  International cooperation is crucial, he said, noting the close link between terrorism, transnational crime and human trafficking.  Turning to root causes such as poverty and displacement, he said all social strata must be involved in the fight against terrorism.</p>
+
+<p>ZACHARIE SERGE RAOUL NYANID (<u>Cameroon</u>) stressing that no country is spared from terrorism, said that concerted action and coordination is vital.  “We need to exchange information and build States’ capacities,” he emphasized, adding that terrorists are becoming more flexible daily.  African States are becoming more aware of the need to work together and adjust their policies, he observed, calling for vigilance.  Expressing commitment to the Global Counter‑Terrorism Strategy, he condemned the atrocities perpetrated by Boko Haram in his country.  His Government is implementing youth‑focused education and development programmes to counter hate speech and inculcate a culture of peace and inter‑religious dialogue.</p>
+
+<p>MUBARAK AL-RUMAIHI (<u>Bahrain</u>), emphasizing the need for a comprehensive approach to counter terrorism, said that terrorism is no longer confined to groups that can be easily identified and combated.  Some States are using it as a tool to create crisis in other States, he said, noting his country’s participation in various partnerships and regional coalitions.  Bahrain also adopted a law to prosecute terrorist crimes and issued a decree in 2001 against money laundering.  Also recalling the country’s participation in an international conference organized by the Organization for Economic Cooperation and Development (OECD) in Paris, “No Money for Terrorism,” he underscored his country’s principled position against the threat.</p>
+
+<p>LAZAROUS KAPAMBWE (<u>Zambia</u>) pointed out that acts of terrorism against any country create a deep sense of vulnerability that damages foreign direct investment, particularly in developing countries.  Given the interdependence of developing States, the withdrawal or reduction of such investment in one country can have a negative impact on an entire region.  While Zambia has adopted new anti‑terrorist legislation, it has yet to make significant progress on money‑laundering and terrorist financing in terms of convictions and asset forfeiture.  It therefore seeks to engage all public agencies and communities to address the problem, he said.  Expressing his gratitude for the technical support his country has received from its cooperating partners, he said that Zambia — and other developing countries — need more help to strengthen their capacity to deal with terrorism.</p>
+
+<p>APOSTOLIC NUNCIO, observer for the <u>Holy See</u>, said terrorism must be fought through the well‑honed mechanisms of criminal law and international mutual assistance among police and judicial authorities.  However, security or military means are never sufficient to combat terrorism.  In the long term, integral human development is key to preventing terrorism, as economic and social development may diffuse the many underlying grievances that lead to violent actions.  States must work together with local authorities, civil society and international organizations to promote development, protect human rights and prevent the spread of extremist ideologies.  Still, even fully developed societies may be susceptible to terrorism.  A stronger and coordinated response is necessary to deny terrorist organizations access to the cybertechnologies used in their recruitment and radicalization efforts.  Tolerance and dialogue among civilizations and the enhancement of interfaith and intercultural understanding are also conducive to the prevention of terrorism.  He urged the Sixth Committee to continue efforts to conclude the draft comprehensive convention.  Such an instrument would help the General Assembly restore its rightful place in the development of universally agreed counter‑terrorism norms, he added.</p>
+
+<p>CHRISTOPHER B. HARLAND, of the <u>International Committee of the Red Cross</u> (ICRC), emphasized that his organization does not challenge States’ legitimacy in ensuring security and eliminating terrorism.  However, such activities must be conducted with full respect for the protections afforded to individuals by international law.  Regarding the situation of children when measures are being taken against foreign fighters and their families, he emphasized that affected children, even those accused of crimes, are victims, adding:  “They must be detained only as a last resort.”  Humanitarian activities, including those regarding wounded and sick fighters, must never be considered unlawful support to non-State actors or individuals designated as terrorists.  Sanctions regimes and criminal laws dealing with terrorism should exclude from their scope of application activities that are exclusively humanitarian and impartial.  Failure to exclude such activities from criminal laws would lead to the negation of the notion of neutral, independent and impartial humanitarian action and jeopardize the mission of those organizations in areas where non-State armed groups designated as terrorist are active.  “These are the areas in which the needs of the population are often more acute,” he pointed out.</p>
+
+<p><u>International Treaty Framework</u></p>
+
+<p>ALEX GIACOMELLI DA SILVA (<u>Brazil</u>), also speaking for Argentina, Austria, Italy, and Singapore, said that those delegations had requested this new topic be included in the agenda of the Sixth Committee.  A review of the regulations concerning the international treaty framework would be useful for Member States, he said, adding that “statistics demonstrate the relevance of this issue”.  The Treaty Section registers 1300 treaties per year, as well as double that amount of treaty actions.  That totals over 70,000 registered treaties since 1945.  Yet, it appears that treaty registration is geographically imbalanced, with a significant number of treaties not registered at all.</p>
+
+<p>Recalling the Secretary‑General’s report (document <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/72/86">A/72/86</a>) concerning the review of the regulations, he said that it discussed possible means to increase the efficiency of the registration process.  A review could help clarify the procedural requirements for registration and facilitate further use of electronic resources in the registration process.  It is also necessary to consider how to modernize the methods for disseminating information on registered treaties.  Informing delegates that a draft resolution on the matter will be circulated, he said the ensuing debate could trigger an exchange of information on States’ treaty‑making practice.  Further, in future sessions, this item could also provide space for other treaty law topics.</p>
+
+<p>CARLA ESPERANZA RIVERA SÁNCHEZ (<u>El Salvador</u>), speaking on behalf of the Community of Latin American and Caribbean States (CELAC), said this agenda item contributes to the Sixth Committee’s revitalization of its work.  Simplifying the procedure for registering treaties and increasing the use of electronic resources could help overcome current shortcomings.  The practices for the publication of treaties also could be modernized, including those regarding the distribution of information on registered treaties.  The calls for the reduction of the current backlog must be balanced with the need to respect multilingualism as a core value of the Organization.</p>
+
+<p>As stated by the Assembly, promoting multilingualism entails the active involvement and commitment of all stakeholders and CELAC countries to repeat the request to the Secretary‑General to redouble efforts to ensure full parity among the six official languages.  CELAC countries pledge to work constructively during the informal consultations to conclude the long‑overdue review of the regulations.  CELAC is open to discuss other treaty‑related issues that could be addressed under this agenda time in future sessions, such as the role of the Secretary‑General as a depositary of multilateral treaties.</p>
+
+<p>DANIELA GAUCI of the <u>European Union</u>, recalling the significant role of the bloc and its Member States in shaping treaty law and practice, welcomed a review of the current regulations that underpin Article 102 of the United Nations Charter.  Such an evaluation would also help review the dissemination of information on registered treaties and international agreements.  It could lead to more efficient publication of the United Nations Treaty Series and enhanced transparency, while identifying those areas that require a better use of resources.  Moreover, a review would reinforce the usefulness of the regulations for all parties to treaties and international agreements and better meet their needs.  The result would be a broader implementation of Article 102, as well as a further step in support of the international legal order and the rule of law, she said.</p>
+
+<p>ANNETTE ONANGA (<u>Gabon</u>) said that the current agenda item shows a commitment to promote respect for the Charter, as well as for the formation and consolidation of international law.  The Sixth Committee has played an active role in the adoption of treaties and conventions, particularly in the repression of terrorism.  In principle, all States are equal in rights and obligations under international law, but they are not all equipped in the same way in their ability to be in accordance with international frameworks.  Expressing support for the efforts by the United Nations Office for Legal Affairs to modernize existing tools, she said that the necessary understanding and expertise to disseminate these practices exists.  A new review, taking into account new technology, should be done to update the current system.  The existence of a multilateral mechanism is of the utmost importance, particularly with regards to supporting the least well‑equipped countries.</p>
+
+<p>VINCENT OLIVIER RITTENER (<u>Switzerland</u>) believes the Secretary‑General should envision a registration procedure that lets a Member State catch up with the registration of its unregistered treaties.  Switzerland believes an efficient registration procedure is very important to help all Member States accomplish this task.  As a member of the United Nations since 2002, Switzerland has striven to transfer all its treaties and international agreements to the Secretariat.  It supports a registration procedure that is as precise and complete as possible.  The Secretary‑General should envisage a more streamlined registration procedure that would let a relatively new Member State like Switzerland catch up with the registration of unregistered treaties.  Switzerland also recognizes the important role of the depositaries of international treaties and the country is now a depositary of about 80 treaties.  It has acted in an impartial and neutral manner by maintaining the distinction of its role as a depository and that of party to the conventions.  It welcomes the Secretary‑General’s proposal that clearly defines the role of all the depositaries to ensure the registration of multilateral treaties.  Switzerland also encourages the use of modern information technology to achieve the objectives stipulated in Article 102 of the United Nations Charter.</p>
+
+<p>ELSADIG ALI SAYED AHMED (<u>Sudan</u>), noting the request to include this item on the agenda, said that, first, it needed to be recognized that the 1978 regulations regarding the registration of treaties are now obsolete in the light of new practices and technologies.  Furthermore, there is clearly a geographical imbalance regarding the registration of treaties.  He expressed his hope that the inclusion of this item on the agenda will create a platform to review the regulations.  The use of electronic means seems to be the best way to register treaties.  Nonetheless developing countries continue to encounter challenges in accessing these technologies.  Countries that conclude a treaty are bound to implement them as they have no other choice.  Such treaties are only in force among the contracting parties and there is a need to respect these obligations to uphold them and implement them in good faith.</p>
+
+<p>ŞTEFAN GABRIEL RACOVIŢĂ (<u>Romania</u>), taking note of the Secretary‑General’s recommendations, emphasized the need for an electronic platform — also known as an e‑platform — when dealing with the registration and publicizing of treaties.  It would help strike a balance between the Secretary‑General’s depository functions and the promotion of treaties, on the one hand, and the need for Member States to easily access information on international treaties, on the other.  He expressed confidence that the Sixth Committee, in considering the recommendations, will build upon the premises for a new, updated and — most importantly — user‑friendly e‑platform.</p>
+
+<p>JULIAN SIMCOCK (<u>United States</u>), noting that his Government works actively to identify areas in which treaty relationships can enhance cooperative efforts, said that this year the United States Senate has provided advice and consent to the ratification of five new treaties addressing extradition, maritime boundaries and intellectual property rules.  His Government has taken note of ideas for potential changes to regulations under Article 102 of the Charter regarding the registration of treaties, he said, adding that the Sixth Committee should focus its attention on proposals that make the most productive use of available resources.  Expressing concern about proposals that could have the effect of limiting the accessibility and usefulness to Member States of information and treaty texts made available by the Secretary‑General, he called for caution in the consideration of any such changes.</p>
+
+<p>VILIAMI VAINGA TONE (<u>Tonga</u>), underscoring that small island developing States rely heavily on the records and resources published on the United Nations Treaty Series Online, strongly emphasized the importance of States cooperating with the United Nations in the provision of and publication of treaties.  He went on to express support for the Secretary‑General’s call for a more enhanced role of the Treaty Section and for further interaction from them, particularly through capacity building, publications and technical assistance.</p>
+
+<p>PABLO ADRIÁN ARROCHA OLABUENAGA (<u>Mexico</u>), noting his delegations’ request this morning to the Treaty Section for 17 registrations, expressed support for a review and update to provisions concerning the registration of treaties, highlighting especially the need to use new information technologies.  The regulations predate the entry into force of the Vienna Convention of 1969, he pointed out, adding that the International Law Commission had also observed a clear lack of harmonization of the practice of provisional application of treaties and what is stipulated in the repertory in relation to the practice followed by the Secretary‑General as the depository of multilateral treaties.  It is essential to review the regulations on registrations, he said, adding that this would give the Committee the opportunity to review not only those aspects related to provisional application of treaties but also the whole range of provisions that might require updating.</p>
+
+<p>FRANCISCO ALBERTO GONZALEZ (<u>Colombia</u>), aligning himself with CELAC, said that a review of the practice of registration of treaties is timely because the process has not kept pace with new technologies.  It is necessary to update the practice so that it is an incentive rather than an obstacle for compliance with article 102 of the Charter.  Commending the work of the Director of Treaty Sections, he said that information technology will simplify the registration process and help disseminate broadly information on those registrations.  Also noting delays in the publication of treaties due to delays in translation, he said that currently States are urged to provide translation in French or English to speed up the publication process.  However, it is rare that such translations are provided, because for many States working in a language other than French or English, such translation is costly.  Requesting that the elimination of the translation requirement must be considered, he added that it is sufficient to have a short explanation of the treaty in English or French.</p>
+
+<p>LUKE TANG (<u>Singapore</u>), associating himself with Brazil on behalf of the main sponsors for the agenda item, said that a strong and robust international treaty framework is a critical component of a rules‑based multilateral system.  More so, it is essential for the survival and success of small States such as Singapore.  Treaties are an indispensable tool in international relations and their effective operation and implementation are vital to the rule of law.  It is an opportune moment for the General Assembly to review the regulations giving effect to Article 102 of the United Nations Charter.  These regulations have not been reviewed since 1978 and there are ways in which they can be updated and improved to reflect the technical advances of today’s society.  He also acknowledged the outstanding work of the Treaty Section, noting that among its many accomplishments is the creation of the United Nations Treaty Collection online portal, which provides a wealth of information on treaty law and practice.  This agenda item will provide the platform for wider discussion on other treaty law‑related topics in the future and allow delegations to share their thoughts and practices.</p>
+
+<p>KATE NEILSON (<u>New Zealand</u>) said that her country was party to around 1,700 treaties and greatly valued the role that the Secretariat plays in registering those treaties, as well as the Secretary‑General’s important role in acting as depository for many of them.  Such roles add transparency and coherence to the international legal order and assist in providing clarity on the extent of States’ obligations.  The process of registering treaties annually involves a significant amount of work for both States and the Secretariat.  It was therefore important that the regulations to give effect to Article 102 of the Charter are up to date and reflect current practices and technological developments.</p>
+
+<p>FINTAKPA LAMEGA DEKALEGA (<u>Togo</u>) commended the major role that the United Nations plays through the Office of Legal Affairs to facilitate the drafting and fostering of an international framework of norms and mechanisms that are legally binding.  The Treaty Section is seeking to strengthen the capacity of legal advisers through various regional workshops.  He welcomed the work of Member States who organized specific discussions on the matter and commended the decision of the General Assembly to include this item on the Sixth Committee agenda.  The regulations on the registration of treaties were last reviewed in 1978 and are obsolete in the face of new technologies today.  The regulations are important in that they guide Member States in the registration of treaties.  There is a geographical imbalance in the registration treaties and this is why it is important to revise the regulations in force.</p>
+
+<p>CATHERINE BOUCHER (<u>Canada</u>) said that Article 102 is very clear about the responsibility of States with regard to the registration of treaties.  The rationale behind the registration and publication of treaties is to promote transparency in the conduct of international relations and to establish a comprehensive and central source of international agreements for practical, operational and academic research purposes.  As the Sixth Committee discusses the matter, it should keep in mind that not all States have the same resources and that other organizations also register treaties.  Revised practices that maximize electronic communications could be explored.  Canada is committed to a rules‑based international order, and treaties represent the foundation of that order, she said, adding that their registration, consistent with Article 102, contributes to global stability through transparency and access to data.</p>
+
+<p>ALI NASIMFAR (<u>Iran</u>) called treaties the main source of international law and the cornerstone of rule‑based international relations.  The United Nations has played a major role in norm‑setting, rule‑making and the development of the treaty framework, as well as ensuring the transparency of those treaties.  Taking note of the report of the Secretary‑General on that matter, he expressed support for the elaboration of recommendations to reflect technological developments and current practice to assist Member States in fulfilling their obligations under Article 102.  He also observed that treaty registration appears geographically imbalanced, probably due to lack of awareness.  The Special Committee on the Charter of the United Nations and on the Strengthening of the Role of the Organization could be a forum for that discussion.  Iran’s own procedures for ratification and publication of international treaties include, among others, the practice of publishing those treaties in an official newspaper before ratification.</p>
+
+<p>MARTÍN GARCÍA MORITÁN (<u>Argentina</u>), associating himself with CELAC and Brazil, commended the valuable work of the Treaty Section.  An update of the regulations concerning treaty registration would increase efficiency and transparency in the registration of treaties as well as in their publication and dissemination.  He also expressed hope that the discussion concerning this item in the Sixth Committee would lead to a consensus resolution that would, in turn, allow the United Nations to help modernize the procedures surrounding treaties.</p>
+
+<p>NADIA KALB (<u>Austria</u>), associating herself with Brazil and the European Union, said that international treaties must be respected and implemented.  Commending the Treaty Section and noting her country’s role as a depository, she noted that a zero draft of the resolution had been circulated a few minutes ago.  Expressing support for measures to address the shortcomings in the treaty registration process through capacity‑building, she stressed the importance of maintaining the multilingual nature of the Treaty Section.  As well, the translation policy must be reviewed to reduce costs and address the backlog.</p>
+
+<p>RISHY BUKOREE (<u>Mauritius</u>) said that his delegation concurs with the reasons contained in the explanatory memorandum for the inclusion of this item on the agenda, and went on to highlight the outstanding work of the Treaty Section of the Office for Legal Affairs.  In conformity with Article 102 of the United Nations Charter, the Treaty Section has reviewed and published all treaties and helped in discharging the Secretary‑General’s depository functions.  The staff members are accessible and helpful to delegations in providing treaty information and timely assistance.  Regulations are important when it comes to the implementation of the obligation of Member States to register treaties, he said, noting that his country is signatory to a large number of treaties.  Their implementation represents a vital cornerstone of the international system.  They perform a variety of functions and lay down binding standards by which signatories abide.  The 1969 Vienna Convention on the Law of Treaties remains relevant, although its scope is limited to treaties between States.</p>
+
+<p>ENRIQUE JOSÉ MARÍA CARRILLO GÓMEZ (<u>Paraguay</u>) said the registration of treaties contributes to ensuring legal certainty in the development of international law and the dissemination of knowledge.  It also indirectly contributes to the principle of the peaceful settlement of disputes.  Since 1991, Paraguay has been the depository of 148 treaties, protocols and agreements.  The dissemination of the practice developed by the United Nations of the registration and publication of treaties is fundamental in achieving consistency in the practice of States that act as depositories of such treaties.  Paraguay, which is a society of diverse cultures and bilingual nations, underscores the value of diversity and calls for the use of Spanish in the practice of the publication and registration of treaties on a par with the currently used languages.  There should also be technical assistance to Member States and training of their human resources, he said.</p>
+
+<p><u>Criminal Accountability</u></p>
+
+<p>Mr. NASIMFAR (<u>Iran</u>), speaking for the Non‑Aligned Movement, said that his group of countries contribute more than 90 per cent of the peacekeeping personnel in the field.  At the same time, he pointed out, the group is also a major recipient of those missions.  All personnel should continue to perform their duties in a manner that preserves the image, credibility, impartiality and integrity of the United Nations.  Lauding the comprehensive strategy on assistance and support to victims of sexual exploitation and abuse by United Nations staff and personnel, which was adopted by General Assembly resolution 62/214, he underscored that the text will help to mitigate the sufferings of the victims.</p>
+
+<p>Encouraging Member States to exercise their jurisdiction in applicable cases so that criminal acts do not go unpunished, he added that the State of nationality must act in a timely manner to investigate and prosecute alleged crimes.  Reiterating concern about all alleged crimes on the part of United Nations officials and experts on mission, including allegations of corruption and other financial crimes, he welcomed the Secretary‑General’s stance that there will be no tolerance for any corruption at the United Nations.  As well, the Secretary‑General must also continue to ensure that his zero‑tolerance policy for criminal activities is made known to all official and experts on mission at all levels, especially those in managerial positions.</p>
+
+<p>Ms. RIVERA SÁNCHEZ (<u>El Salvador</u>), speaking on behalf of CELAC, said that any type of misconduct, especially criminal behaviour, committed by United Nations personnel on mission, is completely unacceptable and must never go unpunished.  She took note of the Secretary-General’s reports and reiterated the importance attached to receiving continuous information from the Secretariat on statistics about substantiated allegations.  Improving on the reporting process will always benefit understanding of the problem so that it can be properly addressed.  She requested that the Secretariat continue its efforts to improve the quality of its information and its immediate communication to concerned Member States regarding possible criminal implications.  She took note of the efforts under way by the Secretariat to standardize the process to notify Member States of serious allegations of misconduct involving uniformed personnel deployed as experts on mission and underscored that this process should be followed for incidents involving United Nations officials and non-uniformed experts on mission.</p>
+
+<p>She urged States that have referred cases to provide adequate follow-up and inform the Secretary-General of the measures adopted, including prosecutions as appropriate.  She also reiterated the importance of States keeping the United Nations informed of any action taken by national authorities in relation to these cases.  CELAC fully supported the zero-tolerance policy in cases of sexual exploitation and abuse and other criminal conduct, she said, underscoring the need for the observance of the rule of law for its implementation.  More is expected of the United Nations, particularly to set standards in meeting the needs of those whose rights have been violated.  In this regard, she highlighted the shared responsibility of the Secretary-General and all Member States to take every measure to prevent and punish said criminal activities committed by persons working for the United Nations and to enforce standards of conduct in this regard.</p>
+
+<p>AMADOU JIATEH (<u>Gambia</u>), speaking for the African Group, said that, with the increasing number of United Nations officials and experts on mission, and especially given the number of peacekeeping missions in Africa, this topic is as relevant to Africa today as it was at its inception.  He recalled that, in 2006, the General Assembly allocated the agenda item “Comprehensive review of the whole question of peacekeeping operations in all their aspects” to the Fourth (Special Political and Decolonization) and Sixth Committees for discussion.  He also underscored the African Group’s support for the Organization’s zero-tolerance policy concerning criminal conduct, in particular, conduct involving sexual abuse and exploitation committed by United Nations officials or experts while on mission.  Criminal conduct has a negative indelible impact on the credibility of any organization, including this one.</p>
+
+<p>In the deliberations of past meetings, several delegations expressed the view that jurisdictional gaps in accountability leads to the repetitive commission of crimes, he said.  This is particularly the case in situations where the host State’s options to exercise its criminal jurisdiction is limited in relation to an alleged offender whose State of nationality is incapable of asserting its jurisdiction of crimes committed while on mission.  Remedial measures adopted under several General Assembly resolutions on this matter, if properly implemented, could address the issue of such jurisdictional gaps.  While a preference is expressed by some Member States for a predominant role to be played by the host State, the African Group and other Member States prefer to emphasize the role of the State of nationality.</p>
+
+<p>ELEONORE VAN RIJSSEN of the <u>European Union</u> noted that the number of referrals for alleged crimes committed by United Nations officials and experts on mission — including sexual exploitation and abuse, corruption, fraud, physical assault and drug crime — decreased over the most recent reporting period.  As allegations of sexual exploitation and abuse are the most frequent in terms of referred cases, States should step up their commitments to prevent and address this offence committed by those involved in peacekeeping and peace support operations.  If the United Nations is to fulfil its mandate, representing a credible and effective partner for victims and host States, it should work together to bring such crimes to justice.</p>
+
+<p>Since the primary responsibility for bringing perpetrators to justice rests with Member States, it is crucial that the State of an alleged offender is promptly informed and consulted by the United Nations, she continued.  It is equally vital that the State exercises its jurisdiction and investigates and prosecutes these crimes.  However, the majority of referrals since 2008 remain outstanding, as the States of nationality has provided no information or insufficient information.  She encouraged all States to answer transparently to requests for information made by the United Nations on investigations and prosecutions undertaken by the competent national authorities, including reasons why investigations or prosecutions have not been pursued.</p>
+
+<p>TORE HATTREM (<u>Norway</u>), also speaking on behalf of Denmark, Finland, Iceland and Sweden, said that the issue of criminal accountability of United Nations officials and experts on mission is critically important.  At this point, it is imperative that both the United Nations and its Member States, through policy, legislation and action, exercise a zero-tolerance policy towards crimes committed by United Nations officials and experts on mission.  Over the past few years, the United Nations has taken important and timely steps to root out sexual exploitation and abuse.  He supported the ongoing work of the Special Coordinator on improving the United Nations response to sexual exploitation and abuse, and the Secretary‑General’s strategy to improve the Organization’s system-wide approach to preventing and responding to sexual exploitation and abuse.</p>
+
+<p>The Nordic countries welcome the fact that, as of 4 September 2018, 98 Member States have signed the Voluntary Compact on Preventing and Addressing Sexual Exploitation and Abuse, he said.  He hoped that the Compact will send a strong signal of joint commitment and mutual accountability on the part of the United Nations and Member States.  He urged all Member States that have not yet done so to submit relevant information to the Secretary‑General regarding the status of their domestic laws on this matter.  In addition to reporting, further measures must be considered to ensure transparency and provide incentives for Member States to undertake the necessary legislative amendments.  S/he also thanked the Secretary‑General for his report on the matter, noting that it continued to paint a gloomy picture.  Of the 148 referrals for criminal accountability, Member States have only provided information on their national follow-up in 31 instances.  This shows that the response is insufficient, and this is unacceptable.  On a positive note, the Secretary‑General has now received information on the status of investigation in 31 cases, 4 more than in 2017.</p>
+
+<p>CARY SCOTT‑KEMMIS (<u>Australia</u>), also speaking for Canada and New Zealand, expressed concern over the upward trend in referrals in recent years.  This could be due to greater awareness of reporting procedures on the part of victims.  Still, it is regrettable that some Member States receiving referrals have failed to act and that many of these States have neglected to update the United Nations on relevant developments, including investigations or prosecutions.  In addition, some Member States have failed to respond to allegations of particularly serious crimes, which are alleged to have been committed over two decades ago.  The United Nations must continue its efforts to strengthen the effectiveness of follow‑up with Member States, especially for allegations of serious crimes.</p>
+
+<p>The primary responsibility to investigate and prosecute credible allegations of misconduct by United Nations officials and experts on mission rest with the State of nationality of the alleged perpetrator, he continued.  He urged Member States that have not yet done so to consider establishing jurisdiction over serious crimes committed by their nationals while serving as United Nations officials or experts on mission.  All Member States should investigate allegations of criminal conduct by their nationals, cooperate with other States, hold perpetrators to account and take preventative steps, including pre‑deployment training and screening.  They should also provide advice on any obstacles to effective prosecution they encounter, whether jurisdictional, evidentiary or otherwise.</p>
+
+<p>PATRICK LUNA (<u>Brazil</u>), aligning himself with CELAC, said the United Nations shapes the global consciousness through the activities it performs and the values it upholds. Therefore, there should be no margin for abuses or impunity.  The Secretary‑General’s establishment in 2017 of the United Nations Chief Executives Board High—Level Task Force on sexual harassment aims to strengthen prevention and investigation of sexual harassment as well as provide better protection and support to victims.  While significant progress has been made, he voiced his support for the Secretary‑General’s appeal to address practical problems in the implementation — through specialized agencies and related organizations — of policies related to the reporting, investigation, referral and follow-up of credible criminal allegations.  All Member States should strive to overcome remaining legal challenges to asserting jurisdiction over crimes committed by their nationals when they serve as United Nations officials or experts on mission: a stance his country resolutely supports.</p>
+
+<p>AHUVA SEIFERAS, Legal Department of the Ministry of Foreign Affairs of <u>Israel</u>, emphasized that privileges and immunities to which United Nations personnel may be entitled, are granted in the interest of the Organization, not for the individuals concerned.  It is the right and duty of the Secretary‑General to waive immunity when it impedes the course of justice or when it can be waived without prejudice to the interests of the United Nations.  If immunity cannot be waived, it is important that the United Nations authorities make efforts to reach solutions outside of domestic tribunals, such as ex gratia compensation for victims and the undertaking of other appropriate voluntary steps to advance domestic public interest, especially in cases involving death or serious injury.  Her country is among the co‑founders, alongside France, Kenya and the Netherlands, to have recently established the Group of Friends to Eliminate Sexual Harassment, she said, underscoring the need to combat such practices in all forms, including in the workplace.</p>
+
+<p>ANNETTE ANDRÉE ONANGA (<u>Gabon</u>), associating herself with the African Group and the Non‑Aligned Movement, said that peacekeeping enabled the United Nations to promote international law through its many interventions around the world.  Thanks to peacekeeping, a great many wars have been contained, she said, paying tribute to the many peacekeepers who had fallen in duty, a sacrifice of which Gabon had borne its fair share.  Reaffirming her Government’s commitment to the zero‑tolerance policy on sexual abuse by officials and personnel on mission, she added that her country signed the recent initiative of Action for Peace.  In addition to pre‑deployment training, the Government is collaborating fully with all missions.  With a view to transparency, all Gabonese soldiers in question regarding recent events in the Central African Republic have been subjected to DNA testing.  Furthermore, Gabon has dispatched a special investigative unit to that country to investigate the cases and interview victims, she said, adding that her Government “hopes to close these cases once and for all”.</p>
+
+<p>SYDNEY GREGORY KEMBLE (<u>Netherlands</u>), associating himself with the European Union, said the Committee has been discussing criminal accountability of United Nations officials for more than 10 years.  Yet, despite some progress, Member States seem unable to prevent criminal misconduct and to hold those responsible to account.  That situation cannot continue.  He voiced his support for the Secretary-General’s call for Member States to extend their extraterritorial jurisdiction over crimes that may be committed by their nations when assigned to the United Nations or operating under its authority.  Contributing States should accept the arrangements set out in the Voluntary Compact on the Commitment on Preventing and Addressing Sexual Exploitation and Abuse.  An ongoing culture of silence vis-à-vis sexual exploitation and abuse, sexual harassment and criminal misconduct is deeply troubling.  If United Nations funds and programmes fail to implement or execute measures to address those problems, then the Government of the Netherlands will halt its contributions accordingly, he warned.</p>
+
+<p>YEDLA UMASANKAR (<u>India</u>), associating herself with the Non-Aligned Movement, said the issue of accountability remains elusive because of complex legal aspects specific to Member States sovereignty and jurisdiction.  It is crucial that the State of nationality of an alleged offender is promptly informed and consulted by the United Nations.  That State must, in a timely manner, establish and exercise jurisdiction and then investigate and prosecute, where appropriate.  When Member States do not assert extraterritorial jurisdiction over crimes committed abroad by their nationals, appropriate assistance must be provided so they can update their national laws and regulations for such jurisdiction and prosecute any misconduct of their nationals serving as United Nations officials on mission abroad.  The India Penal Code and the Code of Criminal Procedure of India have provisions to deal with extraterritorial offences committed by Indian nationals and for seeking and providing for assistance in criminal matters.  The Indian Extradition Act of 1962 allows for extradition, in respect of extraditable offences, when an extradition treaty with another State is in force.  In the absence of a bilateral treaty, the Act also allows an international convention to be used as the legal basis for considering an extradition request.</p>
+
+<p>PIRANAJ THONGNOPNUA YVARD (<u>Thailand</u>), associating herself with the Non‑Aligned movement, praised the work of the vast majority of United Nations staff in peacekeeping missions, but affirmed that wrongdoers must be held accountable, particularly in the case of sexual abuse and violence against women or children.  In that context, she strongly supported the Secretary-General’s zero-tolerance policy.  The Organization and its Member States must urgently step up efforts to enhance the effectiveness of investigations and prosecution of crimes.  Noting that Thailand had provided over 27,000 military and police personnel to over 20 United Nations missions since 1946 and was preparing to deploy more shortly, she reaffirmed its commitment to ensure the highest standards of conduct.  At the same time, she stressed that adequate pre-deployment training was important to equip peacekeepers with the knowledge to prevent crimes, adding that women had a unique and significant role to play in the protection of civilians, in particular women and girls.</p>
+
+<p>NATHALIE RITTNER (<u>Switzerland</u>) urged Member States to do more in responding to referrals by the Secretary-General of criminal allegations against United Nations officials and experts on mission.  While thanking the Secretary-General for the three relevant reports, she said that, ideally, a single report should compile information on all cases of crimes alleged to have been committed by those personnel.  Furthermore, the overview should contain information on cases that were brought to the attention of a State other than the State of nationality of the individual concerned.  Her country has provided such information on allegations of wrongdoing by United Nations officials of various nationalities that occurred on its territory.  It is regrettable that only four additional States have submitted information on how they exercise jurisdiction over their nationals who serve as United Nations officials.  Her Government has commissioned an independent study to analyse whether gaps exist between various national legal systems and whether an international convention could fill some of those gaps in 20 representative countries.</p>
+
+<p>Mr. AHMED (<u>Sudan</u>), associating himself with the Non‑Aligned Movement and the African Group, said that he is deeply concerned about the serious allegations of sexual exploitation and abuse committed by United Nations peacekeepers and others. The Secretary‑General’s report shows the lack of information received on evidence and the status of deliberations, and this reveals that there are gaps in the areas of reporting and notifications.  This leads to impunity, he said.  The criminal accountability of United Nations officials and experts on mission, including those on peacekeeping missions, is a matter of priority because it reflects the image and integrity of the Organization.  A zero‑tolerance policy must be implemented and punishment must be delivered in accordance with international law.  This also applies to other crimes, such as financial crimes.  The harm done is not limited to the victims but is extended to the United Nations as a whole.  Member States must guarantee they will not provide special status to United Nations officials and experts or give them impunity, he said.</p>
+
+<p>ROMI BRAMMER (<u>South Africa</u>), associating herself with the Non-Aligned Movement and the African Group, said accountability of United Nations officials and experts on mission is significant as they are almost always deployed to locations peopled by the most vulnerable.  While supporting a rule-based regime created by a multilateral convention to ensure accountability and prevent future recurrences, she encouraged domestic legislation vesting local courts with jurisdiction over United Nations officials and experts on mission.  Prosecution and punishment of perpetrators of serious crimes closes the “jurisdictional gap” pending creation of an appropriate treaty, and all Member States must prioritize closing that gap to solve this complex problem.</p>
+
+<p>ANA FIERRO (<u>Mexico</u>) underscored the usefulness of the Secretary‑General’s report, noting that it contained relevant information that had been received from Member States since 2007 regarding jurisdiction.  After a study of the report, her delegation has identified areas that require more attention.  Although it is permitted, not many States exercise jurisdiction over their nationals in these cases.  Concerning credible notifications of nationals committing crimes, this year there have been 24 more notifications submitted.  Of the total number of notifications, 13 are attributed to staff in peacekeeping operations or special political missions, while eight refer to sexual exploitation and abuse. Only three cases are being investigated, she said.</p>
+
+<p>RUBÉN ARMANDO ESCALANTE HASBÚN (<u>El Salvador</u>) said that the Secretary‑General’s reports contain valuable information on United Nations procedures on notifications and national practices and include cases that were notified in good time by his country.  Given the ongoing changes that are seen on the international stage, the number of peacekeeping missions is on the increase and they are increasingly multidimensional.  In that context, it is important to point out the significant contribution that United Nations officials and experts make, particularly when it comes to the maintenance of international peace and security.  He reaffirmed his Government’s commitment to adopt adequate measures ensuring that crimes do not go unpunished and those responsible are brought to justice.  He recognized that a State of which the person is national has the right to exercise jurisdiction.  There is no case to date that can be attributed to the Salvadorian armed forces. If there were to be an incident of this sort, the staff would be brought to justice in accordance with El Salvador’s national laws, he said.</p>
+
+<p>MAXIM V. MUSIKHIN (<u>Russian Federation</u>) said his Government attaches great importance to the accountability of United Nations officials and experts on mission who may have committed crimes.  Reaffirming that the package of measures already established is appropriate for the issue, he noted that developing any future Convention requires a careful approach, and at this stage he is not convinced that such a measure brings added value.  Noting the need for the Secretariat to inform States about any cases of their citizens in service of the United Nations who may have committed crimes, he added that the State of citizenship must have the leading role in such eventualities.</p>
+
+<p>EMILY PIERCE (<u>United States</u>) said that while the vast majority of United Nations officials perform their duties admirably, incidents of criminal behaviour affect the credibility of the organization and the public’s confidence.  She welcomed efforts by the Office of Legal Affairs in following up with Member States on referrals of criminal allegations and encouraged the Department to assist them in making jurisdiction determinations.  Her Government remains open to the Committee considering whether a convention could play a useful role in closing legal and jurisdictional gaps.  However, more information is needed in order to have a well‑informed discussion on that subject.  She went on to highlight her country’s ongoing efforts to address the effective implementation of policies and procedures related to sexual exploitation and abuse.</p>
+
+<p>RICARDO S. RURU (<u>Indonesia</u>), associating himself with the Non‑Aligned Movement, said that the agenda item is as important now as the first time it was introduced; it affirms that impunity has no place in the world.  Indonesia has deployed more than 38,000 personnel to peacekeeping missions.  It is one of the largest troop contributing countries, serving in nine peacekeeping missions, he noted, paying tribute the outstanding contributions and sacrifices of peacekeepers.  In the last four years, there has been a rise in peacekeeping fatalities due to violent acts.  This should not be taken for granted.  Peacekeepers are trained to be professional and respect the laws of the host State.  He reiterated that all violators must be held accountable in order to protect the idealism of peace.  It is important to ensure personnel and leadership responsible for proper conduct adhere to the zero‑tolerance policy, he said.</p>
+
+<p>FAIYUT MURSHID KAZI (<u>Bangladesh</u>) said that the reports gave a useful snapshot of the policies and procedures guiding criminal accountability in various United Nations entities.  It was also useful to see the large degree of coordination and coherence across such entities in terms of reporting, investigation and follow‑up on credible allegations with the relevant national authorities.  The Secretary‑General’s desired cultural and operational changes for a system‑wide response against sexual exploitation and abuse are bearing results supported by evidence.  There has been broad‑based support for his new approach strategy that aims at taking a holistic perspective involving all United Nations civilian and uniformed personnel as well as non‑United Nations forces.  Bangladesh is currently in the process of settling financial responsibility for victim and child support against a sustained allegation of sexual abuse and paternity claim involving one of its peacekeepers deployed at the United Nations Organization Stabilization Mission in the Democratic Republic of the Congo (MONUSCO) in 2015.  The concerned offender is liable to face appropriate judicial and disciplinary measures as per relevant laws and regulations.</p>
+
+<p>HWANG WOO JIN (<u>Republic of Korea</u>) said the Secretary‑General’s reports on the issue of United Nations officials and experts on mission will minimize legal loopholes in punishing those who commit crimes.  Such acts seriously undermine the United Nations, and thus relevant measures should be taken to avoid impunity.  Reemphasizing the importance of preventing these crimes, his country stresses the role of stronger ethics training and raising greater awareness.  He reiterates the Republic of Korea’s support for the zero‑tolerance policy concerning sexual crimes.</p>
+
+<p>MAMADOU RACINE LY (<u>Senegal</u>), associating himself with the African Group and the Non‑Aligned Movement, welcomed the devotion of the men and women of the United Nations who work selflessly and proudly for peace and security.  However, nothing can absolve them of responsibility for any crimes committed, as the reputation and impartiality of the United Nations is at stake.  If nothing is done, this only adds to the victims’ suffering.  The privileges and immunities conferred upon United Nations personnel must not be used to commit reprehensible crimes with impunity.  His country has a zero‑tolerance policy especially concerning sexual exploitation and abuse by United Nations personnel, and this must absolutely become a reality.  The State of nationality has the predominant role over the host State in investigating conduct, and the role of training prior to and during deployment of forces cannot be ignored.  While a combination of efforts between parties involved has led to significant improvements, he said the achievement is fragile.  All States must see that violations do not go unpunished and perpetrators are brought to justice, as the absence of accountability betrays the trust of victims and leads to disillusionment among families.</p>
+
+<p>EUNICE GAROS PHILIPS-UMEZURIKE (<u>Nigeria</u>) said that her country condemns crimes by United Nations officials and continues advocating that those found culpable of such acts be held accountable.  Nigeria has special teams which visit missions abroad and interact with and sensitize its troops to the consequences that any untoward actions may have for them and their families, as well as for the United Nations and Nigeria.  The Nigerian Government encourages more targeting orientation and awareness campaigns for officers on the risks of irresponsible behaviour and the United Nations zero tolerance for such acts.  It is also working to provide recreational activities for Nigerian peacekeepers at missions abroad to boost their morale and has approved a proposal for granting regular leave and passes for Nigerian peacekeepers to enable them to visit their families.  The Nigerian Government has made contributions to the United Nations Sexual Exploitation and Abuse Victims Compensation Fund, she said, urging other Member States to do the same.</p>
+
+<p>MOHAMMED ATLASSI (<u>Morocco</u>), associating himself with the Non‑Aligned Movement and the African Group, said that his country, committed to the United Nations’ efforts to prevent conflicts, attaches great importance to the subject at hand.  Since 1960, Morocco has contributed to United Nations peacekeeping missions.  All crimes committed by a United Nations official or expert on mission must give rise to judicial prosecution of the State from which the perpetrator is a national.  These experts and officials must respect the law of the host State and comply with its national legislation.  He also underscored the importance of a zero‑tolerance policy when it comes to misconduct or sexual abuse and exploitation that are attributed to United Nations officials and experts on mission.  There is a need to consolidate efforts between Member States and the United Nations to investigate such crimes.  It was of importance to strengthen mechanisms to prevent impunity, he added, stressing the importance of strengthening parallel efforts to prevent shortcomings.</p>
+
+<p>EHPREM BOUZAYHUE HIDUG (<u>Ethiopia</u>), associating himself with the African Group and the Non-Aligned Movement, noted that his country was a major contributor to United Nations peacekeeping and also hosted the United Nations Economic Commission for Africa and other agencies.  “States should fight impunity by making sure their nationals that work for the United Nations become accountable for their illegal actions,” he emphasized.  He called for ensuring that individuals are subjected to prosecution pursuant to the law of their nationality and international conventions adopted by each country.  Member States must continue to be informed of allegations of criminal activity or abuse by United Nations officials and experts on mission and the General Assembly is the appropriate forum to discuss the matter.</p>
+
+<p>MOHAMED EL SHINAWY (<u>Egypt</u>) said that this year the Secretary‑General’s reports are in greater depth, following an Egyptian initiative that resulted in resolution <a href="http://undocs.org/A/72/312">A/72/312</a> entitled “United Nations action on sexual exploitation and abuse”.  Egypt underscored that his country will support the Secretary‑General’s efforts to implement this policy in the context of United Nations peacekeeping operations. The President of Egypt participated in the United Nations high‑level meeting on the prevention of abuse in peacekeeping missions, which took place on the sidelines of the seventy‑second session of the General Assembly in 2017.  He also took part in an event on the sidelines of the seventy‑third General Assembly this year to announce contributions to peacekeeping operations, in accordance with Egypt’s national position.  Egypt is one of the largest troop and peacekeeping contributors in the world.  The efforts of his Government to implement the zero‑tolerance policy have been recognized, he said.</p>
+
+<p>ENRIQUE JOSÉ MARÍA CARRILLO GÓMEZ (<u>Paraguay</u>) states that, as host of 18 United Nations programmes, funds and agencies, Paraguay attaches the greatest importance to the responsibilities of United Nations officials and experts on mission.  Reaffirming commitment to a zero-tolerance policy on crimes of sexual abuse and exploitation, Paraguay will duly investigate criminal behaviour, as officials and experts on mission are the image of the United Nations credibility and impartiality.  With 36 Paraguayans participating in six United Nations peacekeeping operations, his Government invests in adequate training of its staff prior to deployment.  He stressed the importance of respecting the national laws of the host country as well as any relevant international law.  Under Paraguayan law, those guilty of crimes committed in its territory fall under its jurisdiction, and due process is guaranteed.  He reiterated that Paraguay will cooperate fully with any investigation of United Nations personnel with all due respect of international law.</p></div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-2 radix-layouts-sidebar panel-panel">
+        <div  class="panel-panel-inner">
+          
+  <div class="views-element-container block">
+
+  
+            <h2>Highlights</h2>
+        
+
+      <div><div class="js-view-dom-id-dd0ae5dce2a174e767ffe0fae223a7294d0e657d5832987b64589a9ebfd4404b view-highlights">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/uploads/2022/09/UNGA77_highlight_1.png?itok=aFnhC_5V" width="60" height="60" alt="UNGA 77 logo" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/UNGA77">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">High-level meetings of the 77th session of the General Assembly</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">New York, 20-26 September 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/ocean-logo.png?itok=lpSD4mXq" width="60" height="60" alt="SaveOurOcean" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/SaveOurOcean">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">The Ocean Conference</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Lisbon, 27 June-1 July 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/Stockholm%2050_0.png?itok=TS7o2L4R" width="60" height="60" alt="" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/Stockholm50">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">&quot;Stockholm+50&quot; international meeting</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Stockholm, 2-3 June 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+  
+  </div>
+
+<div class="grey-bg noon-briefing-block">
+
+
+  
+            <h2>Daily Noon Briefing</h2>
+        
+
+      <div><div class="js-view-dom-id-6a9892c744b7c3801541a109e3b622ae9d4b344309d40f42a2a6148a45ed76d8 view-home-press">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="views-field views-field-view-node-1"><span class="field-content"><img src="/themes/custom/un_press_theme/assets/images/noon-briefing-image.jpg" alt="UN Spokesperson Stéphane Dujarric" class="img-responsive" /></span></div><div class="views-field views-field-view-node"><span class="field-content"><a href="/en/2022/db221017.doc.htm" hreflang="en"><time datetime="00Z">17 October 2022</time>
+</a></span></div><div class="views-field views-field-body"><p class="field-content">The United Nations Environment Programme (UNEP) today released a report which says plastics are accumulating in the world’s soil at a high rate.  The report found that plastics used extensively in farming — from plastic coated fertilizers to mulch film — are contaminating the soil and potentially threatening food security.</p></div></div>
+
+    </div>
+  
+            <div class="view-footer">
+      <div class="more-link"><a href="https://press.un.org/en/content/noon-briefings">Latest Noon Briefings</a></div>
+
+    </div>
+    </div>
+</div>
+
+  
+</div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div><!-- /.bartlett -->
+
+    </div>
+  </article>
+
+<div class="field field-name-disclaimer">
+  <span class="disclaimer">For information media. Not an official record.</span>
+</div>
+
+  
+  </div>
+
+
+        </div>
+      </div>
+      </main>
+
+      <footer class="page__footer-tabs">
+      <div class="container">
+        <div class="row">
+            
+  <div class="block block--resourcesandtools">
+
+  
+            <h2>Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://journal.un.org/en" class="nav-link" title="Journal">Journal</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/events-and-news" class="nav-link" title="Conferences &amp; Events">Conferences &amp; Events</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/media/accreditation/alert.shtml" class="nav-link" title="Media Alert">Media Alert</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--newsandmediaresources">
+
+  
+            <h2>News &amp; Media Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="https://news.un.org/en/" title="Global perspective Human stories" class="nav-link">UN News</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://media.un.org/en/webtv" class="nav-link" title="Webcast">Webcast</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/photo/" class="nav-link" title="Photo">Photo</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/" class="nav-link" title="Multimedia">Multimedia</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/media/accreditation/" title="Media Accreditation" class="nav-link">Media Accreditation</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.unmultimedia.org/" class="nav-link" title="Television">Television</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/tv/unifeed/" title="UNIFEED" class="nav-link">UNIFEED</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/sg/spokesperson/" title="Spokesperson for the Secretary-General" class="nav-link">Spokesperson for the Secretary-General</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--quicklinks">
+
+  
+            <h2>Quick Links</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="/en/content/general-assembly" class="nav-link" title="General Assembly section link" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/security-council" class="nav-link" title="Security Council section link" data-drupal-link-system-path="content/security-council">Security Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/economic-and-social-council" class="nav-link" title="ECOSOC section link" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/secretary-general" class="nav-link" title="Secretary-General section link" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/noon-briefings" class="nav-link" title="Latest Noon Briefing section link" data-drupal-link-system-path="content/noon-briefings">Latest Noon Briefing</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/meetings-coverage" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/meetings-coverage">Meetings Coverage</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-release" class="nav-link" title="Press Releases section link" data-drupal-link-system-path="content/press-release">Press Releases</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-conference" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/press-conference">Press Conferences</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer">
+      <div class="container">
+        <div class="row d-flex justify-content-between align-items-md-center">
+          <div class="col-4 col-md-4 col-lg-5 col-xl-6 footer-brand">
+            <a href="https://www.un.org/en" title="Home">
+              <span class="site-name">United Nations</span></a>
+          </div>
+          <div class="col-8 col-md-8 col-lg-7 col-xl-6 justify-content-end">
+            <div class="row">
+              <div class="col-12 col-md-8 d-flex align-items-md-center menu-social">
+                <div class="social-media">
+                  <a href="https://www.un.org/en/get-involved/social-media/" target="_blank" class="footer-link">Join the conversation:</a>
+                    
+  <div class="block block--footersocialmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://www.facebook.com/unitednations" class="nav-link"><i class="fab fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://twitter.com/UNMediaLiaison" class="nav-link"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.youtube.com/channel/UC5O114-PQNYkurlTg6hekZw" class="nav-link"><i class="fab fa-youtube-square"></i><span class="sr-only">Youtube</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/rss.xml" class="nav-link" data-drupal-link-system-path="rss.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 d-flex align-items-md-center justify-content-md-end donate-wrapper">
+                <div class="donate">
+                  <a href="https://www.un.org/en/about-us/how-to-donate-to-the-un-system/" target="_blank" class="btn btn-default btn-reverse dark" role="button" id="donate_button">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer-bottom">
+      <div class="container">
+        <div class="row d-flex justify-content-md-end align-items-md-center">
+          <div class="col-12">
+              
+  <div class="block block--ungloballinksfootermenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="http://www.un.org/en/siteindex/" class="nav-link" title="Site Index">A-Z Site Index</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/contact-us-0" class="nav-link" title="Help">Contact</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/copyright/" title="Copyright" class="nav-link">Copyright</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/about-us/frequently-asked-questions" class="nav-link">FAQ</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/fraudalert/" title="Fraud Alert" class="nav-link">Fraud Alert</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/privacy/" title="Privacy Notice" class="nav-link">Privacy Notice</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/aboutun/terms" class="nav-link" title="Terms of Use">Terms of Use</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<div class="minimal-share-panel">
+  <p class="minimal-share"><a href="https://www.facebook.com/sharer.php?u=https://press.un.org/en/2018/gal3568.doc.htm" title="Share this via Facebook" class="facebook" data-ms="facebook">Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=International Treaty Framework Needs Review, Modernization, Speakers Tell Sixth Committee&amp;url=https://press.un.org/en/2018/gal3568.doc.htm" title="Share this via Twitter" class="twitter" data-ms="twitter">Twitter</a>
+<a href="mailto:?subject=International Treaty Framework Needs Review, Modernization, Speakers Tell Sixth Committee&amp;body=https://press.un.org/en/2018/gal3568.doc.htm" title="Share this via Email" class="email" data-ms="email">Email</a>
+<a href="" title="Share this via Print" class="print" data-ms="print">Print</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://press.un.org/en/2018/gal3568.doc.htm&amp;title=International Treaty Framework Needs Review, Modernization, Speakers Tell Sixth Committee" title="Share this via LinkedIn" class="linkedin" data-ms="linkedin">LinkedIn</a>
+</p>
+
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"en\/","currentPath":"node\/263106","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"themes\/custom\/un_press_theme"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"minimalShare":{"sizes":{"linkedin":{"width":520,"height":570},"twitter":{"width":600,"height":260},"facebook":{"width":600,"height":500}}},"ajaxTrustedUrl":{"\/en\/sitesearch":true},"user":{"uid":0,"permissionsHash":"d429094e8101c7fbbf66cf85f7616354d19f2337c642528ef74c3443208d6269"}}</script>
+<script src="/sites/default/files/js/js_VjTj9kTLXs53zMhnoVLCsua_z80F6pFQzQNdSwRYQKs.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-b876a93492b9f256082","applicationID":"530317555","transactionName":"ZgQAMkICCkZRVxFRXF9OIwVECgtbH0QEX1ZuAgMFWAY=","queueTime":0,"applicationTime":99,"atts":"SkMDRAoYGUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

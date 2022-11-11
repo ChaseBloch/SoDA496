@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"594351857",accountID:"3442868",trustKey:"3442868",xpid:"VwIDU15VABAFV1FRBgYCU1E=",licenseKey:"NRJS-b876a93492b9f256082",applicationID:"530317555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script>
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/un_press_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://press.un.org/en/2018/gal3567.doc.htm" />
+<link rel="canonical" href="https://press.un.org/en/2018/gal3567.doc.htm" />
+<link rel="shortlink" href="https://press.un.org/en/node/263067" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NWVSS4R');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-LQCS');</script>
+
+    <title>Cooperation, Collaboration between Countries Crucial in Combating International Terrorism, Sixth Committee Speakers Stress, Hailing ‘Code of Conduct’ | UN Press</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_lKEky3Js_pMC8KbPIp2Ksrm5Ezb2TrVq0TNXbNnzr5c.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsLzkwPv8J-ff6w1IZG2F3i3tgZ0FQYLJrJALJQXUSw.css" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" />
+
+    
+  </head>
+  <body class="node-263067 node-type--press">
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWVSS4R" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-LQCS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="page">
+  <header class="main-header">
+  <div class="page-loader"></div>
+  <div class="container-fluid brandbar-header fixed-top">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-8 col-sm-3">
+                        
+  <div class="block block--un-press-theme-branding">
+
+  
+    
+
+    
+  <a href="/en" class="navbar-brand d-flex align-items-center " aria-label="">
+        
+  </a>
+
+
+  </div>
+
+
+            <a class="navbar-brand" href="https://www.un.org/en"><i class="home-icon fas fa-home fa-lg"></i> Welcome to the United Nations</a>
+                  </div>
+        <div class="col-4 col-sm-9 d-flex justify-content-end language-switcher">
+                        
+
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-lg-9 d-flex branding-top-wrapper">
+                    <a class="logo navbar-btn pull-left flip" href="https://www.un.org/en" title="United Nations"></a>
+          <a class="navbar-brand pull-left flip" href="https://press.un.org/en">Meetings Coverage and Press Releases</a>
+        </div>
+        <div class="col-12 col-lg-3 justify-content-end search-wrapper d-none d-md-block">
+                                      
+  <div class="views-exposed-form bef-exposed-form block block--exposedformsitesearchpage-1" data-drupal-selector="views-exposed-form-sitesearch-page-1">
+
+  
+    
+
+      
+<form action="/en/sitesearch" method="get" id="views-exposed-form-sitesearch-page-1" accept-charset="UTF-8" class="form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-group">
+      
+  
+  
+  
+  
+  
+
+<input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" class="form-textfield form-control" />
+<label class="sr-only" for="edit-search-api-fulltext">Search</label>
+<label class="sr-only" for="edit-search-api-fulltext--2">Search</label>
+
+
+  
+  
+  
+  
+  </div>
+<fieldset data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper card mb-3">
+    
+      <div class="card-header">
+      <legend class="m-0">
+        <label class="fieldset-legend mb-0">Sort By</label></legend>
+    </div>
+  
+  <div class="card-body fieldset-wrapper">
+                <div id="edit-sort-by" class="form-radios"><div class="form-radios">
+                  <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-field-dated" type="radio" id="edit-sort-by-field-dated" name="sort_by" value="field_dated" checked="checked" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-field-dated">Most Recent Entries</label>
+
+  
+  </div>
+
+                    <div class="js-form-item form-item js-form-type-radio form-item-sort-by js-form-item-sort-by form-check">
+  
+
+<input data-drupal-selector="edit-sort-by-search-api-relevance" type="radio" id="edit-sort-by-search-api-relevance" name="sort_by" value="search_api_relevance" class="form-radio form-check-input" />
+
+
+  <label class="form-check-label option" for="edit-sort-by-search-api-relevance">Most Relevant Entries</label>
+
+  
+  </div>
+
+      </div>
+</div>
+
+          </div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+
+
+<input data-drupal-selector="edit-submit-sitesearch" type="submit" id="edit-submit-sitesearch" value="Search" class="js-form-submit form-submit btn btn-primary" />
+</div>
+
+
+</form>
+
+  
+  </div>
+
+
+                              </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+                      <div class="menu-container bg-dark">
+              <div class="menu-main">
+                
+
+
+<nav class="navbar navbar-expand-lg justify-content-between  ">
+  
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+                          
+  <div class="block block--mainenglishmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="/en" title="" class="nav-link" data-drupal-link-system-path="&lt;front&gt;">Home</a>
+                  </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/secretary-general" title="Secretary-General" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/secretary-general" title="Latest Press Release, Statements etc. from the Secretary General" class="dropdown-item" data-drupal-link-system-path="content/secretary-general">Latest</a>
+              <a href="/en/content/secretary-general/press-release" title="Secretary General Press Releases" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-release">Press Releases</a>
+              <a href="/en/content/secretary-general/press-conference" title="Secretary Genral Press Conferences" class="dropdown-item" data-drupal-link-system-path="content/secretary-general/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/general-assembly" title="General Assembly" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/general-assembly" title="" class="dropdown-item" data-drupal-link-system-path="content/general-assembly">Latest</a>
+              <a href="/en/content/general-assembly/meetings-coverage" title="General Assembly Meetings Coverage" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/general-assembly/press-release" title="General Assembly Press Releases" class="dropdown-item" data-drupal-link-system-path="content/general-assembly/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/security-council" title="Security Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/security-council">Security Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/security-council" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council">Latest</a>
+              <a href="/en/content/security-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/security-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-release">Press Releases</a>
+              <a href="/en/content/security-council/press-conference" title="" class="dropdown-item" data-drupal-link-system-path="content/security-council/press-conference">Press Conferences</a>
+  </div>
+                              </li>
+                                      <li class="nav-item dropdown">
+                      <a href="/en/content/economic-and-social-council" title="Economic and Social Council" class="nav-link dropdown-bs-toggle" data-bs-toggle="dropdown" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                          <div class="dropdown-menu">
+              <a href="/en/content/economic-and-social-council" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council">Latest</a>
+              <a href="/en/content/economic-and-social-council/meetings-coverage" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/meetings-coverage">Meetings Coverage</a>
+              <a href="/en/content/economic-and-social-council/press-release" title="" class="dropdown-item" data-drupal-link-system-path="content/economic-and-social-council/press-release">Press Releases</a>
+  </div>
+                              </li>
+                                      <li class="nav-item">
+                      <a href="https://www.icj-cij.org/en/press-releases" title="" class="nav-link"> International Court of Justice</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                    </div>
+
+  </nav>
+              </div>
+            </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="">
+    <a id="main-content" tabindex="-1"></a>
+          <div class="page__content">
+        <div class="container">
+            <div data-drupal-messages-fallback class="hidden"></div>
+  <div class="block block--un-press-theme-content">
+
+  
+    
+
+      
+<article role="article" class="node press press--full">
+  
+  
+
+      
+    
+    <div>
+      
+<div  class="panel-display bryant-flipped clearfix">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 radix-layouts-content panel-panel">
+        <div  class="panel-panel-inner">
+		  
+  <div class="block inline print-sub-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-doctype field--type-entity-reference field--label-hidden field__item"><a href="/en/meetings-coverage" hreflang="en">Meetings Coverage</a></div>
+      
+  
+  </div>
+
+  <div class="block print-head">
+
+  
+    
+
+      
+            <div class="field field--name-field-un-bodies field--type-entity-reference field--label-hidden field__item"><ul class="shs clearfix shs-linked"><li><a href="/en/general-assembly" hreflang="en">General Assembly</a></li><li><a href="/en/sixth-committee" hreflang="en">Sixth Committee</a></li></ul></div>
+      
+  
+  </div>
+
+        </div>
+      </div>
+      <div class="col-md-3 radix-layouts-sidebar panel-panel">
+        <div >
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.bryant-flipped -->
+
+<div class="panel-display bartlett clearfix">
+  <div class="container-fluid layout">
+    <div class="row">
+      <div id="printlogo">
+        <div class="header-bg"></div>
+        <div class="emblem" style="width:200px; float:left;">
+          <img src="/themes/custom/un_press_theme/assets/images/United_Nations_bw_hq.png" alt="United Nations">
+          <h5> United Nations</h5>
+        </div>
+      </div>
+      <div class="col-md-9 mb-2 panel-panel radix-layouts-main-column">
+                <div class="row">
+          <div class="col-6 radix-layouts-contentcolumn1 panel-panel left-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-session field--type-string field--label-hidden field__item">Seventy-third Session,</div>
+      
+  
+  </div>
+
+  <div class="block inline">
+
+  
+    
+
+      
+            <div class="field field--name-field-meeting-info field--type-string field--label-hidden field__item">3rd &amp; 4th Meetings (AM &amp; PM)</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-6 radix-layouts-contentcolumn2 panel-panel right-header">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-symbol field--type-string field--label-hidden field__item">GA/L/3567</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-dated field--type-datetime field--label-hidden field__item"><time datetime="2018-10-04T12:00:00Z">4 October 2018</time>
+</div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+          <div class="col-md-12 radix-layouts-content panel-panel main-column">
+            <div  class="panel-panel-inner">
+              
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-field-display-title field--type-string field--label-hidden field__item"><h1 class="page-header">Cooperation, Collaboration between Countries Crucial in Combating International Terrorism, Sixth Committee Speakers Stress, Hailing ‘Code of Conduct’</h1>
+</div>
+      
+  
+  </div>
+
+  <div class="block">
+
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>As the Sixth Committee (Legal) continued its consideration of international terrorism today, speakers emphasized the importance of international cooperation and regional collaboration, with many drawing attention to specific initiatives including a proposed Code of Conduct on Counter‑Terrorism.</p>
+
+<p>Kazakhstan’s delegate highlighted his Government’s proposal, namely a Code of Conduct towards Achieving a World Free of Terrorism, which aims to bring about closer regional and international coordination in the fight against terrorism.  After many detailed rounds of consultations, it was finalized and opened for signature on 28 September.  Currently more than 70 countries have signed up to the Code of Conduct.  It was time, he underscored, to combine efforts and create a coalition that could take significant steps towards the achievement of a terrorism‑free world.</p>
+
+<p>The representative of the Philippines, subscribing to Kazakhstan’s Code of Conduct, also called for a united front against the threat.  However, efforts must always respect national ownership and national sovereignty, he cautioned.  He also stressed the need for a comprehensive convention against international terrorism, arguing that it was possible to proceed without an agreed‑upon definition of the phenomenon.  “Like pornography, terrorism is hard to define; at times it is indistinguishable from freedom fighting.  But like pornography, we know terrorism when we see it,” he said.</p>
+
+<p>Venezuela’s delegate also hailed the adoption of the Code of Conduct and urged those who had not yet done so to sign it.  The Code of Conduct would greatly aid international cooperation in tackling the financing of terrorism and in countering the narratives that fuelled it, he said.  He also underscored that a holistic approach to terrorism should not overlook its root causes, which include poverty, inequality, oppression and foreign occupation.</p>
+
+<p>The representative of Kenya, echoing previous calls for international cooperation, cautioned that “one nation’s inability to effectively address any new threat or challenge is multiplied tenfold in a snowball effect”.  This results in the weakening of the international counter‑terrorism regime as a whole.  Spotlighting how Kenya has been impacted on a national level, he pointed out that because of the brutal attacks by the Somalia‑based terrorist organization Al‑Shabaab, his Government has had to reallocate resources from investment to national security as a result.</p>
+
+<p>Uganda’s representative, while recounting his country’s experience with the Lord’s Resistance Army (LRA), also highlighted the threat posed by Al‑Shabaab, emphasizing that it was imperative that all possible assistance be given to Somalia’s Government.  With such help, it could develop institutions that would counter terrorist organization’s efforts to find safe havens for their activities.  To that end, he noted that Uganda is the biggest contributor to the combined forces of the African Union Mission in Somalia (AMISOM), which is spearheading the fight against Al‑Shabaab.</p>
+
+<p>In a similar vein, the delegate of Nigeria noted that inclusive and collaborative approaches were the most effective way to fight terrorism.  Her Government has confronted and decimated the activities of Boko Haram with the assistance of neighbours and partners, including Cameroon, Chad, Niger and Benin. These countries have joined together within the framework of the Lake Chad Basin Commission to form a Multinational Joint Task Force, with the aiming of bringing the Boko Haram insurgency to an end.</p>
+
+<p>Honduras’ delegate also underscored the importance of solidarity and collaboration between States and regional organizations.  Cooperation should be paramount at all levels, she said, noting the important contribution made in this regard by the High‑Level Conference on Counter‑Terrorism, which was convened by the United Nations Secretary‑General in June.  The Conference sought to boost multinational efforts in the fight against terrorism.</p>
+
+<p>The representative of the Russian Federation also cited the success of the High‑Level Conference, noting that despite differing views on other issues, States were in consensus about the Global Counter‑Terrorism Strategy and its four pillars.  That Strategy would be vital in the continued fight against Islamic State in Iraq and the Levant (ISIL/Da’esh).  “The wings of the organization continue to spread around the world,” with leaders of ISIL and other like‑groups enabling returning foreign terrorist fighters to create an expansive global network of sleeper cells, he warned.</p>
+
+<p>Also speaking today were representatives of Sri Lanka, Mali, El Salvador, Egypt, Malaysia, Morocco, Djibouti, China, Myanmar, Serbia, Azerbaijan, Republic of Korea, Algeria, Bangladesh, Indonesia, Paraguay, Senegal, Tunisia, Namibia, Japan, Afghanistan, Iraq, Viet Nam, United Arab Emirates, Libya, Lao People’s Democratic Republic and Ethiopia.</p>
+
+<p>The Sixth Committee will next meet at 10:00 a.m. on Friday, 5 October, to continue its consideration of measures to eliminate international terrorism and take up criminal accountability.</p>
+
+<p><u>Statements</u></p>
+
+<p>AMRITH ROHAN PERERA (<u>Sri Lanka</u>), recalling that his country suffered under the yoke of terrorism for nearly 30 years, unequivocally condemned in the strongest possible terms terrorism in all its forms.  Groups such as ISIL/Da’esh (Islamic State in Iraq and the Levant) continue to erase human history through the deliberate destruction of irreplaceable cultural heritage sites.  Expressing concern over the rise of transnational terrorism and the growing threat of tens of thousands of foreign terrorist fighters from over 100 States, he noted that violent extremism targets vulnerable communities, children, women and girls.  It is imperative to proactively engage the United Nations entities on that matter.  While preventing abuse of refugee and asylum status for terrorism, the poor, weak and marginalized must still be protected.  Sri Lanka is party to 13 counter terrorism conventions and the South Asian Association for Regional Cooperation, and will continue to support the General Assembly and Security Council in coordinating counter terrorism efforts.</p>
+
+<p>ISSA KONFOUROU (<u>Mali</u>), associating himself with the Non‑Aligned Movement and the African Group, stressed that no country, religion, nationality or civilization is safe from the extremist violent ideologies of terrorism.  Mali is no exception, he said, noting that neighbouring countries in the Sahel are also suffering under similar conditions.  Terrorist groups are indiscriminately attacking the national and international security forces as well as humanitarian organizations operating in his country.  Recalling the destruction of historic sites in Timbuktu, he said that development efforts are being undermined by the criminal activities of terrorist organizations.  The Government is implementing a national strategy and action plan to combat terrorism, including through an interreligious dialogue mechanism, leveraging traditional sources of stabilization, and the introduction of a culture of peace in school curricula.</p>
+
+<p>THOMAS AMOLO, Political and Diplomatic Secretary, Ministry of Foreign Affairs of <u>Kenya</u>, associating himself with the Non‑Aligned Movement and the African Group, said that “one nation’s inability to effectively address any new threat or challenge is multiplied tenfold in a snowball effect”.  It then considerably weakens the international counter‑terrorism regime.  His country has suffered brutal attacks from the Somalia‑based Al‑Shabaab terrorist group for years and has reallocated resources from growth‑enhancing investment to national security.  He voiced his support for the Office of Counter‑Terrorism to establish a global network of counter‑terrorism centres.  Kenya has ratified and domesticated all international conventions against transnational organized crimes and is implementing relevant Security Council resolutions on fighting terrorism.  It has also adopted the “all‑of‑Government” and “all‑of‑society” approach to preventing and countering terrorism and is reviewing its strategy to better detect early signs of radicalization.  In July, Kenya hosted a joint visit by the Office of Counter‑Terrorism and the Counter‑Terrorism Committee Executive Directorate to deepen the existing cooperation with United Nations agencies working in this field.</p>
+
+<p>DUNCAN LAKI MUHUMUZA (<u>Uganda</u>), voicing his support for the convening of a high‑level conference to shape an international response to the phenomenon, said that his country has been fighting terrorism for a long time, including the Lord’s Resistance Army (LRA); the so‑called Allied Democratic Forces; and the Al‑Shabaab in Somalia.  Uganda men and women are at the frontlines, successfully defeating LRA and routing them out of Ugandan territory.  Uganda is also the biggest contributor to the African Union Mission in Somalia (AMISOM) forces and is at the forefront of the fight against the Al‑Shabaab terrorist group.  All efforts should be accelerated to help the Government of Somalia develop institutions to counter terrorist organizations searching for safe havens needed to plan and plot their activities.  As well, it is imperative to help capture terrorist operatives before they act, he stressed, adding his appreciation to the Government of the United Republic of Tanzania for its help in the arrest of Jamil Mukulu, the head of the Allied Democratic Forces, who is now on trial under the International Crimes Division of the High Court of Uganda.</p>
+
+<p>TEODORO L. LOCSIN, JR. (<u>Philippines</u>), subscribing to Kazakhstan’s initiative for a Code of Conduct towards Achieving a World Free of Terrorism, called for a united front against the threat.  The United Nations, through the Global Strategy on Counter‑Terrorism, retains primacy.  The institutional architecture must be comprehensive, coherent, coordinated and must “not waste its time talking and wringing its hands about the roots of terrorism”, he emphasized.  The United Nations Office of Counter‑Terrorism needs to work closely with the Counter‑Terrorism Committee Executive Directorate and the Global Counter‑Terrorism Coordination Compact.  However, they must always respect national ownership and national priorities or be thrown out by sovereign States for their presumption.  “No one can know better than a State how its country’s particular terrorist threat must be addressed,” he said, adding that there is an urgent need for a comprehensive convention against international terrorism which has been discussed to exhaustion by the United Nations for more than 20 years.  It is time to resolve the outstanding issues, particularly on having a common definition of terrorism, he underscored, questioning if that is even necessary.  “Like pornography, terrorism is hard to define; at times it is indistinguishable from freedom fighting.  But like pornography, we know terrorism when we see it,” he said.</p>
+
+<p>CARLA ESPERANZA RIVERA SÁNCHEZ (<u>El Salvador</u>), underscoring the importance of a legal framework to combat terrorism, said that her country has ratified various national and international treaties aimed at preventing terrorist acts, as well as collaborating with other countries to fight the threat.  On the home front, she highlighted a 2006 national law against special acts of terrorism, which defines the scope of terrorism according to the customs and circumstances that have prevailed in El Salvador.  In terms of the implementation of State practices and actions, her Government has made headway through changes at the judicial level, including an increase in detainment and prosecution against those involved with terrorism.  These actions at the State level are evidence of El Salvador’s commitment to counter international terrorism in a way that respects the rigour of international law, she said.</p>
+
+<p>MOHAMED FATHI AHMED EDREES (<u>Egypt</u>), associating himself with Organization of Islamic Cooperation (OIC), the Non-Aligned Movement and the African Group, said that the global threat of terrorism is unprecedented in terms of its objectives and means.  Terrorist groups continue to use information technology to disseminate their ideology and to recruit fighters, as well as to receive financing and to commit their crimes.  This serious challenge requires the international community to respond in comprehensive and non‑traditional ways to address terrorism wherever it may be.  All the causes of terrorism must be addressed without exclusively relying on military responses, he said, stressing the importance of countering extremist ideologies and of not providing any kind of support to terrorism.  It is also important that the narratives of terrorists to recruit new fighters, mostly youth, be countered.  Urging that Security Council resolution 2354 (2017) be implemented, he said that he looks forward to achieving progress on the draft convention in the current session, based on consensus and aimed at reaching a definition of terrorism.</p>
+
+<p>MAXIM V. MUSIKHIN (<u>Russian Federation</u>) noted that, despite the military defeats suffered by Islamic State in Iraq and the Levant (ISIL/Da’esh), “the wings of the organization continue to spread around the world”.  The return of foreign terrorist fighters to countries of origin is part of the plan of leaders of ISIL and other like‑groups as it allows them to create an expansive global network of sleeper cells.  Recalling the success of the recent meeting on counter‑terrorism at the United Nations, he added that — notwithstanding divergent views — States are in consensus about the Global Counter‑Terrorism Strategy and its four pillars.  Calling for a depoliticized approach, he stressed the importance of equality and sovereignty of States and non‑interference in domestic affairs.  Safe havens on the Internet must be eliminated and online propaganda must be defeated using counter‑propaganda campaigns.  It is also vital to shut down channels that supply weapons to terrorist groups and carry out economic transactions, including through use of modern technologies such as blockchain.  More so, the international community must move away from double standards, including dividing terrorists into good and bad ones and using them to overthrow regimes.</p>
+
+<p>HENRY ALFREDO SUÁREZ MORENO (<u>Venezuela</u>), associating himself with the Non‑Aligned Movement and the Community of Latin American and Caribbean States (CELAC), noted that terrorism results in chaos and disaster for the economic and social development of people.  Expressing solidarity with victims of this abhorrent scourge, he noted that his own country had recently become victim to it, even though many had sought to downplay this.  Recalling the thwarted assassination attempt in August on President Nicolás Maduro Moros, he condemned the United States for harbouring the avowed masterminds of the attempt.  The effective combating of terrorism does not allow for double standards, he stressed, adding that there can be no good terrorists.  Tackling the financing of terrorism and countering the narratives that fuel it call for international cooperation, he added, hailing the adoption of the Code of Conduct.  Urging those who had not yet done so to sign that political declaration, he said that a holistic response to terrorism cannot overlook poverty, inequality, oppression and foreign occupation.</p>
+
+<p>YOLANNIE CERRATO (<u>Honduras</u>), associating herself with CELAC, said that international terrorism, which seeks to destabilize peace in the world, can only be stomped out through solidarity and joint work between States and regional organizations.  There is a pressing need to adopt measures to punish and eradicate terrorism on the basis of broad cooperation at all levels.  It is for this reason, she said, that Honduras has hailed the Secretary‑General’s convening of the first high‑level conference on counter‑terrorism in June, which provided a forum to find ways to boost multinational cooperation in the fight against terrorism.  Her Government is committed to the goal of maintaining international peace and security and will participate in all efforts to strengthen the ties between nations and to create a forum to share the culture of peace.  She also echoed the appeals of various countries to convene a high‑level convention on elaborating a draft convention to counter international terrorism.  In an array of competing claims, the link between terrorism and non‑State arms groups including criminal groups and gangs of all types must not be lost.</p>
+
+<p>M. SHAHRUL IKRAM YAAKOB (<u>Malaysia</u>), associating himself with CELAC, OIC and the Non‑Aligned Movement, said that while terrorism could not be justified, the fight against it will not end unless the international community addressed the root causes.  Stressing that the legitimate struggle of people under foreign occupation should not be equated with terrorism, he added that his Government is following a “whole-nation” approach.  Terrorism is criminalized under the country’s penal code and Malaysia is a State party to various counter‑terrorism instruments.  Countering terrorist narratives, de-radicalization and advocating mainstream religious views are some of the tactics used by Malaysia, he said, adding that on top of domestic measures, bilateral and multilateral cooperation, including sharing of expertise, is crucial.</p>
+
+<p>EUNICE GAROS PHILIPS-UMEZURIKE (<u>Nigeria)</u>, associating herself with the African Group, the Non‑Aligned Movement and the Organization of the Islamic Conference (OIC), said an inclusive and collaborative approach should be developed to deter and annihilate terrorism.  Her country is no stranger to the activities of terrorists, particularly Boko Haram.  The Nigerian Government has since confronted and decimated their activities and has put in place bold strategies to continue to address the group’s heinous atrocities.  The collaboration of neighbours and partners helped achieve the current outcome, she said, noting Nigeria continues to have close cooperation with Cameroon, Chad, Niger and Benin.  These countries have come together within the framework of the Lake Chad Basin Commission to form the Multinational Joint Task Force, headquartered in Chad.  In addition, since the commencement of the revised National Counter‑Terrorism Strategy, Nigerians have equipped themselves to win the war against terrorism and religious leaders have been encouraged to use their various places of worship to enlighten their followers against any extremism or intolerance.</p>
+
+<p>MOHAMMED ATLASSI (<u>Morocco)</u>, associating himself with the Non-Aligned Movement, African Group and OIC, said that terrorism is a large-scale and complex global scourge.  Commending the role of the United Nations in supporting Member States to fight terrorism through capacity-building, he recalled that, in 2014, the world was marked by the seizing of significant territories and the unprecedented proliferation of terrorist groups.  These groups have no Islamic legitimacy whatsoever, he stressed, adding that nothing can justify a terrorist attack.  The military defeat of ISIL/Da’esh and the resulting return of foreign terrorist fighters, including women and children, posed a new threat.  “We need to bolster border security,” he said, adding that his Government was launching a scientific body to provide interpretations of religious texts as part of deradicalization.</p>
+
+<p>MOUSSA MOHAMED MOUSSA (<u>Djibouti)</u>, associating himself with the Non-Aligned Movement, African Group and OIC, said that tackling terrorism called for better cooperation between regional and international organizations.  All counter‑terrorism policies must be based on the balanced implementation of the four pillars of the Global Counter‑Terrorism Strategy and should not associate terrorism with any religion or culture or nation.  His region was one of the first to witness the ideological abuses perpetrated by Al-Qaida and other groups.  As a result of the bloody experiences suffered over the years, the Intergovernmental Authority on Development (IGAD) had developed a resilient strategy to address the threat.  That included religious dialogue, as well as the establishment of a shared centre, hosted by Djibouti, for countering extremist rhetoric.  Such strategies were helpful in tackling piracy in the Gulf of Aden and terrorism in the Horn of Africa, he said, also expressing support for the Code of Conduct initiated by Kazakhstan.</p>
+
+<p>SHI XIAOBIN (<u>China</u>) said that while the international community had defeated ISIL in the Middle East, the frequent occurrence of global terrorist activities has not been fundamentally reversed.  Stronger consensus and international cooperation is needed, he said, calling on the international community to reject double standards and geopolitical interests in that effort and to foster dialogue among different ethnic groups and religions.  Terrorism is directly linked to severe deficits in development, security and governance and should be addressed at its source.  All countries must eradicate poverty, improve livelihood and solve development problems at home.  As well, Member States must support the United Nations and its Security Council in playing a leading role in counter‑terrorism cooperation, along with implementing relevant Security Council resolutions and the Global Counter‑Terrorism Strategy.  The rules of international law must be strictly abided by, he underscored, adding that he looks forward to the speedy conclusion and adoption of the comprehensive convention on international terrorism by the General Assembly.</p>
+
+<p>MIN THEIN (<u>Myanmar</u>), associating himself with the Non-Aligned Movement and the Association of Southeast Asian Nations (ASEAN), said the collective response against terrorism is facing numerous parallel and interlinked global terror networks.  It is crucial to intensify multilateral efforts against the emerging transnational and multifaceted nature of terrorism.  Myanmar is closely cooperating with the International Criminal Police Organization (INTERPOL), ASEANAPOL and international counterparts to counter terrorism at regional and international levels.  It is also focusing on preventive measures against violent extremism by promoting tolerance as well as interfaith and intercultural dialogues among communities.  In addition, the country’s Financial Investigation Unit and Counter-Terrorism Department have been working closely with the Financial Action Task Force in eradicating money-laundering to prevent terrorist funding.  Denouncing any form of political, moral or material support for terrorists, he said sheltering such elements or ignoring atrocities committed by violent groups amount to condoning or wilfully supporting their activities.</p>
+
+<p>SANDRA PEJIC (<u>Serbia</u>), associating herself with the European Union, said her country is ready to contribute fully to combating terrorism at the national, regional and global levels.  A visit to Serbia last March by a delegation from the Security Council Counter‑Terrorism Committee confirmed her country’s implementation of its recommendations.  On foreign terrorist fighters, she said almost 1,000 people from the Western Balkans had gone to Syria and Iraq, with many participating in brutal and suicidal attacks.  They included about 40 people from central Serbia.  However, the largest number came from Kosovo and Metohija.  Serbia’s criminal code provides for the incrimination of Serbian citizens who participate in armed conflicts abroad, she said, adding that in December 2017 the Government adopted legislation to combat money launderers while also amending its law on freezing terrorism‑related assets.</p>
+
+<p>TOFIG MUSAYEV (<u>Azerbaijan</u>) observed that areas of armed conflict, especially those under foreign military occupation, often create conditions conducive to exploitation by terrorists, separatists or other organized criminal groups and networks.  Strict compliance by all States with international obligations is critical to ensure their territories are not used for terrorist activities, particularly for financing or providing support to such endeavours.  International cooperation in criminal matters with mutual legal assistance as an important component is key to combating impunity for acts of terrorism.  Azerbaijan strongly supports enhanced individual and collective counter‑terrorism measures, especially those aimed at degrading and ultimately defeating terrorist organizations, he said.  It is also determined to actively contribute to reaching agreement on a comprehensive international terrorism convention, which will complement the existing legal framework of international counter‑terrorism instruments.</p>
+
+<p>ARMAN ISSETOV (<u>Kazakhstan)</u> said that at the seventieth session of the General Assembly, and again in his address marking his country’s non‑permanent membership in the Security Council, President Nursultan Nazarbayev invited Member States to create a coalition that could take significant steps towards the achievement of a terrorism‑free world.  In this context, his Government has proposed the adoption of a Code of Conduct, with a view to effect closer coordination to fight terrorism.  After detailed rounds of consultations, the Code of Conduct was finalized and opened for signature on 28 September.  More than 70 countries have signed up, and he encouraged other Member States and observers to do so as well.  The coordinated effort will help eliminate international terrorism through a strong political will and halt the co‑related activities of drug trafficking and the illegal trade of natural resources.  The time has come to combine efforts to protect critical infrastructure and exchange biometric information on terrorists between regional and international databases.  It is also necessary to fight terrorist ideas on the Internet to prevent self‑radicalization.</p>
+
+<p>HYE MI KIM (<u>Republic of Korea)</u>, condemning all forms and manifestations of terrorism, reiterated that “they are criminal and unjustifiable, regardless of motivations, whenever, wherever and by whomsoever committed”.  She also commended the efforts of the Office of Counter‑Terrorism and the Counter‑Terrorism Committee Executive Directorate.  As Member States bear primary responsibility in countering terrorism and violent extremism, her Government established the Anti‑Terrorism Act, an oversight centre, and a National Plan of Action to Prevent Violent Extremism.  A staunch supporter of international efforts, the Republic of Korea is party to most international agreements on counter‑terrorism and is fully committed to implementing all relevant United Nations resolutions, also providing capacity‑building training on anti‑money‑laundering and counter‑terrorist financing through the Financial Action Task Force and Research Institute.  Given that preventing the spread of violent extremism is key, renewed focus should be placed on the first pillar of the Global Counter‑Terrorism Strategy:  “Addressing the Conditions Conducive to the Spread of Terrorism”.</p>
+
+<p>ZAKIA IGHIL (<u>Algeria)</u>, associating herself with the Non‑Aligned Movement and the African Group, said that terrorism demonstrates a great capacity for mobility, adaptation and innovation.  Commending the work of the United Nations Counter‑Terrorism Centre, she expressed concern about the increase in incidents of kidnapping and hostage‑taking committed by terrorist groups to raise funds or gain political concessions.  The battle against terrorism cannot be limited exclusively to repressive measures, she said, calling for an “upstream and downstream coherent political strategy”.  Recalling the devastating effects of terrorism in her country in the 1990s, she said that Algeria maintains a high level of vigilance and is focusing on the implementation of development programmes geared to fight against exclusion and social injustice, factors often exploited by terrorist propaganda.</p>
+
+<p>FAIYAZ MURSHID KAZI (<u>Bangladesh)</u>, associating himself with the Non-Aligned Movement and OIC, underscored the importance of a comprehensive and balanced implementation of all four pillars of the Global Counter-Terrorism Strategy.  Unwarranted divergence among Member States on fundamental issues only serves the interests of terrorists, he said, calling on all delegates to engage in informed discussions.  Encouraging continued coordination between different counter-terrorism entities, he said that the Global Coordination Compact, concluded by the United Nations Office of Counter-Terrorism, will help with that.  Noting duplication in the work of United Nations entities within his country, he urged the Organization to focus on nationally identified priorities rather than the perspective of resource availability.  There is a heightened vigil on border areas with Myanmar, he noted, condemning that country’s attempt to vilify the entire Rohingya population.</p>
+
+<p>GRATA ENDAH WERDANINGTYAS (<u>Indonesia)</u>, associating herself with ASEAN, the Non-Aligned Movement and OIC, recalled the recent terrorist attacks in Surabaya.  “Terrorists continue to take advantage of advances in technology, including social media, to spread their propaganda and conduct recruitment,” she warned.  Indonesia has implemented a comprehensive strategy, including deradicalization in prisons and communities, that recruits hundreds of youth as “agents of peace”.  The recently adopted and revised anti-terrorism law fortifies a chapter on prevention, focusing on counter‑radicalization and strengthening national preparedness.  In May, Indonesia also organized the High-Level Consultation of World Muslim Ulemas and Islamic Scholars.  Turning to the comprehensive convention, she noted that, while differences on position are limited to a few issues, those differences are wide.  It is crucial to have a uniform legal definition of terrorism, as well as unified responses throughout the world that are in compliance with international law and international humanitarian law.</p>
+
+<p>ENRIQUE JOSÉ MARÍA CARRILLO GÓMEZ (<u>Paraguay)</u>, aligning himself with CELAC, paid tribute to victims of terrorism and reaffirmed his country’s commitment to the fight against the phenomenon.  The protection of human rights is complementary to that fight, he stressed, adding that the Security Council must diligently uphold the aims of the United Nations Charter in order to safeguard the legitimacy of its counter‑terrorism resolutions.  Rejecting initiatives that undermine the United Nations Charter’s principle on the prohibition of use of force, he said that the General Assembly continues to be the right forum for discussion on terrorism in all its manifestations.  His Government works closely with the Counter-Terrorism Committee and is fine‑tuning its domestic and institutional counter‑terrorism and human rights protection framework.  Noting the difficulty posed by documents in English, such as the overview of the implementation assessment requested by the Counter‑Terrorism Committee, he requested that such documents should be translated into the official languages of the recipient.</p>
+
+<p>SALIOU NIANG DIENG (<u>Senegal</u>), associating himself with the African Group, the Non‑Aligned Movement and OIC, condemned all forms of terrorism and the conflation of Islam with violence.  Emphasizing the importance of cooperation, he added that this harmful and unpredictable threat requires a global holistic response.  All States must truly make counter‑terrorism a priority, he said, expressing his country’s commitment to all existing counter‑terrorism resolutions.  Senegal is shoring up its security response and working on preventing terrorism financing and is a member of the Islamic Counter‑Terrorism Coalition.  Other strategies include education, dialogue, tackling prejudice and creating decent living conditions, he said.</p>
+
+<p>SOUMAYA BOURHIL (<u>Tunisia)</u>, associating herself with the Non‑Aligned Movement, African Group and OIC, said progress in combating terrorism in Iraq and Syria, where Da’esh was countered, is one battle.  However, Da’esh continues to harness a global network despite its weakened heart.  The problem of reintegrating returning foreign terrorist fighters is extremely complex, challenging the national structures established to tackle it.  There is also the active and passive participation of women, which collaterally affects children and thereby stresses the social fabric itself.  Turning to use of the Internet in perpetrating and financing terror, including cryptomoney and the dark web, she said the threat is changing and requires a public‑private partnership in response.  However, strategies to delete terrorist content online must be in line with individual liberties.  Other issues also require focus, such as the nexus between transnational crime and terrorism.  She stressed that Tunisia has also been a victim of terrorism and is firmly committed to combating all its forms and manifestations, with understanding its root causes one of the country’s main priorities.</p>
+
+<p>JERRY MIKA (<u>Namibia</u>), associating himself with the Non-Aligned Movement and the African Group, recalled that, in 2012, his Government had passed the coherent and comprehensive Financial Intelligence Act.  It established a centre responsible for collecting, requesting, receiving and analysing suspicious transaction reports relating to possible money‑laundering or financing of terrorism.  The Prevention and Combating of Terrorist Activities Act was also passed, providing for the safety of maritime navigation, protecting airports and aircrafts, and covering offenses related to nuclear terrorism, among other matters.  Moreover, in 2017, his country launched an e-border control management system to effectively mitigate challenges associated with migration.  He also highlighted the importance of distinguishing between acts of terrorism and acts of people fighting against colonial or foreign domination in exercise of their inalienable right to self-determination.</p>
+
+<p>HOTAKA MACHIDA (<u>Japan)</u> said the threat of terrorism must be tackled by urgent and coordinated international efforts.  His country provides human and financial resources to relevant international organizations, including the Office of Counter-Terrorism and the Counter-Terrorism Committee Executive Directorate.  Japan also supports the Global Counter-Terrorism Strategy Review resolution, as well as Security Council resolution 2396 (2017) on addressing the threat posed by foreign terrorist fighters.  The Government has been implementing that text on a national level and has been effectively using the Advance Passenger Information and Passenger Name Records data to detect foreign terrorist fighters.  Pledging to support United Nations efforts in those areas, as well as to provide technical support and capacity building to other States, he also expressed support for strengthened efforts to prevent violent extremism in such broad areas as education, economic development, employment, counter-narratives and engagement with youth and women.</p>
+
+<p>MOHAMMAD YOUSSOF GHAFOORZAI (<u>Afghanistan)</u>, associating himself with the Non‑Aligned Movement and OIC, said that the global landscape is especially precarious now.  Noting a new wave of attacks in his country, he said that its security forces stood firm protecting the country from terrorist groups.  “Our people have not and will not succumb,” he affirmed, expressing hope that there will be a change in the status quo to the outstanding problem of terrorist sanctuaries.  Afghanistan is engaged bilaterally and trilaterally in tackling terrorism, he said, noting the country’s participation in the Heart of Asia‑Istanbul process.  Calling for efficient enforcement of Council sanctions, he added that it is also crucial to support victims of terrorism.  Islamic scholars from Afghanistan had joined scholars from elsewhere in the Muslim world to denounce terrorism, he noted, calling for tangible progress in the negotiations towards the convention.</p>
+
+<p>FAROUK YOUSIF MOSTAFA (<u>Iraq)</u>, associating himself with the Non-Aligned Movement and OIC, denounced terrorism in all its forms as a threat against public institutions and civilians.  His country is one of the worst affected by terrorism, he said, and it had fought against ISIL/Da’esh for the entire world.  Iraq has acceded to most international and regional instruments on counter‑terrorism, he said, and is seeking to bolster its legal framework, especially in the areas of money‑laundering and terrorism financing.  Commending the role of the Office of Counter‑Terrorism, he said that educating young people and supporting victims of terrorism are also crucial aspects of the fight.  Iraq experienced brutal attacks on its people, land and culture, but the Iraqi people had been able to inflict a crushing defeat on the terrorists, he said, thanking the international community for its support.</p>
+
+<p>NGUYEN NAM DUONG (<u>Viet Nam</u>), associating himself with ASEAN and the Non-Aligned Movement, voiced support for international counter-terrorism efforts on the basis of international law and called for the elaboration of the comprehensive convention.  Viet Nam has put into action measures to implement the Global Counter-Terrorism Strategy and had made changes to its domestic legal system to ensure the prosecution and extradition of terrorist criminals.  In addition, his country has become party to 14 multilateral treaties on counter-terrorism and is a member of the Convention against Transnational Organized Crime.  Viet Nam has also implemented ASEAN’s Convention on Counter Terrorism and Comprehensive Plan of Action on Counter Terrorism and has participated in various other regional meetings and mechanisms on the subject.  He reaffirmed Viet Nam’s determination to fight terrorism with a cooperative approach and in accordance with international law.</p>
+
+<p>MAYSOUN HASSAN SALIM ALDAH ALMATROOSHI (<u>United Arab Emirates)</u> observed how extremist threats increasingly cross borders, becoming more complex through the use of advanced weapons, global recruitment and financing.  Terrorist groups have become a tool used by rogue countries to further political agendas and destabilize other nations.  Although the threat has been countered in Iraq and Syria, she noted that the return of foreign terrorist fighters and the ensuing appearance of new terror cells in new areas illustrate the magnitude of the problem.  Counter-terror strategies must therefore be global and comprehensive.  Her country is implementing the four pillars of the Global Counter-Terrorism Strategy through a number of measures, including working with the United Nations Office of Counter‑Terrorism to fight the spread of extremism through the media and to protect borders.  A focus on prevention includes empowering women and youth, training religious leaders to disseminate tolerance and fighting the use of the Internet.  The international community must hold to account those countries that support and finance terror groups.</p>
+
+<p>YOUSEF SALAH (<u>Libya)</u>, noting that terrorism is a grave challenge for all States, small or large, rich or poor, stressed the need for international cooperation.  His country complied with all relevant international instruments, he said, welcoming the Code of Conduct initiated by Kazakhstan.  Libya continues to face terrorist groups, as well as foreign terrorist fighters who had infiltrated different regions of the country by exploiting instability.  However, terrorism is also a trans-border issue, he said, noting his country’s participation in several ministerial meetings on the matter, including a recent one in Khartoum.  Expressing concern about irregular migration which is often linked with terrorism, he called on the international community to support development in countries of origin.</p>
+
+<p>PHONESAVATH PHONEKEO (<u>Lao People’s Democratic Republic)</u>, aligning himself with the Association of South-East Asian Nations (ASEAN) and the Non-Aligned Movement, said that terrorism created a climate of fear and impeded socioeconomic development.  As a peace-loving nation, his country is making every effort to tackle this threat, he said, noting that it is a State Party to most international instruments on terrorism.   In addition to supporting the international community in its battle against terrorism, his Government is conducting workshops and seminars to create awareness among its citizens, especially lawyers and prosecutors, he said.</p>
+
+<p>EPHREM BOZUAYHUE HIDUG (<u>Ethiopia</u>), associating himself with the African Group and the Non‑Aligned Movement, said the need for enhanced cooperation among regional and international organizations cannot be overstated.  “This changing nature of terrorism demands frequent revision of national and international strategies and instruments,” he said, noting that, while the primary responsibility for implementing the Global Counter‑Terrorism Strategy lies with States, international, regional and subregional mechanisms also have a role to play.  As a non‑permanent Security Council member, Ethiopia actively participates in the work of the Counter‑Terrorism Committee and works closely with the Executive Directorate, as well as other relevant United Nations entities.  Despite the progress made by such frameworks, he nevertheless voiced concern that international cooperation to address the threat is not yet fully effective.  The fight against the phenomenon must be primarily focused on its root causes, he stressed, also calling for a global response that is long‑term, multipronged, based in mutual tolerance and coexistence, and tackles such issues as social exclusion and terrorism’s appeal.</p></div>
+      
+  
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-2 radix-layouts-sidebar panel-panel">
+        <div  class="panel-panel-inner">
+          
+  <div class="views-element-container block">
+
+  
+            <h2>Highlights</h2>
+        
+
+      <div><div class="js-view-dom-id-ff65ceeec6352bc8cf47ab78b3e12899be18833e181eb8e7b9be4fcb7f05cfdc view-highlights">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/uploads/2022/09/UNGA77_highlight_1.png?itok=aFnhC_5V" width="60" height="60" alt="UNGA 77 logo" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/UNGA77">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">High-level meetings of the 77th session of the General Assembly</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">New York, 20-26 September 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/ocean-logo.png?itok=lpSD4mXq" width="60" height="60" alt="SaveOurOcean" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/SaveOurOcean">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">The Ocean Conference</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Lisbon, 27 June-1 July 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="views-row"><div class="media media--type-highlight media--view-mode-highlights-block-item">
+  
+      <div class="media row g-2">
+      <div class="media-image col-3 align-self-center">
+                  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden field__item">  
+<img loading="lazy" src="/sites/default/files/styles/thumbnail_small/public/images/highlights/Stockholm%2050_0.png?itok=TS7o2L4R" width="60" height="60" alt="" class="img-fluid" />
+
+
+</div>
+      
+        </a>
+              </div>
+      <div class="media-body col-9">
+                <a href="/en/highlights/Stockholm50">
+          
+            <div class="field field--name-name field--type-string field--label-hidden field__item">&quot;Stockholm+50&quot; international meeting</div>
+      
+        </a>
+                
+            <div class="field field--name-field-date-location field--type-string field--label-hidden field__item">Stockholm, 2-3 June 2022</div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+  
+  </div>
+
+<div class="grey-bg noon-briefing-block">
+
+
+  
+            <h2>Daily Noon Briefing</h2>
+        
+
+      <div><div class="js-view-dom-id-614e38383c9b59b1b3f637f5cbbf4d9f3761ea482e00d8b39da78925d24d7bff view-home-press">
+  
+
+
+
+
+
+      
+      <div class="view-content">
+      
+
+
+
+
+
+
+    <div class="views-row"><div class="views-field views-field-view-node-1"><span class="field-content"><img src="/themes/custom/un_press_theme/assets/images/noon-briefing-image.jpg" alt="UN Spokesperson Stéphane Dujarric" class="img-responsive" /></span></div><div class="views-field views-field-view-node"><span class="field-content"><a href="/en/2022/db221017.doc.htm" hreflang="en"><time datetime="00Z">17 October 2022</time>
+</a></span></div><div class="views-field views-field-body"><p class="field-content">The United Nations Environment Programme (UNEP) today released a report which says plastics are accumulating in the world’s soil at a high rate.  The report found that plastics used extensively in farming — from plastic coated fertilizers to mulch film — are contaminating the soil and potentially threatening food security.</p></div></div>
+
+    </div>
+  
+            <div class="view-footer">
+      <div class="more-link"><a href="https://press.un.org/en/content/noon-briefings">Latest Noon Briefings</a></div>
+
+    </div>
+    </div>
+</div>
+
+  
+</div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div><!-- /.bartlett -->
+
+    </div>
+  </article>
+
+<div class="field field-name-disclaimer">
+  <span class="disclaimer">For information media. Not an official record.</span>
+</div>
+
+  
+  </div>
+
+
+        </div>
+      </div>
+      </main>
+
+      <footer class="page__footer-tabs">
+      <div class="container">
+        <div class="row">
+            
+  <div class="block block--resourcesandtools">
+
+  
+            <h2>Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://journal.un.org/en" class="nav-link" title="Journal">Journal</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/events-and-news" class="nav-link" title="Conferences &amp; Events">Conferences &amp; Events</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/media/accreditation/alert.shtml" class="nav-link" title="Media Alert">Media Alert</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--newsandmediaresources">
+
+  
+            <h2>News &amp; Media Resources</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                          <li class="nav-item">
+                      <a href="https://news.un.org/en/" title="Global perspective Human stories" class="nav-link">UN News</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://media.un.org/en/webtv" class="nav-link" title="Webcast">Webcast</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/photo/" class="nav-link" title="Photo">Photo</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/" class="nav-link" title="Multimedia">Multimedia</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/media/accreditation/" title="Media Accreditation" class="nav-link">Media Accreditation</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.unmultimedia.org/" class="nav-link" title="Television">Television</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.unmultimedia.org/tv/unifeed/" title="UNIFEED" class="nav-link">UNIFEED</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/sg/spokesperson/" title="Spokesperson for the Secretary-General" class="nav-link">Spokesperson for the Secretary-General</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+  <div class="block block--quicklinks">
+
+  
+            <h2>Quick Links</h2>
+        
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="/en/content/general-assembly" class="nav-link" title="General Assembly section link" data-drupal-link-system-path="content/general-assembly">General Assembly</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/security-council" class="nav-link" title="Security Council section link" data-drupal-link-system-path="content/security-council">Security Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/economic-and-social-council" class="nav-link" title="ECOSOC section link" data-drupal-link-system-path="content/economic-and-social-council">Economic and Social Council</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/secretary-general" class="nav-link" title="Secretary-General section link" data-drupal-link-system-path="content/secretary-general">Secretary-General</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/noon-briefings" class="nav-link" title="Latest Noon Briefing section link" data-drupal-link-system-path="content/noon-briefings">Latest Noon Briefing</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/meetings-coverage" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/meetings-coverage">Meetings Coverage</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-release" class="nav-link" title="Press Releases section link" data-drupal-link-system-path="content/press-release">Press Releases</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/content/press-conference" class="nav-link" title="Meetings Coverage section link" data-drupal-link-system-path="content/press-conference">Press Conferences</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer">
+      <div class="container">
+        <div class="row d-flex justify-content-between align-items-md-center">
+          <div class="col-4 col-md-4 col-lg-5 col-xl-6 footer-brand">
+            <a href="https://www.un.org/en" title="Home">
+              <span class="site-name">United Nations</span></a>
+          </div>
+          <div class="col-8 col-md-8 col-lg-7 col-xl-6 justify-content-end">
+            <div class="row">
+              <div class="col-12 col-md-8 d-flex align-items-md-center menu-social">
+                <div class="social-media">
+                  <a href="https://www.un.org/en/get-involved/social-media/" target="_blank" class="footer-link">Join the conversation:</a>
+                    
+  <div class="block block--footersocialmenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="https://www.facebook.com/unitednations" class="nav-link"><i class="fab fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://twitter.com/UNMediaLiaison" class="nav-link"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.youtube.com/channel/UC5O114-PQNYkurlTg6hekZw" class="nav-link"><i class="fab fa-youtube-square"></i><span class="sr-only">Youtube</span></a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="/en/rss.xml" class="nav-link" data-drupal-link-system-path="rss.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 d-flex align-items-md-center justify-content-md-end donate-wrapper">
+                <div class="donate">
+                  <a href="https://www.un.org/en/about-us/how-to-donate-to-the-un-system/" target="_blank" class="btn btn-default btn-reverse dark" role="button" id="donate_button">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+        <footer class="page__footer-bottom">
+      <div class="container">
+        <div class="row d-flex justify-content-md-end align-items-md-center">
+          <div class="col-12">
+              
+  <div class="block block--ungloballinksfootermenu">
+
+  
+    
+
+      
+  
+
+
+  <ul class="nav">
+                                                            <li class="nav-item">
+                      <a href="http://www.un.org/en/siteindex/" class="nav-link" title="Site Index">A-Z Site Index</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/contact-us-0" class="nav-link" title="Help">Contact</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/copyright/" title="Copyright" class="nav-link">Copyright</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/about-us/frequently-asked-questions" class="nav-link">FAQ</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/fraudalert/" title="Fraud Alert" class="nav-link">Fraud Alert</a>
+                  </li>
+                                      <li class="nav-item">
+                      <a href="http://www.un.org/en/aboutun/privacy/" title="Privacy Notice" class="nav-link">Privacy Notice</a>
+                  </li>
+                                                        <li class="nav-item">
+                      <a href="https://www.un.org/en/aboutun/terms" class="nav-link" title="Terms of Use">Terms of Use</a>
+                  </li>
+            </ul>
+
+
+  
+  </div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<div class="minimal-share-panel">
+  <p class="minimal-share"><a href="https://www.facebook.com/sharer.php?u=https://press.un.org/en/2018/gal3567.doc.htm" title="Share this via Facebook" class="facebook" data-ms="facebook">Facebook</a>
+<a href="https://twitter.com/intent/tweet?text=Cooperation, Collaboration between Countries Crucial in Combating International Terrorism, Sixth Committee Speakers Stress, Hailing ‘Code of Conduct’&amp;url=https://press.un.org/en/2018/gal3567.doc.htm" title="Share this via Twitter" class="twitter" data-ms="twitter">Twitter</a>
+<a href="mailto:?subject=Cooperation, Collaboration between Countries Crucial in Combating International Terrorism, Sixth Committee Speakers Stress, Hailing ‘Code of Conduct’&amp;body=https://press.un.org/en/2018/gal3567.doc.htm" title="Share this via Email" class="email" data-ms="email">Email</a>
+<a href="" title="Share this via Print" class="print" data-ms="print">Print</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://press.un.org/en/2018/gal3567.doc.htm&amp;title=Cooperation, Collaboration between Countries Crucial in Combating International Terrorism, Sixth Committee Speakers Stress, Hailing ‘Code of Conduct’" title="Share this via LinkedIn" class="linkedin" data-ms="linkedin">LinkedIn</a>
+</p>
+
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"en\/","currentPath":"node\/263067","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"themes\/custom\/un_press_theme"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"minimalShare":{"sizes":{"linkedin":{"width":520,"height":570},"twitter":{"width":600,"height":260},"facebook":{"width":600,"height":500}}},"ajaxTrustedUrl":{"\/en\/sitesearch":true},"user":{"uid":0,"permissionsHash":"d429094e8101c7fbbf66cf85f7616354d19f2337c642528ef74c3443208d6269"}}</script>
+<script src="/sites/default/files/js/js_VjTj9kTLXs53zMhnoVLCsua_z80F6pFQzQNdSwRYQKs.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-b876a93492b9f256082","applicationID":"530317555","transactionName":"ZgQAMkICCkZRVxFRXF9OIwVECgtbH0QEX1ZuAgMFWAY=","queueTime":0,"applicationTime":110,"atts":"SkMDRAoYGUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
