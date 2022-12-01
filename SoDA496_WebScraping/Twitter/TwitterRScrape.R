@@ -3,10 +3,10 @@ library(twitteR)
 library(rtweet)
 
 #####
-API_key = 'F4mASP12B1oaWjrnjXGI2Xz4K'
-API_secret = '0NYpbio5ELLIDHMKUG1SheYZrMQU5vO8QfcoiscMZlRWMO9PTn'
-Access_token = '1057441879523057669-yispuKmbRB4IA7Dc8IyOH1ZwzCb9Lb'
-Access_secret = 'b2g9KikltoYAwQJht0jdiFWb6wvnrHaEQ8RjPa7d6Zzk3'
+API_key = ''
+API_secret = ''
+Access_token = ''
+Access_secret = ''
 ######
 
 setup_twitter_oauth(API_key,API_secret,Access_token,Access_secret)
