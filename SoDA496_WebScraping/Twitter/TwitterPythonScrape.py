@@ -13,12 +13,11 @@ from PIL import Image
 os.chdir(r'C:\Users\chase\GDrive\GD_Work\SoDA496\SoDA496_WebScraping\Twitter')
 
 
-API_key = 'F4mASP12B1oaWjrnjXGI2Xz4K'
-API_secret = '0NYpbio5ELLIDHMKUG1SheYZrMQU5vO8QfcoiscMZlRWMO9PTn'
-Access_token = '1057441879523057669-yispuKmbRB4IA7Dc8IyOH1ZwzCb9Lb'
-Access_secret = 'b2g9KikltoYAwQJht0jdiFWb6wvnrHaEQ8RjPa7d6Zzk3'
-bearer_token = ('AAAAAAAAAAAAAAAAAAAAAHRCigEAAAAACLKPyAhQWf3rNbi1mS6kqeW8'
-                'gbI%3D5G7YpKuTZoWJIWZIQu942kPq2YhUdhuEPgw8x11jtzIX248VeX')
+API_key = ''
+API_secret = ''
+Access_token = ''
+Access_secret = ''
+bearer_token = ('')
 
 # Pass in our twitter API authentication key.
 auth = tweepy.OAuth1UserHandler(
